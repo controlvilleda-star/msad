@@ -795,9 +795,6 @@
                 <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6 relative z-10">
                     <div>
                         <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">Cantos</h3>
-                        <p class="text-sm sm:text-base text-gray-300 mt-2 max-w-2xl">Selecciona un canto desde la lista
-                            para cargarlo en el reproductor principal y seguir navegando con una interfaz clara y
-                            rápida.</p>
                     </div>
                     <div class="glass px-4 py-3 rounded-2xl text-left min-w-[15rem] relative z-10">
                         <p id="xperia-cantos-counter"
@@ -808,50 +805,30 @@
                     </div>
                 </div>
                 <div id="xperia-cantos-player-card" class="xperia-cantos-player p-4 sm:p-5 relative z-10">
-                    <div
-                        class="grid grid-cols-1 xl:grid-cols-[minmax(0,1.15fr)_minmax(18rem,0.85fr)] gap-5 items-stretch">
-                        <div
-                            class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
+                    <div class="flex flex-col gap-5">
+                        <div class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
                             <iframe id="xperia-cantos-player" src="https://www.youtube.com/embed/T07Yraic6oQ"
                                 title="Reproductor de cantos" frameborder="0" allow="autoplay; encrypted-media"
                                 allowfullscreen></iframe>
                         </div>
-                        <div class="flex flex-col justify-between gap-4">
-                            <div class="glass rounded-[1.5rem] p-5">
-                                <p class="text-[0.72rem] uppercase tracking-[0.4em] text-blue-200/70 mb-2">Reproducción
-                                    Activa</p>
-                                <h4 class="text-2xl font-black text-white leading-tight mb-2">Navega la lista y
-                                    reproduce desde arriba</h4>
-                                <p class="text-sm text-gray-300 leading-relaxed">El reproductor principal siempre queda
-                                    como referencia de la sección. Elige un canto en la lista y volverás aquí
-                                    automáticamente para ver el video grande.</p>
-                            </div>
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <button type="button" class="xperia-scroll-btn w-full sm:w-auto px-4"
-                                    onclick="stepCantosSelection(-1)" aria-label="Canto anterior">
-                                    <i class="fa-solid fa-chevron-left text-sm"></i> Anterior
-                                </button>
-                                <button type="button" class="xperia-scroll-btn w-full sm:w-auto px-4"
-                                    onclick="stepCantosSelection(1)" aria-label="Siguiente canto">
-                                    Siguiente <i class="fa-solid fa-chevron-right text-sm"></i>
-                                </button>
-                                <a id="xperia-cantos-open-link" href="https://youtu.be/T07Yraic6oQ?si=rNtPBwJpRG9h8qOh"
-                                    target="_blank"
-                                    class="glass-btn w-full px-5 py-4 text-sm font-black uppercase tracking-[0.18em] text-white border-white/20 bg-white/10 hover:bg-white/20 flex items-center justify-center gap-3">
-                                    <i class="fa-solid fa-circle-play text-base"></i> Abrir en YouTube
-                                </a>
-                            </div>
+                        <div class="flex justify-center gap-4">
+                            <button type="button" class="xperia-scroll-btn px-6"
+                                onclick="stepCantosSelection(-1)" aria-label="Canto anterior">
+                                <i class="fa-solid fa-chevron-left text-sm"></i> Anterior
+                            </button>
+                            <button type="button" class="xperia-scroll-btn px-6"
+                                onclick="stepCantosSelection(1)" aria-label="Siguiente canto">
+                                Siguiente <i class="fa-solid fa-chevron-right text-sm"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
 
                 <div class="xperia-cantos-stage mt-5 relative z-10">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                         <div>
                             <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de cantos
                             </h4>
-                            <p class="text-sm text-gray-300 mt-1">Toca un canto para cargarlo y volver al reproductor
-                                principal.</p>
                         </div>
                         <button type="button"
                             class="glass-btn px-4 py-3 text-sm font-bold text-white border-white/20 bg-white/10 hover:bg-white/15"
@@ -1049,6 +1026,30 @@
         </div>
 
         <div id="tab-himnos" class="hidden grid-cols-1 gap-8">
+            <div class="glass p-6 sm:p-8 rounded-[2rem] border border-white/10 shadow-[0_18px_40px_rgba(0,0,0,0.24)]">
+                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+                    <div>
+                        <p class="text-[0.72rem] uppercase tracking-[0.45em] text-white/60 mb-3">Playlist</p>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wide">Himnario en
+                            YouTube</h3>
+                        <p class="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">Aqui queda otra vez el
+                            reproductor embebido del himnario para escuchar la playlist sin salir de esta seccion.</p>
+                    </div>
+                    <a href="https://www.youtube.com/playlist?list=PLgp3jS3mSB4YZVCTiPt0YVvo6qoVyAPAs" target="_blank"
+                        class="glass-btn px-5 py-4 text-sm font-bold text-white/90 border-white/20 hover:bg-white/15 flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-play"></i> Abrir playlist en YouTube
+                    </a>
+                </div>
+                <div
+                    class="mt-6 aspect-video overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30 shadow-[0_18px_35px_rgba(0,0,0,0.3)]">
+                    <iframe src="https://www.youtube.com/embed/videoseries?list=PLgp3jS3mSB4YZVCTiPt0YVvo6qoVyAPAs"
+                        title="Playlist del himnario adventista en YouTube" class="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
             <div class="himnario-link-card p-6 sm:p-8">
                 <div
                     class="relative z-10 grid grid-cols-1 lg:grid-cols-[minmax(0,1.05fr)_minmax(16rem,0.8fr)] gap-6 items-center">
@@ -1084,30 +1085,6 @@
                                 consultar el himnario en una experiencia más enfocada a lectura.</p>
                         </div>
                     </a>
-                </div>
-            </div>
-
-            <div class="glass p-6 sm:p-8 rounded-[2rem] border border-white/10 shadow-[0_18px_40px_rgba(0,0,0,0.24)]">
-                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
-                    <div>
-                        <p class="text-[0.72rem] uppercase tracking-[0.45em] text-white/60 mb-3">Playlist</p>
-                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wide">Himnario en
-                            YouTube</h3>
-                        <p class="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">Aqui queda otra vez el
-                            reproductor embebido del himnario para escuchar la playlist sin salir de esta seccion.</p>
-                    </div>
-                    <a href="https://www.youtube.com/playlist?list=PLgp3jS3mSB4YZVCTiPt0YVvo6qoVyAPAs" target="_blank"
-                        class="glass-btn px-5 py-4 text-sm font-bold text-white/90 border-white/20 hover:bg-white/15 flex items-center justify-center gap-3">
-                        <i class="fa-solid fa-play"></i> Abrir playlist en YouTube
-                    </a>
-                </div>
-                <div
-                    class="mt-6 aspect-video overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30 shadow-[0_18px_35px_rgba(0,0,0,0.3)]">
-                    <iframe src="https://www.youtube.com/embed/videoseries?list=PLgp3jS3mSB4YZVCTiPt0YVvo6qoVyAPAs"
-                        title="Playlist del himnario adventista en YouTube" class="w-full h-full" loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                    </iframe>
                 </div>
             </div>
         </div>
@@ -1585,7 +1562,7 @@
                     Oficial EGW</p>
             </a>
 
-            <a href="https://sabbath-school.adventech.io/es/" target="_blank"
+            <a href="https://youtube.com/@crecermas?si=FGSZOHXTXoBcAKKc" target="_blank"
                 class="glass p-6 flex flex-col items-center justify-center cursor-pointer hover:bg-white/10 group shadow-xl relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-2">
                 <div
                     class="w-40 h-40 sm:w-56 sm:h-56 rounded-[2rem] sm:rounded-[3rem] overflow-hidden mb-6 group-hover:scale-[1.08] transition-transform duration-500 shadow-[0_15px_40px_rgba(0,0,0,0.4)] border-[4px] border-white/20 bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex justify-center items-center relative">
