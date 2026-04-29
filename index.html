@@ -1020,24 +1020,340 @@
             </div>
         </div>
 
-        <div id="tab-himnos" class="hidden flex-col gap-6">
-            <div class="glass p-3 sm:p-5 rounded-[2rem] border border-white/10 shadow-[0_18px_40px_rgba(0,0,0,0.24)]">
-                <div class="aspect-video overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30 shadow-[0_18px_35px_rgba(0,0,0,0.3)]">
-                    <iframe src="https://www.youtube.com/embed/videoseries?list=PL_JtVn-4g6y-rX8d42dFqPjR_O-6s3D4H"
-                        title="Playlist del himnario adventista en YouTube" class="w-full h-full"
+                <div id="tab-himnos" class="hidden flex-col gap-6">
+            <div id="xperia-himnos-player-card" class="glass p-3 sm:p-5 rounded-[2rem] border border-white/10 shadow-[0_18px_40px_rgba(0,0,0,0.24)]">
+                <div class="aspect-video overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30 shadow-[0_18px_35px_rgba(0,0,0,0.3)] relative">
+                    <iframe id="xperia-himnos-player" src="https://www.youtube.com/embed/7uxsAMxm0PU"
+                        title="Himnario Player" class="w-full h-full"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
                     </iframe>
                 </div>
                 
-                <div class="mt-5 flex justify-center">
+                <div class="mt-5 mb-5 flex justify-center border-b border-white/10 pb-5">
                     <a href="https://www.nuevohimnario.com/" target="_blank"
                         class="glass-btn px-8 py-5 w-full sm:w-auto text-base sm:text-lg font-black uppercase tracking-[0.2em] text-white bg-blue-500/20 hover:bg-blue-500/40 border-blue-400/40 flex items-center justify-center gap-3 transition-all rounded-2xl shadow-lg">
                         <i class="fa-solid fa-book-open"></i> Abrir Nuevo Himnario
                     </a>
                 </div>
+
+                <div class="xperia-cantos-stage mt-5 relative z-10">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                        <div>
+                            <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de Himnos</h4>
+                        </div>
+                    </div>
+                    <div class="xperia-cantos-track">
+                        <div class="xperia-cantos-focus"></div>
+                        <div id="xperia-himnos-list" class="xperia-cantos-list">
+                            <button type="button" class="xperia-canto-entry active"
+                                data-embed="https://www.youtube.com/embed/7uxsAMxm0PU"
+                                onclick="selectHimno(0)">
+                                <span class="xperia-canto-index">01</span><img
+                                    src="https://i.ytimg.com/vi/7uxsAMxm0PU/hqdefault.jpg" alt="¡Oh, buen Maestro, despierta!"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">371 - ¡Oh, buen Maestro, despierta!</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/qIYVWzlAm4o"
+                                onclick="selectHimno(1)">
+                                <span class="xperia-canto-index">02</span><img
+                                    src="https://i.ytimg.com/vi/qIYVWzlAm4o/hqdefault.jpg" alt="¡Oh, cuán dulce es fiar en Cristo!"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">395 - ¡Oh, cuán dulce es fiar en Cristo!</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/IWPrl_Qb6hc"
+                                onclick="selectHimno(2)">
+                                <span class="xperia-canto-index">03</span><img
+                                    src="https://i.ytimg.com/vi/IWPrl_Qb6hc/hqdefault.jpg" alt="A Jesus entrega todo"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">236 - A Jesus entrega todo</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/kkUloNPe7Ac"
+                                onclick="selectHimno(3)">
+                                <span class="xperia-canto-index">04</span><img
+                                    src="https://i.ytimg.com/vi/kkUloNPe7Ac/hqdefault.jpg" alt="Jamás podrá alguien separarnos"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">092 - Jamás podrá alguien separarnos</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/XS8nQnllO1Q"
+                                onclick="selectHimno(4)">
+                                <span class="xperia-canto-index">05</span><img
+                                    src="https://i.ytimg.com/vi/XS8nQnllO1Q/hqdefault.jpg" alt="Grande es Jehová"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">075 - Grande es Jehová</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/KRJyAC_3fHY"
+                                onclick="selectHimno(5)">
+                                <span class="xperia-canto-index">06</span><img
+                                    src="https://i.ytimg.com/vi/KRJyAC_3fHY/hqdefault.jpg" alt="Hay una fuente sin igual"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">152 - Hay una fuente sin igual</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/2lC1T5Ydzhk"
+                                onclick="selectHimno(6)">
+                                <span class="xperia-canto-index">07</span><img
+                                    src="https://i.ytimg.com/vi/2lC1T5Ydzhk/hqdefault.jpg" alt="Hace años escuché"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">186 - Hace años escuché</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/Ga7m8hDL1us"
+                                onclick="selectHimno(7)">
+                                <span class="xperia-canto-index">08</span><img
+                                    src="https://i.ytimg.com/vi/Ga7m8hDL1us/hqdefault.jpg" alt="Padre, a tus pies me postro"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">250 - Padre, a tus pies me postro</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/PkoUIjG6xFk"
+                                onclick="selectHimno(8)">
+                                <span class="xperia-canto-index">09</span><img
+                                    src="https://i.ytimg.com/vi/PkoUIjG6xFk/hqdefault.jpg" alt="La razón de vivir"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">235 - La razón de vivir</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/WPZ0kNoGUhI"
+                                onclick="selectHimno(9)">
+                                <span class="xperia-canto-index">10</span><img
+                                    src="https://i.ytimg.com/vi/WPZ0kNoGUhI/hqdefault.jpg" alt="Anhelo ser limpio"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">254 - Anhelo ser limpio</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/Eyquiek7M1s"
+                                onclick="selectHimno(10)">
+                                <span class="xperia-canto-index">11</span><img
+                                    src="https://i.ytimg.com/vi/Eyquiek7M1s/hqdefault.jpg" alt="Perdón te ruego, mi Señor y Dios"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">241 - Perdón te ruego, mi Señor y Dios</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/E33rFP_pps4"
+                                onclick="selectHimno(11)">
+                                <span class="xperia-canto-index">12</span><img
+                                    src="https://i.ytimg.com/vi/E33rFP_pps4/hqdefault.jpg" alt="Jesús, tú eres mi alegría"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">357 - Jesús, tú eres mi alegría</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/0Lvfykly6m4"
+                                onclick="selectHimno(12)">
+                                <span class="xperia-canto-index">13</span><img
+                                    src="https://i.ytimg.com/vi/0Lvfykly6m4/hqdefault.jpg" alt="Sublime Gracia"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">303 - Sublime Gracia</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/HLiGs3uaDhw"
+                                onclick="selectHimno(13)">
+                                <span class="xperia-canto-index">14</span><img
+                                    src="https://i.ytimg.com/vi/HLiGs3uaDhw/hqdefault.jpg" alt="Digno eres tú"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">143 - Digno eres tú</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/2fnovsemzyQ"
+                                onclick="selectHimno(14)">
+                                <span class="xperia-canto-index">15</span><img
+                                    src="https://i.ytimg.com/vi/2fnovsemzyQ/hqdefault.jpg" alt="Del Culto el Tiempo Llega"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">029 - Del Culto el Tiempo Llega</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/nvYpW7H_gzQ"
+                                onclick="selectHimno(15)">
+                                <span class="xperia-canto-index">16</span><img
+                                    src="https://i.ytimg.com/vi/nvYpW7H_gzQ/hqdefault.jpg" alt="Canto el gran amor"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">107 - Canto el gran amor</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/AIOecqHyshs"
+                                onclick="selectHimno(16)">
+                                <span class="xperia-canto-index">17</span><img
+                                    src="https://i.ytimg.com/vi/AIOecqHyshs/hqdefault.jpg" alt="¡Vendrá el Señor!"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">173 - ¡Vendrá el Señor!</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/zTVI9v1pMIo"
+                                onclick="selectHimno(17)">
+                                <span class="xperia-canto-index">18</span><img
+                                    src="https://i.ytimg.com/vi/zTVI9v1pMIo/hqdefault.jpg" alt="Nunca desmayes"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">420 - Nunca desmayes</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/M855m2chTmE"
+                                onclick="selectHimno(18)">
+                                <span class="xperia-canto-index">19</span><img
+                                    src="https://i.ytimg.com/vi/M855m2chTmE/hqdefault.jpg" alt="En momentos así"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">034 - En momentos así</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/6_riNJrnTng"
+                                onclick="selectHimno(19)">
+                                <span class="xperia-canto-index">20</span><img
+                                    src="https://i.ytimg.com/vi/6_riNJrnTng/hqdefault.jpg" alt="Habla, Señor, a mi Alma"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">379 - Habla, Señor, a mi Alma</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/VsP1OnG9OHc"
+                                onclick="selectHimno(20)">
+                                <span class="xperia-canto-index">21</span><img
+                                    src="https://i.ytimg.com/vi/VsP1OnG9OHc/hqdefault.jpg" alt="¿Le importará a Jesús?"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">391 - ¿Le importará a Jesús?</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/T07Yraic6oQ"
+                                onclick="selectHimno(21)">
+                                <span class="xperia-canto-index">22</span><img
+                                    src="https://i.ytimg.com/vi/T07Yraic6oQ/hqdefault.jpg" alt="Cantad Alegres al Señor"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">001 - Cantad Alegres al Señor</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/wIPCePkVn6M"
+                                onclick="selectHimno(22)">
+                                <span class="xperia-canto-index">23</span><img
+                                    src="https://i.ytimg.com/vi/wIPCePkVn6M/hqdefault.jpg" alt="Da Gloria al Señor"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">002 - Da Gloria al Señor</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/7dl075TS0vg"
+                                onclick="selectHimno(23)">
+                                <span class="xperia-canto-index">24</span><img
+                                    src="https://i.ytimg.com/vi/7dl075TS0vg/hqdefault.jpg" alt="Dios os guarde en su Santo Amor"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">003 - Dios os guarde en su Santo Amor</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/EC24B5ebis8"
+                                onclick="selectHimno(24)">
+                                <span class="xperia-canto-index">25</span><img
+                                    src="https://i.ytimg.com/vi/EC24B5ebis8/hqdefault.jpg" alt="Alabanzas al Rey"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">004 - Alabanzas al Rey</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/m-e72DrL_c4"
+                                onclick="selectHimno(25)">
+                                <span class="xperia-canto-index">26</span><img
+                                    src="https://i.ytimg.com/vi/m-e72DrL_c4/hqdefault.jpg" alt="A ti, glorioso Dios"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">005 - A ti, glorioso Dios</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/THSATM9dkok"
+                                onclick="selectHimno(26)">
+                                <span class="xperia-canto-index">27</span><img
+                                    src="https://i.ytimg.com/vi/THSATM9dkok/hqdefault.jpg" alt="Hosanna"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">006 - Hosanna</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/nTi5VpQlI6U"
+                                onclick="selectHimno(27)">
+                                <span class="xperia-canto-index">28</span><img
+                                    src="https://i.ytimg.com/vi/nTi5VpQlI6U/hqdefault.jpg" alt="Santo, Santo, Santo"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">007 - Santo, Santo, Santo</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/bvk54h5b9U0"
+                                onclick="selectHimno(28)">
+                                <span class="xperia-canto-index">29</span><img
+                                    src="https://i.ytimg.com/vi/bvk54h5b9U0/hqdefault.jpg" alt="Suenen dulces himnos"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">008 - Suenen dulces himnos</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/usMsrqRaGFk"
+                                onclick="selectHimno(29)">
+                                <span class="xperia-canto-index">30</span><img
+                                    src="https://i.ytimg.com/vi/usMsrqRaGFk/hqdefault.jpg" alt="¡Alabad al gran Rey!"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">009 - ¡Alabad al gran Rey!</span><span
+                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
 
         <div id="tab-radios" class="hidden flex-col gap-10 max-w-6xl mx-auto w-full">
 
@@ -1061,24 +1377,7 @@
                         <audio id="radio-avsg" src="https://rtvmgrb.org/reproductor/avsg/" preload="none"></audio>
                     </div>
 
-                    <div
-                        class="glass p-5 rounded-3xl flex flex-col items-center justify-center text-center relative overflow-hidden group border border-white/10 hover:border-yellow-500/30 transition-colors">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                        </div>
-                        <h3
-                            class="text-xs font-black text-white uppercase tracking-widest relative z-10 mb-4 h-10 flex items-center justify-center leading-tight">
-                            Lanzarote 1</h3>
-                        <button onclick="toggleRadio('radio-lanzarote1', this)"
-                            class="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)] relative z-10 border-4 border-white/20 focus:outline-none bg-cover bg-center overflow-hidden"
-                            style="background-image: url('https://flagcdn.com/w160/es.png');">
-                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
-                            <i
-                                class="fa-solid fa-play text-3xl sm:text-4xl text-white ml-1.5 relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]"></i>
-                        </button>
-                        <audio id="radio-lanzarote1" src="https://rtvmgrb.org/reproductor/lanzarote1/"
-                            preload="none"></audio>
-                    </div>
+
 
                     <div
                         class="glass p-5 rounded-3xl flex flex-col items-center justify-center text-center relative overflow-hidden group border border-white/10 hover:border-yellow-500/30 transition-colors">
@@ -1706,8 +2005,49 @@
             window.scrollTo({ top, behavior: 'smooth' });
         }
 
+        function scrollHimnosTop() {
+            const playerCard = document.getElementById('xperia-himnos-player-card');
+            if (!playerCard) {
+                scrollMusicPageTop();
+                return;
+            }
+            const top = playerCard.getBoundingClientRect().top + window.pageYOffset - 12;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
+
+        window.currentHimnoIndex = 0;
+        function selectHimno(index, shouldReturnToPlayer = true, shouldScrollList = false) {
+            const list = document.getElementById('xperia-himnos-list');
+            if (!list) return;
+            const entries = Array.from(list.querySelectorAll('.xperia-canto-entry'));
+            const player = document.getElementById('xperia-himnos-player');
+
+            if (!entries.length || !player) return;
+
+            window.currentHimnoIndex = Math.max(0, Math.min(index, entries.length - 1));
+            const activeEntry = entries[window.currentHimnoIndex];
+
+            entries.forEach((entry, entryIndex) => {
+                entry.classList.toggle('active', entryIndex === window.currentHimnoIndex);
+            });
+
+            if (player.getAttribute('src') !== activeEntry.dataset.embed) {
+                player.src = activeEntry.dataset.embed;
+            }
+
+            if (shouldScrollList) {
+                activeEntry.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            if (shouldReturnToPlayer) {
+                scrollHimnosTop();
+            }
+        }
+
         function selectCanto(index, shouldReturnToPlayer = true, shouldScrollList = false) {
-            const entries = Array.from(document.querySelectorAll('.xperia-canto-entry'));
+            const list = document.getElementById('xperia-cantos-list');
+            if (!list) return;
+            const entries = Array.from(list.querySelectorAll('.xperia-canto-entry'));
             const player = document.getElementById('xperia-cantos-player');
             const openLink = document.getElementById('xperia-cantos-open-link');
             const title = document.getElementById('xperia-cantos-title');
@@ -1974,3 +2314,6 @@
 </body>
 
 </html>
+
+
+
