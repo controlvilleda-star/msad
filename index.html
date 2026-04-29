@@ -830,11 +830,6 @@
                             <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de cantos
                             </h4>
                         </div>
-                        <button type="button"
-                            class="glass-btn px-4 py-3 text-sm font-bold text-white border-white/20 bg-white/10 hover:bg-white/15"
-                            onclick="scrollMusicTop()">
-                            Volver al reproductor
-                        </button>
                     </div>
                     <div class="xperia-cantos-track">
                         <div class="xperia-cantos-focus"></div>
@@ -1719,7 +1714,7 @@
             const artist = document.getElementById('xperia-cantos-artist');
             const counter = document.getElementById('xperia-cantos-counter');
 
-            if (!entries.length || !player || !openLink || !title || !artist || !counter) return;
+            if (!entries.length || !player) return;
 
             currentCantoIndex = Math.max(0, Math.min(index, entries.length - 1));
             const activeEntry = entries[currentCantoIndex];
@@ -1731,12 +1726,12 @@
             if (player.getAttribute('src') !== activeEntry.dataset.embed) {
                 player.src = activeEntry.dataset.embed;
             }
-            if (openLink.getAttribute('href') !== activeEntry.dataset.link) {
+            if (openLink && openLink.getAttribute('href') !== activeEntry.dataset.link) {
                 openLink.href = activeEntry.dataset.link;
             }
-            title.textContent = activeEntry.dataset.title;
-            artist.textContent = activeEntry.dataset.artist;
-            counter.textContent = `${String(currentCantoIndex + 1).padStart(2, '0')} / ${String(entries.length).padStart(2, '0')}`;
+            if (title) title.textContent = activeEntry.dataset.title;
+            if (artist) artist.textContent = activeEntry.dataset.artist;
+            if (counter) counter.textContent = `${String(currentCantoIndex + 1).padStart(2, '0')} / ${String(entries.length).padStart(2, '0')}`;
 
             if (shouldScrollList) {
                 activeEntry.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
