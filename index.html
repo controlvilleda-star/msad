@@ -1594,46 +1594,70 @@
             class="text-xl sm:text-2xl font-black text-white uppercase tracking-widest mb-6 opacity-90 border-l-4 border-white/50 pl-3">
             Películas y Archivo</h3>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/9iKawBQB0BU"
-                        allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white">La Pasión de Cristo</h3>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/fegvqAIHAPc"
-                        allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white">Jesús de Nazaret</h3>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/k8MFQKqaJFc"
-                        allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white">Jesús (1979)</h3>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/X8VmyRU2taY"
-                        allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white">Evangelio s/ San Mateo</h3>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/SfT2k4QoafY"
-                        allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white">Hechos de los Apóstoles</h3>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/lwavNS0f7N0"
-                        allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white">Apocalipsis</h3>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/iRXxEBTiR90"
-                        allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white">Pablo, Apóstol de Cristo</h3>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/EZLdPMNDK3k"
-                        allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white">Pedro</h3>
+        <div class="flex flex-col gap-8">
+            <div class="xperia-cantos-shell p-4 sm:p-6">
+                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6 relative z-10">
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">Películas</h3>
+                    </div>
+                    <div class="glass px-4 py-3 rounded-2xl text-left min-w-[15rem] relative z-10">
+                        <p id="xperia-cine-counter" class="text-[0.72rem] uppercase tracking-[0.35em] text-blue-200/70 mb-1">01 / 08</p>
+                        <h4 id="xperia-cine-title" class="text-lg font-black text-white leading-tight">La Pasión de Cristo</h4>
+                        <p id="xperia-cine-artist" class="text-sm text-gray-300 mt-1">Película</p>
+                    </div>
+                </div>
+                <div id="xperia-cine-player-card" class="xperia-cantos-player p-4 sm:p-5 relative z-10">
+                    <div class="flex flex-col gap-5">
+                        <div class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
+                            <iframe id="xperia-cine-player" src="https://www.youtube.com/embed/9iKawBQB0BU" title="Reproductor de Películas" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                        <div class="flex justify-center gap-4">
+                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepCineSelection(-1)" aria-label="Anterior">
+                                <i class="fa-solid fa-chevron-left text-sm"></i> Anterior
+                            </button>
+                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepCineSelection(1)" aria-label="Siguiente">
+                                Siguiente <i class="fa-solid fa-chevron-right text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="xperia-cantos-stage mt-5 relative z-10">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                        <div>
+                            <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de Películas</h4>
+                        </div>
+                    </div>
+                    <div class="xperia-cantos-track">
+                        <div class="xperia-cantos-focus"></div>
+                        <div id="xperia-cine-list" class="xperia-cantos-list">
+                            <button type="button" class="xperia-canto-entry active" data-embed="https://www.youtube.com/embed/9iKawBQB0BU" onclick="selectCine(0)">
+                                <span class="xperia-canto-index">01</span><img src="https://i.ytimg.com/vi/9iKawBQB0BU/hqdefault.jpg" alt="La Pasión de Cristo" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">La Pasión de Cristo</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/fegvqAIHAPc" onclick="selectCine(1)">
+                                <span class="xperia-canto-index">02</span><img src="https://i.ytimg.com/vi/fegvqAIHAPc/hqdefault.jpg" alt="Jesús de Nazaret" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Jesús de Nazaret</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/k8MFQKqaJFc" onclick="selectCine(2)">
+                                <span class="xperia-canto-index">03</span><img src="https://i.ytimg.com/vi/k8MFQKqaJFc/hqdefault.jpg" alt="Jesús (1979)" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Jesús (1979)</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/X8VmyRU2taY" onclick="selectCine(3)">
+                                <span class="xperia-canto-index">04</span><img src="https://i.ytimg.com/vi/X8VmyRU2taY/hqdefault.jpg" alt="Evangelio s/ San Mateo" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Evangelio s/ San Mateo</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/SfT2k4QoafY" onclick="selectCine(4)">
+                                <span class="xperia-canto-index">05</span><img src="https://i.ytimg.com/vi/SfT2k4QoafY/hqdefault.jpg" alt="Hechos de los Apóstoles" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Hechos de los Apóstoles</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/lwavNS0f7N0" onclick="selectCine(5)">
+                                <span class="xperia-canto-index">06</span><img src="https://i.ytimg.com/vi/lwavNS0f7N0/hqdefault.jpg" alt="Apocalipsis" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Apocalipsis</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/iRXxEBTiR90" onclick="selectCine(6)">
+                                <span class="xperia-canto-index">07</span><img src="https://i.ytimg.com/vi/iRXxEBTiR90/hqdefault.jpg" alt="Pablo, Apóstol de Cristo" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Pablo, Apóstol de Cristo</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/EZLdPMNDK3k" onclick="selectCine(7)">
+                                <span class="xperia-canto-index">08</span><img src="https://i.ytimg.com/vi/EZLdPMNDK3k/hqdefault.jpg" alt="Pedro" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Pedro</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1664,109 +1688,148 @@
             </button>
         </div>
 
-        <div id="tab-latam" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/Eqqlm9BMZ4E" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">La Marca de la Bestia</h3>
-                <p class="text-sm text-gray-300">Pr. Esteban Bohr</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/yQRxgESDvpo" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">El Santuario</h3>
-                <p class="text-sm text-gray-300">Pr. Andrés Portes</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/mwN7RPRJxgc" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">Escrito Está</h3>
-                <p class="text-sm text-gray-300">Pr. Robert Costa</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/6myZ1CxWTfU" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">Nuevo Tiempo</h3>
-                <p class="text-sm text-gray-300">Pr. Joel Flores</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/VIDEO_ID_5" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">Venciendo a tus gigantes</h3>
-                <p class="text-sm text-gray-300">Pr. Arnaldo Cruz</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/VIDEO_ID_6" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">Reavivamiento y Reforma</h3>
-                <p class="text-sm text-gray-300">Pr. Jorge Rampogna</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/VIDEO_ID_7" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">La misión de la Iglesia hoy</h3>
-                <p class="text-sm text-gray-300">Pr. Bruno Raso</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/VIDEO_ID_8" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">Cómo enfrentar las tormentas</h3>
-                <p class="text-sm text-gray-300">Pr. Edgar Redondo</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/VIDEO_ID_9" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">Salvando a las nuevas generaciones</h3>
-                <p class="text-sm text-gray-300">Pr. Carlos Campitelli</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/VIDEO_ID_10" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">El mensaje de los tres ángeles</h3>
-                <p class="text-sm text-gray-300">Pr. Melchor Ferreyra</p>
+        <div id="tab-latam" class="flex flex-col gap-8">
+            <div class="xperia-cantos-shell p-4 sm:p-6">
+                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6 relative z-10">
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">Prédicas LATAM</h3>
+                    </div>
+                    <div class="glass px-4 py-3 rounded-2xl text-left min-w-[15rem] relative z-10">
+                        <p id="xperia-latam-counter" class="text-[0.72rem] uppercase tracking-[0.35em] text-blue-200/70 mb-1">01 / 10</p>
+                        <h4 id="xperia-latam-title" class="text-lg font-black text-white leading-tight">La Marca de la Bestia</h4>
+                        <p id="xperia-latam-artist" class="text-sm text-gray-300 mt-1">Pr. Esteban Bohr</p>
+                    </div>
+                </div>
+                <div id="xperia-latam-player-card" class="xperia-cantos-player p-4 sm:p-5 relative z-10">
+                    <div class="flex flex-col gap-5">
+                        <div class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
+                            <iframe id="xperia-latam-player" src="https://www.youtube.com/embed/Eqqlm9BMZ4E" title="Reproductor de Prédicas" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                        <div class="flex justify-center gap-4">
+                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepLatamSelection(-1)" aria-label="Anterior">
+                                <i class="fa-solid fa-chevron-left text-sm"></i> Anterior
+                            </button>
+                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepLatamSelection(1)" aria-label="Siguiente">
+                                Siguiente <i class="fa-solid fa-chevron-right text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="xperia-cantos-stage mt-5 relative z-10">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                        <div>
+                            <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de prédicas</h4>
+                        </div>
+                    </div>
+                    <div class="xperia-cantos-track">
+                        <div class="xperia-cantos-focus"></div>
+                        <div id="xperia-latam-list" class="xperia-cantos-list">
+                            <button type="button" class="xperia-canto-entry active" data-embed="https://www.youtube.com/embed/Eqqlm9BMZ4E" onclick="selectLatam(0)">
+                                <span class="xperia-canto-index">01</span><img src="https://i.ytimg.com/vi/Eqqlm9BMZ4E/hqdefault.jpg" alt="La Marca de la Bestia" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">La Marca de la Bestia</span><span class="xperia-canto-artist">Pr. Esteban Bohr</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/yQRxgESDvpo" onclick="selectLatam(1)">
+                                <span class="xperia-canto-index">02</span><img src="https://i.ytimg.com/vi/yQRxgESDvpo/hqdefault.jpg" alt="El Santuario" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">El Santuario</span><span class="xperia-canto-artist">Pr. Andrés Portes</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/mwN7RPRJxgc" onclick="selectLatam(2)">
+                                <span class="xperia-canto-index">03</span><img src="https://i.ytimg.com/vi/mwN7RPRJxgc/hqdefault.jpg" alt="Escrito Está" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Escrito Está</span><span class="xperia-canto-artist">Pr. Robert Costa</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/6myZ1CxWTfU" onclick="selectLatam(3)">
+                                <span class="xperia-canto-index">04</span><img src="https://i.ytimg.com/vi/6myZ1CxWTfU/hqdefault.jpg" alt="Nuevo Tiempo" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Nuevo Tiempo</span><span class="xperia-canto-artist">Pr. Joel Flores</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/idKjHrAPUHo" onclick="selectLatam(4)">
+                                <span class="xperia-canto-index">05</span><img src="https://i.ytimg.com/vi/idKjHrAPUHo/hqdefault.jpg" alt="Venciendo a tus gigantes" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Venciendo a tus gigantes</span><span class="xperia-canto-artist">Pr. Arnaldo Cruz</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/jZL-0XoQsQE" onclick="selectLatam(5)">
+                                <span class="xperia-canto-index">06</span><img src="https://i.ytimg.com/vi/jZL-0XoQsQE/hqdefault.jpg" alt="Reavivamiento y Reforma" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Reavivamiento y Reforma</span><span class="xperia-canto-artist">Pr. Jorge Rampogna</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/7R1c-2ivvGM" onclick="selectLatam(6)">
+                                <span class="xperia-canto-index">07</span><img src="https://i.ytimg.com/vi/7R1c-2ivvGM/hqdefault.jpg" alt="La misión de la Iglesia hoy" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">La misión de la Iglesia hoy</span><span class="xperia-canto-artist">Pr. Bruno Raso</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/UfmfsK8E8N8" onclick="selectLatam(7)">
+                                <span class="xperia-canto-index">08</span><img src="https://i.ytimg.com/vi/UfmfsK8E8N8/hqdefault.jpg" alt="Cómo enfrentar las tormentas" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Cómo enfrentar las tormentas</span><span class="xperia-canto-artist">Pr. Edgar Redondo</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/9iKawBQB0BU" onclick="selectLatam(8)">
+                                <span class="xperia-canto-index">09</span><img src="https://i.ytimg.com/vi/9iKawBQB0BU/hqdefault.jpg" alt="Salvando a las nuevas generaciones" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Salvando a las nuevas generaciones</span><span class="xperia-canto-artist">Pr. Carlos Campitelli</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/fegvqAIHAPc" onclick="selectLatam(9)">
+                                <span class="xperia-canto-index">10</span><img src="https://i.ytimg.com/vi/fegvqAIHAPc/hqdefault.jpg" alt="El mensaje de los tres ángeles" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">El mensaje de los tres ángeles</span><span class="xperia-canto-artist">Pr. Melchor Ferreyra</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div id="tab-euro" class="hidden grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/idKjHrAPUHo" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">Encuentros transformadores</h3>
-                <p class="text-sm text-gray-300">Dr. Roberto Badenas</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/jZL-0XoQsQE" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">La gracia incomprensible</h3>
-                <p class="text-sm text-gray-300">Pr. Daniel Bosqued</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/7R1c-2ivvGM" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">El poder de la fe en la prueba</h3>
-                <p class="text-sm text-gray-300">Pr. Carlos Rando</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/UfmfsK8E8N8" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">Confianza plena en promesas divinas</h3>
-                <p class="text-sm text-gray-300">Pr. Juan Carlos Basterra</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/VIDEO_ID_15" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">Maravillas del Apocalipsis</h3>
-                <p class="text-sm text-gray-300">Dr. Víctor Armenteros</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/VIDEO_ID_16" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">El desafío de ser cristiano hoy</h3>
-                <p class="text-sm text-gray-300">Pr. Jonathan Contero</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/VIDEO_ID_17" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">La familia en los últimos días</h3>
-                <p class="text-sm text-gray-300">Pr. José Vicente Giner</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/VIDEO_ID_18" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">Profecías cumplidas actuales</h3>
-                <p class="text-sm text-gray-300">Pr. Gabriel Díaz</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/VIDEO_ID_19" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">Evidencias racionales de nuestra fe</h3>
-                <p class="text-sm text-gray-300">Pr. Pedro Torres</p>
-            </div>
-            <div class="glass p-4 rounded-2xl">
-                <div class="iframe-container mb-3"><iframe src="https://www.youtube.com/embed/VIDEO_ID_20" allowfullscreen></iframe></div>
-                <h3 class="font-bold text-white leading-tight">El Sábado, un palacio en el tiempo</h3>
-                <p class="text-sm text-gray-300">Pr. Miguel Ángel Roig</p>
+        <div id="tab-euro" class="hidden flex-col gap-8">
+            <div class="xperia-cantos-shell p-4 sm:p-6">
+                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6 relative z-10">
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">Prédicas España</h3>
+                    </div>
+                    <div class="glass px-4 py-3 rounded-2xl text-left min-w-[15rem] relative z-10">
+                        <p id="xperia-euro-counter" class="text-[0.72rem] uppercase tracking-[0.35em] text-blue-200/70 mb-1">01 / 10</p>
+                        <h4 id="xperia-euro-title" class="text-lg font-black text-white leading-tight">Encuentros transformadores</h4>
+                        <p id="xperia-euro-artist" class="text-sm text-gray-300 mt-1">Dr. Roberto Badenas</p>
+                    </div>
+                </div>
+                <div id="xperia-euro-player-card" class="xperia-cantos-player p-4 sm:p-5 relative z-10">
+                    <div class="flex flex-col gap-5">
+                        <div class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
+                            <iframe id="xperia-euro-player" src="https://www.youtube.com/embed/idKjHrAPUHo" title="Reproductor de Prédicas" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                        <div class="flex justify-center gap-4">
+                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepEuroSelection(-1)" aria-label="Anterior">
+                                <i class="fa-solid fa-chevron-left text-sm"></i> Anterior
+                            </button>
+                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepEuroSelection(1)" aria-label="Siguiente">
+                                Siguiente <i class="fa-solid fa-chevron-right text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="xperia-cantos-stage mt-5 relative z-10">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                        <div>
+                            <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de prédicas</h4>
+                        </div>
+                    </div>
+                    <div class="xperia-cantos-track">
+                        <div class="xperia-cantos-focus"></div>
+                        <div id="xperia-euro-list" class="xperia-cantos-list">
+                            <button type="button" class="xperia-canto-entry active" data-embed="https://www.youtube.com/embed/idKjHrAPUHo" onclick="selectEuro(0)">
+                                <span class="xperia-canto-index">01</span><img src="https://i.ytimg.com/vi/idKjHrAPUHo/hqdefault.jpg" alt="Encuentros transformadores" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Encuentros transformadores</span><span class="xperia-canto-artist">Dr. Roberto Badenas</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/jZL-0XoQsQE" onclick="selectEuro(1)">
+                                <span class="xperia-canto-index">02</span><img src="https://i.ytimg.com/vi/jZL-0XoQsQE/hqdefault.jpg" alt="La gracia incomprensible" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">La gracia incomprensible</span><span class="xperia-canto-artist">Pr. Daniel Bosqued</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/7R1c-2ivvGM" onclick="selectEuro(2)">
+                                <span class="xperia-canto-index">03</span><img src="https://i.ytimg.com/vi/7R1c-2ivvGM/hqdefault.jpg" alt="El poder de la fe en la prueba" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">El poder de la fe en la prueba</span><span class="xperia-canto-artist">Pr. Carlos Rando</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/UfmfsK8E8N8" onclick="selectEuro(3)">
+                                <span class="xperia-canto-index">04</span><img src="https://i.ytimg.com/vi/UfmfsK8E8N8/hqdefault.jpg" alt="Confianza plena en promesas divinas" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Confianza plena en promesas divinas</span><span class="xperia-canto-artist">Pr. Juan Carlos Basterra</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/k8MFQKqaJFc" onclick="selectEuro(4)">
+                                <span class="xperia-canto-index">05</span><img src="https://i.ytimg.com/vi/k8MFQKqaJFc/hqdefault.jpg" alt="Maravillas del Apocalipsis" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Maravillas del Apocalipsis</span><span class="xperia-canto-artist">Dr. Víctor Armenteros</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/X8VmyRU2taY" onclick="selectEuro(5)">
+                                <span class="xperia-canto-index">06</span><img src="https://i.ytimg.com/vi/X8VmyRU2taY/hqdefault.jpg" alt="El desafío de ser cristiano hoy" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">El desafío de ser cristiano hoy</span><span class="xperia-canto-artist">Pr. Jonathan Contero</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/SfT2k4QoafY" onclick="selectEuro(6)">
+                                <span class="xperia-canto-index">07</span><img src="https://i.ytimg.com/vi/SfT2k4QoafY/hqdefault.jpg" alt="La familia en los últimos días" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">La familia en los últimos días</span><span class="xperia-canto-artist">Pr. José Vicente Giner</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/lwavNS0f7N0" onclick="selectEuro(7)">
+                                <span class="xperia-canto-index">08</span><img src="https://i.ytimg.com/vi/lwavNS0f7N0/hqdefault.jpg" alt="Profecías cumplidas actuales" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Profecías cumplidas actuales</span><span class="xperia-canto-artist">Pr. Gabriel Díaz</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/iRXxEBTiR90" onclick="selectEuro(8)">
+                                <span class="xperia-canto-index">09</span><img src="https://i.ytimg.com/vi/iRXxEBTiR90/hqdefault.jpg" alt="Evidencias racionales de nuestra fe" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Evidencias racionales de nuestra fe</span><span class="xperia-canto-artist">Pr. Pedro Torres</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/EZLdPMNDK3k" onclick="selectEuro(9)">
+                                <span class="xperia-canto-index">10</span><img src="https://i.ytimg.com/vi/EZLdPMNDK3k/hqdefault.jpg" alt="El Sábado, un palacio en el tiempo" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">El Sábado, un palacio en el tiempo</span><span class="xperia-canto-artist">Pr. Miguel Ángel Roig</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -2075,146 +2138,6 @@
 
             if (shouldScrollList) {
                 activeEntry.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-
-            if (shouldReturnToPlayer) {
-                scrollMusicTop();
-            }
-        }
-
-        function stepCantosSelection(direction) {
-            selectCanto(currentCantoIndex + direction, false, true);
-        }
-
-        function initCantosScroller() {
-            const list = document.getElementById('xperia-cantos-list');
-            if (!list || list.dataset.ready === 'true') return;
-
-            list.dataset.ready = 'true';
-            selectCanto(0, false);
-        }
-
-        function switchMusicTab(tab) {
-            const tabHimnos = document.getElementById('tab-himnos');
-            const tabCantos = document.getElementById('tab-cantos');
-            const tabRadios = document.getElementById('tab-radios');
-
-            tabHimnos.classList.add('hidden');
-            tabCantos.classList.add('hidden');
-            tabRadios.classList.add('hidden');
-
-            tabHimnos.classList.remove('grid', 'flex');
-            tabCantos.classList.remove('grid', 'flex');
-            tabRadios.classList.remove('grid', 'flex');
-
-            let btnHimnos = document.getElementById('btn-tab-himnos');
-            let btnCantos = document.getElementById('btn-tab-cantos');
-            let btnRadios = document.getElementById('btn-tab-radios');
-
-            let inactiveClass = "w-1/3 py-3 rounded-xl font-bold border border-transparent text-white/50 hover:text-white transition-all text-sm sm:text-base tracking-wide flex items-center justify-center gap-2";
-            let activeClass = "w-1/3 py-3 rounded-xl font-bold bg-white/20 border border-white/30 text-white transition-all text-sm sm:text-base tracking-wide flex items-center justify-center gap-2";
-
-            btnHimnos.className = inactiveClass;
-            btnCantos.className = inactiveClass;
-            btnRadios.className = inactiveClass;
-
-            if (tab === 'himnos') {
-                tabHimnos.classList.remove('hidden');
-                tabHimnos.classList.add('grid');
-                btnHimnos.className = activeClass;
-                window.setTimeout(scrollMusicPageTop, 40);
-            } else if (tab === 'cantos') {
-                tabCantos.classList.remove('hidden');
-                tabCantos.classList.add('flex');
-                btnCantos.className = activeClass;
-                initCantosScroller();
-                window.setTimeout(scrollMusicTop, 40);
-            } else if (tab === 'radios') {
-                tabRadios.classList.remove('hidden');
-                tabRadios.classList.add('flex');
-                btnRadios.className = activeClass;
-                window.setTimeout(scrollMusicPageTop, 40);
-            }
-        }
-
-        // ---- Lógica del Formulario Literatura ----
-        function toggleFormLiteratura() {
-            const formContainer = document.getElementById('form-literatura');
-            const btn = document.getElementById('btn-pedir');
-            const col = document.getElementById('col-literatura');
-
-            if (formContainer.classList.contains('hidden')) {
-                // Mostrar Formulario
-                formContainer.classList.remove('hidden');
-                col.classList.add('expanded');
-                btn.innerHTML = '<i class="fa-solid fa-xmark"></i> CANCELAR';
-                btn.classList.add('bg-red-500/20', 'border-red-500/40', 'hover:bg-red-500/40');
-                btn.classList.remove('bg-yellow-500/20', 'border-yellow-500/40', 'hover:bg-yellow-500/40');
-            } else {
-                // Ocultar Formulario
-                formContainer.classList.add('hidden');
-                col.classList.remove('expanded');
-                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> PEDIR AHORA';
-                btn.classList.remove('bg-red-500/20', 'border-red-500/40', 'hover:bg-red-500/40');
-                btn.classList.add('bg-yellow-500/20', 'border-yellow-500/40', 'hover:bg-yellow-500/40');
-            }
-        }
-
-        // ---- Lógica del Formulario Oración ----
-        function toggleFormOracion() {
-            const formContainer = document.getElementById('form-oracion');
-            const btn = document.getElementById('btn-orar');
-            const col = document.getElementById('col-oracion');
-
-            if (formContainer.classList.contains('hidden')) {
-                // Mostrar Formulario
-                formContainer.classList.remove('hidden');
-                col.classList.add('expanded');
-                btn.innerHTML = '<i class="fa-solid fa-xmark"></i> CANCELAR';
-                btn.classList.add('bg-red-500/20', 'border-red-500/40', 'hover:bg-red-500/40');
-                btn.classList.remove('bg-purple-500/20', 'border-purple-500/40', 'hover:bg-purple-500/40');
-            } else {
-                // Ocultar Formulario
-                formContainer.classList.add('hidden');
-                col.classList.remove('expanded');
-                btn.innerHTML = '<i class="fa-solid fa-heart"></i> SOLICITAR';
-                btn.classList.remove('bg-red-500/20', 'border-red-500/40', 'hover:bg-red-500/40');
-                btn.classList.add('bg-purple-500/20', 'border-purple-500/40', 'hover:bg-purple-500/40');
-            }
-        }
-
-        // ---- Lógica del Formulario Estudios ----
-        function toggleFormEstudios() {
-            const formContainer = document.getElementById('form-estudios');
-            const btn = document.getElementById('btn-estudios');
-            const col = document.getElementById('col-estudios');
-
-            if (formContainer.classList.contains('hidden')) {
-                // Mostrar Formulario
-                formContainer.classList.remove('hidden');
-                col.classList.add('expanded');
-                btn.innerHTML = '<i class="fa-solid fa-xmark"></i> CANCELAR';
-                btn.classList.add('bg-red-500/20', 'border-red-500/40', 'hover:bg-red-500/40');
-                btn.classList.remove('bg-blue-500/20', 'border-blue-500/40', 'hover:bg-blue-500/40');
-            } else {
-                // Ocultar Formulario
-                formContainer.classList.add('hidden');
-                col.classList.remove('expanded');
-                btn.innerHTML = '<i class="fa-solid fa-graduation-cap"></i> SOLICITAR';
-                btn.classList.remove('bg-red-500/20', 'border-red-500/40', 'hover:bg-red-500/40');
-                btn.classList.add('bg-blue-500/20', 'border-blue-500/40', 'hover:bg-blue-500/40');
-            }
-        }
-        // ---- Lógica del Video Interactivo Jesús ----
-        function playJesusVideo() {
-            const video = document.getElementById('jesus-video');
-
-            // Si ya está reproduciendo, no hacer nada
-            if (video.style.opacity === '1') return;
-
-            // Entrada al video inmediata, sin transición (Corte limpio)
-            video.style.transition = 'none';
-            video.currentTime = 0;
             video.play().catch(e => console.log('El navegador bloqueó la reproducción:', e));
 
             video.style.opacity = '1';
@@ -2305,6 +2228,7 @@
         // Refuerzo: detener radios si el usuario pone el cursor sobre un reproductor de video
         document.addEventListener('DOMContentLoaded', () => {
             initCantosScroller();
+            initNewScrollers();
             document.querySelectorAll('iframe').forEach(ifr => {
                 ifr.addEventListener('mouseenter', stopRadios);
                 ifr.addEventListener('touchstart', stopRadios);
