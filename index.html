@@ -2302,8 +2302,350 @@
             }
         }
 
+        function stepCantosSelection(direction) {
+            selectCanto(currentCantoIndex + direction, false, true);
+        }
 
+        function initCantosScroller() {
+            const list = document.getElementById('xperia-cantos-list');
+            if (!list || list.dataset.ready === 'true') return;
+
+            list.dataset.ready = 'true';
+            selectCanto(0, false);
+        }
+
+        function selectCanto(index, shouldReturnToPlayer = true, shouldScrollList = false) {
+            const list = document.getElementById('xperia-cantos-list');
+            if (!list) return;
+            const entries = Array.from(list.querySelectorAll('.xperia-canto-entry'));
+            const player = document.getElementById('xperia-cantos-player');
+            const openLink = document.getElementById('xperia-cantos-open-link');
+            const title = document.getElementById('xperia-cantos-title');
+            const artist = document.getElementById('xperia-cantos-artist');
+            const counter = document.getElementById('xperia-cantos-counter');
+
+            if (!entries.length || !player) return;
+
+            currentCantoIndex = Math.max(0, Math.min(index, entries.length - 1));
+            const activeEntry = entries[currentCantoIndex];
+
+            entries.forEach((entry, entryIndex) => {
+                entry.classList.toggle('active', entryIndex === currentCantoIndex);
+            });
+
+            if (player.getAttribute('src') !== activeEntry.dataset.embed) {
+                player.src = activeEntry.dataset.embed;
+            }
+            if (openLink && openLink.getAttribute('href') !== activeEntry.dataset.link) {
+                openLink.href = activeEntry.dataset.link;
+            }
+            if (title) title.textContent = activeEntry.dataset.title;
+            if (artist) artist.textContent = activeEntry.dataset.artist;
+            if (counter) counter.textContent = `${String(currentCantoIndex + 1).padStart(2, '0')} / ${String(entries.length).padStart(2, '0')}`;
+
+            if (shouldScrollList) {
+                activeEntry.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            if (shouldReturnToPlayer) {
+                scrollMusicTop();
+            }
+        }
+
+        function switchMusicTab(tab) {
+            const tabHimnos = document.getElementById('tab-himnos');
+            const tabCantos = document.getElementById('tab-cantos');
+            const tabRadios = document.getElementById('tab-radios');
+
+            tabHimnos.classList.add('hidden');
+            tabCantos.classList.add('hidden');
+            tabRadios.classList.add('hidden');
+
+            tabHimnos.classList.remove('grid', 'flex');
+            tabCantos.classList.remove('grid', 'flex');
+            tabRadios.classList.remove('grid', 'flex');
+
+            let btnHimnos = document.getElementById('btn-tab-himnos');
+            let btnCantos = document.getElementById('btn-tab-cantos');
+            let btnRadios = document.getElementById('btn-tab-radios');
+
+            let inactiveClass = "w-1/3 py-3 rounded-xl font-bold border border-transparent text-white/50 hover:text-white transition-all text-sm sm:text-base tracking-wide flex items-center justify-center gap-2";
+            let activeClass = "w-1/3 py-3 rounded-xl font-bold bg-white/20 border border-white/30 text-white transition-all text-sm sm:text-base tracking-wide flex items-center justify-center gap-2";
+
+            btnHimnos.className = inactiveClass;
+            btnCantos.className = inactiveClass;
+            btnRadios.className = inactiveClass;
+
+            if (tab === 'himnos') {
+                tabHimnos.classList.remove('hidden');
+                tabHimnos.classList.add('grid');
+                btnHimnos.className = activeClass;
+                window.setTimeout(scrollMusicPageTop, 40);
+            } else if (tab === 'cantos') {
+                tabCantos.classList.remove('hidden');
+                tabCantos.classList.add('flex');
+                btnCantos.className = activeClass;
+                initCantosScroller();
+                window.setTimeout(scrollMusicTop, 40);
+            } else if (tab === 'radios') {
+                tabRadios.classList.remove('hidden');
+                tabRadios.classList.add('flex');
+                btnRadios.className = activeClass;
+                window.setTimeout(scrollMusicPageTop, 40);
+            }
+        }
+
+        // ---- Lógica de Nuevos Listados de Embeds ----
+        let currentLatamIndex = 0;
+        let currentEuroIndex = 0;
+        let currentCineIndex = 0;
+
+        function createSelectFunction(listId, playerId, titleId, artistId, counterId, cardId) {
+            return function(index, shouldReturnToPlayer = true, shouldScrollList = false) {
+                const list = document.getElementById(listId);
+                if (!list) return 0;
+                const entries = Array.from(list.querySelectorAll('.xperia-canto-entry'));
+                const player = document.getElementById(playerId);
+                const title = document.getElementById(titleId);
+                const artist = document.getElementById(artistId);
+                const counter = document.getElementById(counterId);
+
+                if (!entries.length || !player) return 0;
+
+                const currentIndex = Math.max(0, Math.min(index, entries.length - 1));
+                const activeEntry = entries[currentIndex];
+
+                entries.forEach((entry, entryIndex) => {
+                    entry.classList.toggle('active', entryIndex === currentIndex);
+                });
+
+                if (player.getAttribute('src') !== activeEntry.dataset.embed) {
+                    player.src = activeEntry.dataset.embed;
+                }
+                if (title) title.textContent = activeEntry.querySelector('.xperia-canto-title').textContent;
+                if (artist) artist.textContent = activeEntry.querySelector('.xperia-canto-artist').textContent;
+                if (counter) counter.textContent = `${String(currentIndex + 1).padStart(2, '0')} / ${String(entries.length).padStart(2, '0')}`;
+
+                if (shouldScrollList) {
+                    activeEntry.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+
+                if (shouldReturnToPlayer) {
+                    const card = document.getElementById(cardId);
+                    if (card) {
+                        const top = card.getBoundingClientRect().top + window.pageYOffset - 12;
+                        window.scrollTo({ top, behavior: 'smooth' });
+                    }
+                }
+                return currentIndex;
+            };
+        }
+
+        const selectLatamBase = createSelectFunction('xperia-latam-list', 'xperia-latam-player', 'xperia-latam-title', 'xperia-latam-artist', 'xperia-latam-counter', 'xperia-latam-player-card');
+        function selectLatam(index) { currentLatamIndex = selectLatamBase(index, true, false); }
+        function stepLatamSelection(direction) { currentLatamIndex = selectLatamBase(currentLatamIndex + direction, false, true); }
+
+        const selectEuroBase = createSelectFunction('xperia-euro-list', 'xperia-euro-player', 'xperia-euro-title', 'xperia-euro-artist', 'xperia-euro-counter', 'xperia-euro-player-card');
+        function selectEuro(index) { currentEuroIndex = selectEuroBase(index, true, false); }
+        function stepEuroSelection(direction) { currentEuroIndex = selectEuroBase(currentEuroIndex + direction, false, true); }
+
+        const selectCineBase = createSelectFunction('xperia-cine-list', 'xperia-cine-player', 'xperia-cine-title', 'xperia-cine-artist', 'xperia-cine-counter', 'xperia-cine-player-card');
+        function selectCine(index) { currentCineIndex = selectCineBase(index, true, false); }
+        function stepCineSelection(direction) { currentCineIndex = selectCineBase(currentCineIndex + direction, false, true); }
+
+        function initNewScrollers() {
+            const listLatam = document.getElementById('xperia-latam-list');
+            if (listLatam && listLatam.dataset.ready !== 'true') {
+                listLatam.dataset.ready = 'true';
+                selectLatam(0, false);
+            }
+            const listEuro = document.getElementById('xperia-euro-list');
+            if (listEuro && listEuro.dataset.ready !== 'true') {
+                listEuro.dataset.ready = 'true';
+                selectEuro(0, false);
+            }
+            const listCine = document.getElementById('xperia-cine-list');
+            if (listCine && listCine.dataset.ready !== 'true') {
+                listCine.dataset.ready = 'true';
+                selectCine(0, false);
+            }
+        }
+
+        // ---- Lógica del Formulario Literatura ----
+        function toggleFormLiteratura() {
+            const formContainer = document.getElementById('form-literatura');
+            const btn = document.getElementById('btn-pedir');
+            const col = document.getElementById('col-literatura');
+
+            if (formContainer.classList.contains('hidden')) {
+                // Mostrar Formulario
+                formContainer.classList.remove('hidden');
+                col.classList.add('expanded');
+                btn.innerHTML = '<i class="fa-solid fa-xmark"></i> CANCELAR';
+                btn.classList.add('bg-red-500/20', 'border-red-500/40', 'hover:bg-red-500/40');
+                btn.classList.remove('bg-yellow-500/20', 'border-yellow-500/40', 'hover:bg-yellow-500/40');
+            } else {
+                // Ocultar Formulario
+                formContainer.classList.add('hidden');
+                col.classList.remove('expanded');
+                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> PEDIR AHORA';
+                btn.classList.remove('bg-red-500/20', 'border-red-500/40', 'hover:bg-red-500/40');
+                btn.classList.add('bg-yellow-500/20', 'border-yellow-500/40', 'hover:bg-yellow-500/40');
+            }
+        }
+
+        // ---- Lógica del Formulario Oración ----
+        function toggleFormOracion() {
+            const formContainer = document.getElementById('form-oracion');
+            const btn = document.getElementById('btn-orar');
+            const col = document.getElementById('col-oracion');
+
+            if (formContainer.classList.contains('hidden')) {
+                // Mostrar Formulario
+                formContainer.classList.remove('hidden');
+                col.classList.add('expanded');
+                btn.innerHTML = '<i class="fa-solid fa-xmark"></i> CANCELAR';
+                btn.classList.add('bg-red-500/20', 'border-red-500/40', 'hover:bg-red-500/40');
+                btn.classList.remove('bg-purple-500/20', 'border-purple-500/40', 'hover:bg-purple-500/40');
+            } else {
+                // Ocultar Formulario
+                formContainer.classList.add('hidden');
+                col.classList.remove('expanded');
+                btn.innerHTML = '<i class="fa-solid fa-heart"></i> SOLICITAR';
+                btn.classList.remove('bg-red-500/20', 'border-red-500/40', 'hover:bg-red-500/40');
+                btn.classList.add('bg-purple-500/20', 'border-purple-500/40', 'hover:bg-purple-500/40');
+            }
+        }
+
+        // ---- Lógica del Formulario Estudios ----
+        function toggleFormEstudios() {
+            const formContainer = document.getElementById('form-estudios');
+            const btn = document.getElementById('btn-estudios');
+            const col = document.getElementById('col-estudios');
+
+            if (formContainer.classList.contains('hidden')) {
+                // Mostrar Formulario
+                formContainer.classList.remove('hidden');
+                col.classList.add('expanded');
+                btn.innerHTML = '<i class="fa-solid fa-xmark"></i> CANCELAR';
+                btn.classList.add('bg-red-500/20', 'border-red-500/40', 'hover:bg-red-500/40');
+                btn.classList.remove('bg-blue-500/20', 'border-blue-500/40', 'hover:bg-blue-500/40');
+            } else {
+                // Ocultar Formulario
+                formContainer.classList.add('hidden');
+                col.classList.remove('expanded');
+                btn.innerHTML = '<i class="fa-solid fa-graduation-cap"></i> SOLICITAR';
+                btn.classList.remove('bg-red-500/20', 'border-red-500/40', 'hover:bg-red-500/40');
+                btn.classList.add('bg-blue-500/20', 'border-blue-500/40', 'hover:bg-blue-500/40');
+            }
+        }
+
+        // ---- Lógica del Video Interactivo Jesús ----
+        function playJesusVideo() {
+            const video = document.getElementById('jesus-video');
+
+            // Si ya está reproduciendo, no hacer nada
+            if (video.style.opacity === '1') return;
+
+            // Entrada al video inmediata, sin transición (Corte limpio)
+            video.style.transition = 'none';
+            video.currentTime = 0;
+            video.play().catch(e => console.log('El navegador bloqueó la reproducción:', e));
+
+            video.style.opacity = '1';
+        }
+
+        function stopJesusVideo() {
+            const video = document.getElementById('jesus-video');
+
+            // Transición suave y lenta (Crossfade Dissolve) para el retorno a la imagen base
+            video.style.transition = 'opacity 1.5s ease-in-out';
+
+            // Se desvanece el video y emerge sutilmente la imagen base original que está debajo
+            video.style.opacity = '0';
+        }
+
+        // Activar el video en el PRIMER click en cualquier parte de la página
+        document.body.addEventListener('click', function () {
+            playJesusVideo();
+        }, { once: true });
+
+        // ---- Lógica Reproductor Radio Custom ----
+        let currentRadioAudio = null;
+        let currentRadioIcon = null;
+
+        function stopRadios() {
+            if (currentRadioAudio) {
+                currentRadioAudio.pause();
+                if (currentRadioIcon) {
+                    currentRadioIcon.classList.remove('fa-pause', 'fa-beat-fade', 'fa-spinner', 'fa-spin');
+                    currentRadioIcon.classList.add('fa-play');
+                }
+                currentRadioAudio = null;
+                currentRadioIcon = null;
+            }
+        }
+
+        function toggleRadio(id, btn) {
+            const audio = document.getElementById(id);
+            const icon = btn.querySelector('i');
+
+            if (currentRadioAudio && currentRadioAudio !== audio) {
+                stopRadios();
+            }
+
+            if (audio.paused) {
+                // Mostrar estado de carga
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-spinner', 'fa-spin');
+
+                // Forzar reconexión para streamings en vivo sin caché
+                let baseSrc = audio.getAttribute('data-src');
+                if (!baseSrc) {
+                    baseSrc = audio.src;
+                    audio.setAttribute('data-src', baseSrc);
+                }
+                // Añadir un timestamp asegurando conexión fresca
+                audio.src = baseSrc.split('?')[0] + '?t=' + new Date().getTime();
+                audio.load(); // Es importante hacer load despues de setear el src
+
+                let playPromise = audio.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        icon.classList.remove('fa-spinner', 'fa-spin');
+                        icon.classList.add('fa-pause', 'fa-beat-fade');
+                        currentRadioAudio = audio;
+                        currentRadioIcon = icon;
+                    }).catch(e => {
+                        console.error("Error reproduciendo el audio:", e);
+                        icon.classList.remove('fa-spinner', 'fa-spin');
+                        icon.classList.add('fa-play');
+                        // Intento de fallback
+                        setTimeout(() => audio.play(), 500);
+                    });
+                }
+            } else {
+                stopRadios();
+            }
+        }
+
+        // ---- Detener radios al reproducir un embed de video ----
+        window.addEventListener('blur', function () {
+            // Cuando la ventana pierde el foco (ej: clic en iframe de YouTube)
+            if (document.activeElement instanceof HTMLIFrameElement) {
+                stopRadios();
+            }
+        });
+
+        // Refuerzo: detener radios si el usuario pone el cursor sobre un reproductor de video
+        document.addEventListener('DOMContentLoaded', () => {
+            initCantosScroller();
+            initNewScrollers();
+            document.querySelectorAll('iframe').forEach(ifr => {
+                ifr.addEventListener('mouseenter', stopRadios);
+                ifr.addEventListener('touchstart', stopRadios);
+            });
+        });
+    </script>
+</body>
 </html>
-
-
-
