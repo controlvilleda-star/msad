@@ -222,6 +222,24 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+
+        .jesus-glow::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 8px solid transparent;
+            border-radius: inherit;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent, rgba(255,255,255,0.9), transparent) border-box;
+            -webkit-mask:
+                linear-gradient(#fff 0 0) padding-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            background-size: 200% 200%;
+            animation: borderTravel 4s linear infinite;
+            z-index: 30;
+            pointer-events: none;
+        }
         
         .col-card::after {
             content: '';
@@ -466,10 +484,13 @@
         <section class="min-h-[100svh] flex flex-col items-center justify-center p-6 text-center">
 
             <div id="jesus-container" onclick="playJesusVideo()"
-                class="relative w-[80vw] sm:w-[24rem] md:w-[28rem] lg:w-[32rem] aspect-square rounded-full overflow-hidden border-[8px] border-white/20 mb-8 floating mt-8 shadow-[0_0_40px_rgba(255,255,255,0.1)] flex-shrink-0 cursor-pointer mx-auto group">
+                class="relative w-[80vw] sm:w-[24rem] md:w-[28rem] lg:w-[32rem] aspect-square rounded-full overflow-hidden border-[8px] border-white/20 mb-8 floating mt-8 shadow-[0_0_40px_rgba(255,255,255,0.1)] flex-shrink-0 cursor-pointer mx-auto group jesus-glow">
 
                 <img id="jesus-img" src="images/jesus-nuevo.jpg" alt="Jesús"
                     class="absolute inset-0 w-full h-full object-cover z-10">
+
+                <img id="temp-cover" src="images/revive.jpg" alt="Revive"
+                    class="absolute inset-0 w-full h-full object-cover z-[15] pointer-events-none">
 
                 <video id="jesus-video" src="images/jesus.mp4" playsinline preload="auto"
                     class="absolute inset-0 w-full h-full object-cover z-20 opacity-0 cursor-pointer"
