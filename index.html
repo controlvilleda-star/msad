@@ -591,117 +591,123 @@
                 class="glass w-full max-w-[85rem] mx-auto my-12 overflow-hidden rounded-3xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 shadow-[0_15px_40px_rgba(0,0,0,0.4)] border border-white/20">
 
                 <div id="col-literatura"
-                    class="col-card w-full min-h-[400px] sm:min-h-[460px] border-b md:border-r lg:border-b-0 border-white/10 flex flex-col items-center justify-end bg-black transition-colors duration-500 relative overflow-hidden group">
-                    <div class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-                        <div class="bubble-bg absolute inset-0 overflow-hidden">
-                            <img src="images/literatura.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-60 group-hover:opacity-90">
+                    class="col-card w-full border-b md:border-r lg:border-b-0 border-white/10 flex flex-col bg-black transition-colors duration-500 relative overflow-hidden group h-full">
+                    <div class="relative w-full h-48 sm:h-56 overflow-hidden flex-shrink-0">
+                        <div class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+                            <div class="bubble-bg absolute inset-0 overflow-hidden">
+                                <img src="images/literatura.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                            </div>
+                            <div class="bubble-static absolute inset-0 overflow-hidden">
+                                <img src="images/literatura.jpg" alt="Literatura Gratuita" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                            </div>
                         </div>
-                        <div class="bubble-static absolute inset-0 overflow-hidden">
-                            <img src="images/literatura.jpg" alt="Literatura Gratuita" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-60 group-hover:opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-0 pointer-events-none"></div>
+                    </div>
+                    <div class="relative w-full flex-grow flex flex-col items-center bg-[#050505] p-6 md:p-8 lg:p-4 xl:p-6 z-10 justify-end transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none"></div>
+                        <button id="btn-pedir" onclick="toggleFormLiteratura()"
+                            class="glass-btn px-4 py-4 font-black text-3xl md:text-xl lg:text-base xl:text-lg 2xl:text-xl tracking-widest text-white border-yellow-500/40 bg-yellow-500/20 hover:bg-yellow-500/40 flex items-center gap-3 w-full justify-center">
+                            <i class="fa-solid fa-paper-plane"></i> LITERATURA GRATUITA
+                        </button>
+
+                        <div id="form-literatura" class="hidden w-full mt-4 slide-down z-10 relative">
+                            <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-3">
+                                <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
+                                <input type="hidden" name="subject" value="Nueva solicitud de literatura">
+
+                                <input type="text" name="name" placeholder="Nombre completo" required
+                                    class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10">
+                                <input type="email" name="email" placeholder="Correo electrónico" required
+                                    class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10">
+                                <textarea name="address" placeholder="Dirección completa" required
+                                    class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10 resize-none h-20"></textarea>
+
+                                <button type="submit"
+                                    class="glass-btn w-full p-3 font-bold text-white bg-yellow-500/40 hover:bg-yellow-500/60 border-yellow-400/50 text-sm tracking-wider uppercase mt-1">
+                                    Enviar Solicitud
+                                </button>
+                            </form>
                         </div>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/60 to-transparent z-0 pointer-events-none"></div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none"></div>
-                    <div class="p-6 md:p-8 lg:p-3 xl:p-6 w-full flex flex-col items-center relative z-10 mt-auto translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <button id="btn-pedir" onclick="toggleFormLiteratura()"
-                        class="glass-btn px-4 py-4 font-black text-3xl md:text-xl lg:text-base xl:text-lg 2xl:text-xl tracking-widest text-white border-yellow-500/40 bg-yellow-500/20 hover:bg-yellow-500/40 flex items-center gap-3 w-full justify-center text-outline">
-                        <i class="fa-solid fa-paper-plane"></i> LITERATURA GRATUITA
-                    </button>
-
-                    <div id="form-literatura" class="hidden w-full mt-4 slide-down z-10 relative">
-                        <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-3">
-                            <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
-                            <input type="hidden" name="subject" value="Nueva solicitud de literatura">
-
-                            <input type="text" name="name" placeholder="Nombre completo" required
-                                class="glass-input text-sm py-3 bg-black/20 focus:bg-black/40">
-                            <input type="email" name="email" placeholder="Correo electrónico" required
-                                class="glass-input text-sm py-3 bg-black/20 focus:bg-black/40">
-                            <textarea name="address" placeholder="Dirección completa" required
-                                class="glass-input text-sm py-3 bg-black/20 focus:bg-black/40 resize-none h-20"></textarea>
-
-                            <button type="submit"
-                                class="glass-btn w-full p-3 font-bold text-white bg-yellow-500/40 hover:bg-yellow-500/60 border-yellow-400/50 text-sm tracking-wider uppercase mt-1">
-                                Enviar Solicitud
-                            </button>
-                        </form>
-                    </div>
                     </div>
                 </div>
 
                 <div id="col-oracion"
-                    class="col-card w-full min-h-[400px] sm:min-h-[460px] border-b lg:border-b-0 lg:border-r border-white/10 flex flex-col items-center justify-end bg-black transition-colors duration-500 relative overflow-hidden group">
-                    <div class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-                        <div class="bubble-bg absolute inset-0 overflow-hidden">
-                            <img src="images/oracion_nina.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-60 group-hover:opacity-90">
+                    class="col-card w-full border-b lg:border-b-0 lg:border-r border-white/10 flex flex-col bg-black transition-colors duration-500 relative overflow-hidden group h-full">
+                    <div class="relative w-full h-48 sm:h-56 overflow-hidden flex-shrink-0">
+                        <div class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+                            <div class="bubble-bg absolute inset-0 overflow-hidden">
+                                <img src="images/oracion_nina.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                            </div>
+                            <div class="bubble-static absolute inset-0 overflow-hidden">
+                                <img src="images/oracion_nina.png" alt="Pedido de Oración" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                            </div>
                         </div>
-                        <div class="bubble-static absolute inset-0 overflow-hidden">
-                            <img src="images/oracion_nina.png" alt="Pedido de Oración" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-60 group-hover:opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-0 pointer-events-none"></div>
+                    </div>
+                    <div class="relative w-full flex-grow flex flex-col items-center bg-[#050505] p-6 md:p-8 lg:p-4 xl:p-6 z-10 justify-end transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none"></div>
+                        <button id="btn-orar" onclick="toggleFormOracion()"
+                            class="glass-btn px-4 py-4 font-black text-3xl md:text-xl lg:text-base xl:text-lg 2xl:text-xl tracking-widest text-white border-purple-500/40 bg-purple-500/20 hover:bg-purple-500/40 flex items-center gap-3 w-full justify-center">
+                            <i class="fa-solid fa-heart"></i> PEDIDO DE ORACIÓN
+                        </button>
+
+                        <div id="form-oracion" class="hidden w-full mt-4 slide-down z-10 relative">
+                            <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-3">
+                                <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
+                                <input type="hidden" name="subject" value="Nuevo pedido de oración">
+
+                                <input type="text" name="name" placeholder="Tu nombre (opcional)"
+                                    class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10">
+                                <textarea name="message" placeholder="¿Por qué deseas que oremos?" required
+                                    class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10 resize-none h-20"></textarea>
+
+                                <button type="submit"
+                                    class="glass-btn w-full p-3 font-bold text-white bg-purple-500/40 hover:bg-purple-500/60 border-purple-400/50 text-sm tracking-wider uppercase mt-1">
+                                    Enviar Petición
+                                </button>
+                            </form>
                         </div>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/60 to-transparent z-0 pointer-events-none"></div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none"></div>
-                    <div class="p-6 md:p-8 lg:p-3 xl:p-6 w-full flex flex-col items-center relative z-10 mt-auto translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <button id="btn-orar" onclick="toggleFormOracion()"
-                        class="glass-btn px-4 py-4 font-black text-3xl md:text-xl lg:text-base xl:text-lg 2xl:text-xl tracking-widest text-white border-purple-500/40 bg-purple-500/20 hover:bg-purple-500/40 flex items-center gap-3 w-full justify-center text-outline">
-                        <i class="fa-solid fa-heart"></i> PEDIDO DE ORACIÓN
-                    </button>
-
-                    <div id="form-oracion" class="hidden w-full mt-4 slide-down z-10 relative">
-                        <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-3">
-                            <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
-                            <input type="hidden" name="subject" value="Nuevo pedido de oración">
-
-                            <input type="text" name="name" placeholder="Tu nombre (opcional)"
-                                class="glass-input text-sm py-3 bg-black/20 focus:bg-black/40">
-                            <textarea name="message" placeholder="¿Por qué deseas que oremos?" required
-                                class="glass-input text-sm py-3 bg-black/20 focus:bg-black/40 resize-none h-20"></textarea>
-
-                            <button type="submit"
-                                class="glass-btn w-full p-3 font-bold text-white bg-purple-500/40 hover:bg-purple-500/60 border-purple-400/50 text-sm tracking-wider uppercase mt-1">
-                                Enviar Petición
-                            </button>
-                        </form>
-                    </div>
                     </div>
                 </div>
 
                 <div id="col-estudios"
-                    class="col-card w-full min-h-[400px] sm:min-h-[460px] border-b md:border-b-0 md:border-r lg:border-b-0 lg:border-r border-white/10 flex flex-col items-center justify-end bg-black transition-colors duration-500 relative overflow-hidden group">
-                    <div class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-                        <div class="bubble-bg absolute inset-0 overflow-hidden">
-                            <img src="images/fe_de_jesus.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-60 group-hover:opacity-90">
+                    class="col-card w-full border-b md:border-b-0 md:border-r lg:border-b-0 lg:border-r border-white/10 flex flex-col bg-black transition-colors duration-500 relative overflow-hidden group h-full">
+                    <div class="relative w-full h-48 sm:h-56 overflow-hidden flex-shrink-0">
+                        <div class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+                            <div class="bubble-bg absolute inset-0 overflow-hidden">
+                                <img src="images/fe_de_jesus.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                            </div>
+                            <div class="bubble-static absolute inset-0 overflow-hidden">
+                                <img src="images/fe_de_jesus.jpg" alt="Estudios Bíblicos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                            </div>
                         </div>
-                        <div class="bubble-static absolute inset-0 overflow-hidden">
-                            <img src="images/fe_de_jesus.jpg" alt="Estudios Bíblicos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-60 group-hover:opacity-90">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-0 pointer-events-none"></div>
+                    </div>
+                    <div class="relative w-full flex-grow flex flex-col items-center bg-[#050505] p-6 md:p-8 lg:p-4 xl:p-6 z-10 justify-end transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none"></div>
+                        <button id="btn-estudios" onclick="toggleFormEstudios()"
+                            class="glass-btn px-4 py-4 font-black text-3xl md:text-xl lg:text-base xl:text-lg 2xl:text-xl tracking-widest text-white border-blue-500/40 bg-blue-500/20 hover:bg-blue-500/40 flex items-center gap-3 w-full justify-center">
+                            <i class="fa-solid fa-graduation-cap"></i> ESTUDIOS BÍBLICOS
+                        </button>
+
+                        <div id="form-estudios" class="hidden w-full mt-4 slide-down z-10 relative">
+                            <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-3">
+                                <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
+                                <input type="hidden" name="subject" value="Nueva solicitud de estudio bíblico">
+
+                                <input type="text" name="name" placeholder="Nombre completo" required
+                                    class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10">
+                                <input type="tel" name="phone" placeholder="Teléfono / WhatsApp" required
+                                    class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10">
+                                <input type="email" name="email" placeholder="Correo electrónico" required
+                                    class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10">
+
+                                <button type="submit"
+                                    class="glass-btn w-full p-3 font-bold text-white bg-blue-500/40 hover:bg-blue-500/60 border-blue-400/50 text-sm tracking-wider uppercase mt-1">
+                                    Enviar Solicitud
+                                </button>
+                            </form>
                         </div>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/60 to-transparent z-0 pointer-events-none"></div>
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none"></div>
-                    <div class="p-6 md:p-8 lg:p-3 xl:p-6 w-full flex flex-col items-center relative z-10 mt-auto translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <button id="btn-estudios" onclick="toggleFormEstudios()"
-                        class="glass-btn px-4 py-4 font-black text-3xl md:text-xl lg:text-base xl:text-lg 2xl:text-xl tracking-widest text-white border-blue-500/40 bg-blue-500/20 hover:bg-blue-500/40 flex items-center gap-3 w-full justify-center text-outline">
-                        <i class="fa-solid fa-graduation-cap"></i> ESTUDIOS BÍBLICOS
-                    </button>
-
-                    <div id="form-estudios" class="hidden w-full mt-4 slide-down z-10 relative">
-                        <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-3">
-                            <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
-                            <input type="hidden" name="subject" value="Nueva solicitud de estudio bíblico">
-
-                            <input type="text" name="name" placeholder="Nombre completo" required
-                                class="glass-input text-sm py-3 bg-black/20 focus:bg-black/40">
-                            <input type="tel" name="phone" placeholder="Teléfono / WhatsApp" required
-                                class="glass-input text-sm py-3 bg-black/20 focus:bg-black/40">
-                            <input type="email" name="email" placeholder="Correo electrónico" required
-                                class="glass-input text-sm py-3 bg-black/20 focus:bg-black/40">
-
-                            <button type="submit"
-                                class="glass-btn w-full p-3 font-bold text-white bg-blue-500/40 hover:bg-blue-500/60 border-blue-400/50 text-sm tracking-wider uppercase mt-1">
-                                Enviar Solicitud
-                            </button>
-                        </form>
-                    </div>
                     </div>
                 </div>
 
@@ -821,7 +827,7 @@
                     </div>
                     <div class="glass px-4 py-3 rounded-2xl text-left min-w-[15rem] relative z-10">
                         <p id="xperia-cantos-counter"
-                            class="text-[0.72rem] uppercase tracking-[0.35em] text-blue-200/70 mb-1">01 / 16</p>
+                            class="text-[0.72rem] uppercase tracking-[0.35em] text-blue-200/70 mb-1">01 / 17</p>
                         <h4 id="xperia-cantos-title" class="text-lg font-black text-white leading-tight">A tus pies</h4>
                         <p id="xperia-cantos-artist" class="text-sm text-gray-300 mt-1">Miel San Marcos ft. Christine
                             D'Clario</p>
@@ -1035,6 +1041,18 @@
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
                                         class="xperia-canto-title">El Cielo Te Espera</span><span
                                         class="xperia-canto-artist">Canto Tema JA UMCH 2024</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/IFiX7mdqVuM"
+                                data-link="https://youtu.be/IFiX7mdqVuM?si=FvpCTXc3DlQX__kT"
+                                data-title="ROCA DE MI SALVACIÓN" data-artist="Bertha Amado"
+                                onclick="selectCanto(16)">
+                                <span class="xperia-canto-index">17</span><img
+                                    src="https://i.ytimg.com/vi/IFiX7mdqVuM/hqdefault.jpg" alt="ROCA DE MI SALVACIÓN"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">ROCA DE MI SALVACIÓN</span><span
+                                        class="xperia-canto-artist">Bertha Amado</span></span><i
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                         </div>
@@ -1477,23 +1495,7 @@
                         <audio id="radio-zamora" src="https://rtvmgrb.org/reproductor/zamora/" preload="none"></audio>
                     </div>
 
-                    <div
-                        class="glass p-5 rounded-3xl flex flex-col items-center justify-center text-center relative overflow-hidden group border border-white/10 hover:border-blue-500/30 transition-colors">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                        </div>
-                        <h3
-                            class="text-xs font-black text-white uppercase tracking-widest relative z-10 mb-4 h-10 flex items-center justify-center leading-tight">
-                            Radio MV (USA)</h3>
-                        <button onclick="toggleRadio('radio-usa', this)"
-                            class="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center hover:scale-110 transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)] relative z-10 border-4 border-white/20 focus:outline-none bg-cover bg-center overflow-hidden"
-                            style="background-image: url('https://flagcdn.com/w160/us.png');">
-                            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
-                            <i
-                                class="fa-solid fa-play text-3xl sm:text-4xl text-white ml-1.5 relative z-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]"></i>
-                        </button>
-                        <audio id="radio-usa" src="http://stream.radiomv.com/spanish/stream.mp3" preload="none"></audio>
-                    </div>
+
                 </div>
             </div>
 
