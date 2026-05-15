@@ -2491,7 +2491,16 @@
                     const iframe = document.getElementById('iframe-online');
                     if (iframe) {
                         let conector = data.videoId.includes('?') ? '&' : '?';
-                        iframe.setAttribute('data-src', 'https://www.youtube.com/embed/' + data.videoId + conector + 'autoplay=1');
+                        let newUrl = 'https://www.youtube.com/embed/' + data.videoId + conector + 'autoplay=1';
+                        iframe.setAttribute('data-src', newUrl);
+                        
+                        // Si el panel de video ya está abierto, cambiamos el video en vivo al instante
+                        const panelOnline = document.getElementById('panel-online');
+                        if (panelOnline && !panelOnline.classList.contains('hidden')) {
+                            if (iframe.src && !iframe.src.includes(data.videoId)) {
+                                iframe.src = newUrl;
+                            }
+                        }
                     }
                 }
             }).catch(e => console.error('Error video:', e));
