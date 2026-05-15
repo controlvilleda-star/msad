@@ -537,7 +537,7 @@
                         <div class="w-[100vw] ml-[calc(-50vw+50%)] bg-black shadow-2xl z-20 border-y border-white/20">
                             <div class="iframe-container rounded-none">
                                 <iframe id="iframe-online"
-                                    data-src="https://www.youtube.com/embed/live_stream?channel=UCFqRy7pWgY3Yii43GyjtAuA&autoplay=1"
+                                    data-src="https://www.youtube.com/embed/live_stream?channel=UCFqRy7pWgY3Yii43GyjtAuA&autoplay=1&mute=0"
                                     src="" allow="autoplay; encrypted-media" frameborder="0" allowfullscreen></iframe>
                             </div>
                         </div>
@@ -2491,7 +2491,7 @@
                     const iframe = document.getElementById('iframe-online');
                     if (iframe) {
                         let conector = data.videoId.includes('?') ? '&' : '?';
-                        let newUrl = 'https://www.youtube.com/embed/' + data.videoId + conector + 'autoplay=1';
+                        let newUrl = 'https://www.youtube.com/embed/' + data.videoId + conector + 'autoplay=1&mute=0';
                         iframe.setAttribute('data-src', newUrl);
                         
                         // Si el panel de video ya está abierto, cambiamos el video en vivo al instante
