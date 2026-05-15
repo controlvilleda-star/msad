@@ -2480,6 +2480,21 @@
                 ifr.addEventListener('mouseenter', stopRadios);
                 ifr.addEventListener('touchstart', stopRadios);
             });
+
+            // ==== CONEXION CON GITHUB PARA VIDEO EN VIVO ====
+            const configUrl = 'https://raw.githubusercontent.com/controlvilleda-star/youtube-bridge/refs/heads/master/video.json?nocache=' + new Date().getTime();
+            fetch(configUrl).then(response => {
+                if (!response.ok) throw new Error('Error al leer JSON');
+                return response.json();
+            }).then(data => {
+                if (data && data.videoId) {
+                    const iframe = document.getElementById('iframe-online');
+                    if (iframe) {
+                        let conector = data.videoId.includes('?') ? '&' : '?';
+                        iframe.setAttribute('data-src', 'https://www.youtube.com/embed/' + data.videoId + conector + 'autoplay=1');
+                    }
+                }
+            }).catch(e => console.error('Error video:', e));
         });
     </script>
 </body>
