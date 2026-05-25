@@ -6,7 +6,7 @@
         const panelOnline = document.getElementById('panel-online');
         const panelVivo = document.getElementById('panel-vivo');
 
-        // ---- InicializaciÃ³n basada en la URL (al recargar) ----
+        // ---- Inicialización basada en la URL (al recargar) ----
         document.addEventListener("DOMContentLoaded", () => {
             const hash = window.location.hash.substring(1);
             if (hash && document.getElementById('page-' + hash)) {
@@ -18,7 +18,7 @@
             }
         });
 
-        // ---- NavegaciÃ³n SubpÃ¡ginas (Historial y Gestos Android) ----
+        // ---- Navegación Subpáginas (Historial y Gestos Android) ----
         window.addEventListener('popstate', function (event) {
             if (event.state && event.state.page && event.state.page !== 'home') {
                 showPageUI(event.state.page);
@@ -52,7 +52,7 @@
             showPageUI(pageId);
         }
 
-        // ---- LÃ³gica del BotÃ³n "ASISTIR" (Desplegable) ----
+        // ---- Lógica del Botón "ASISTIR" (Desplegable) ----
         function toggleParticipar() {
             if (asisOpciones.classList.contains('hidden')) {
                 asisOpciones.classList.remove('hidden');
@@ -79,7 +79,7 @@
 
             if (type === 'online') {
                 if (!panelOnline.classList.contains('hidden')) {
-                    // Si ya estaba abierto, ciÃ©rralo
+                    // Si ya estaba abierto, ciérralo
                     panelOnline.classList.add('hidden');
                     btnOnline.classList.remove('bg-indigo-500/40', 'border-white');
                     iframe.src = ""; // Detener video
@@ -92,10 +92,10 @@
 
                 // Iniciar video
                 iframe.src = iframe.getAttribute('data-src');
-                stopRadios(); // Si habÃ­a radio sonando, detenerla
+                stopRadios(); // Si había radio sonando, detenerla
             } else {
                 if (!panelVivo.classList.contains('hidden')) {
-                    // Si ya estaba abierto, ciÃ©rralo
+                    // Si ya estaba abierto, ciérralo
                     panelVivo.classList.add('hidden');
                     btnVivo.classList.remove('bg-emerald-500/40', 'border-white');
                     return;
@@ -108,7 +108,7 @@
             }
         }
 
-        // ---- LÃ³gica PestaÃ±as Predicaciones ----
+        // ---- Lógica Pestañas Predicaciones ----
         function switchPredTab(type) {
             const tabLatam = document.getElementById('tab-latam');
             const tabEuro = document.getElementById('tab-euro');
@@ -138,7 +138,7 @@
             }
         }
 
-        // ---- LÃ³gica PestaÃ±as MÃºsica ----
+        // ---- Lógica Pestañas Música ----
         let currentCantoIndex = 0;
 
         function scrollMusicPageTop() {
@@ -292,7 +292,7 @@
             }
         }
 
-        // ---- LÃ³gica de Nuevos Listados de Embeds ----
+        // ---- Lógica de Nuevos Listados de Embeds ----
         let currentLatamIndex = 0;
         let currentEuroIndex = 0;
         let currentCineIndex = 0;
@@ -368,7 +368,7 @@
             }
         }
 
-        // ---- LÃ³gica del Formulario Literatura ----
+        // ---- Lógica del Formulario Literatura ----
         function toggleFormLiteratura() {
             const formContainer = document.getElementById('form-literatura');
             const btn = document.getElementById('btn-pedir');
@@ -391,7 +391,7 @@
             }
         }
 
-        // ---- LÃ³gica del Formulario OraciÃ³n ----
+        // ---- Lógica del Formulario Oración ----
         function toggleFormOracion() {
             const formContainer = document.getElementById('form-oracion');
             const btn = document.getElementById('btn-orar');
@@ -414,7 +414,7 @@
             }
         }
 
-        // ---- LÃ³gica del Formulario Estudios ----
+        // ---- Lógica del Formulario Estudios ----
         function toggleFormEstudios() {
             const formContainer = document.getElementById('form-estudios');
             const btn = document.getElementById('btn-estudios');
@@ -437,17 +437,17 @@
             }
         }
 
-        // ---- LÃ³gica del Video Interactivo JesÃºs ----
+        // ---- Lógica del Video Interactivo Jesús ----
         function playJesusVideo() {
             const video = document.getElementById('jesus-video');
 
-            // Si ya estÃ¡ reproduciendo, no hacer nada
+            // Si ya está reproduciendo, no hacer nada
             if (video.style.opacity === '1') return;
 
-            // Entrada al video inmediata, sin transiciÃ³n (Corte limpio)
+            // Entrada al video inmediata, sin transición (Corte limpio)
             video.style.transition = 'none';
             video.currentTime = 0;
-            video.play().catch(e => console.log('El navegador bloqueÃ³ la reproducciÃ³n:', e));
+            video.play().catch(e => console.log('El navegador bloqueó la reproducción:', e));
 
             video.style.opacity = '1';
         }
@@ -455,19 +455,19 @@
         function stopJesusVideo() {
             const video = document.getElementById('jesus-video');
 
-            // TransiciÃ³n suave y lenta (Crossfade Dissolve) para el retorno a la imagen base
+            // Transición suave y lenta (Crossfade Dissolve) para el retorno a la imagen base
             video.style.transition = 'opacity 1.5s ease-in-out';
 
-            // Se desvanece el video y emerge sutilmente la imagen base original que estÃ¡ debajo
+            // Se desvanece el video y emerge sutilmente la imagen base original que está debajo
             video.style.opacity = '0';
         }
 
-        // Activar el video en el PRIMER click en cualquier parte de la pÃ¡gina
+        // Activar el video en el PRIMER click en cualquier parte de la página
         document.body.addEventListener('click', function () {
             playJesusVideo();
         }, { once: true });
 
-        // ---- LÃ³gica Reproductor Radio Custom ----
+        // ---- Lógica Reproductor Radio Custom ----
         let currentRadioAudio = null;
         let currentRadioIcon = null;
 
@@ -496,13 +496,13 @@
                 icon.classList.remove('fa-play');
                 icon.classList.add('fa-spinner', 'fa-spin');
 
-                // Forzar reconexiÃ³n para streamings en vivo sin cachÃ©
+                // Forzar reconexión para streamings en vivo sin caché
                 let baseSrc = audio.getAttribute('data-src');
                 if (!baseSrc) {
                     baseSrc = audio.src;
                     audio.setAttribute('data-src', baseSrc);
                 }
-                // AÃ±adir un timestamp asegurando conexiÃ³n fresca
+                // Añadir un timestamp asegurando conexión fresca
                 audio.src = baseSrc.split('?')[0] + '?t=' + new Date().getTime();
                 audio.load(); // Es importante hacer load despues de setear el src
 
@@ -556,7 +556,7 @@
                         let newUrl = 'https://www.youtube.com/embed/' + data.videoId + conector + 'autoplay=1&mute=0';
                         iframe.setAttribute('data-src', newUrl);
                         
-                        // Si el panel de video ya está abierto, cambiamos el video en vivo al instante
+                        // Si el panel de video ya est� abierto, cambiamos el video en vivo al instante
                         const panelOnline = document.getElementById('panel-online');
                         if (panelOnline && !panelOnline.classList.contains('hidden')) {
                             if (iframe.src && !iframe.src.includes(data.videoId)) {
