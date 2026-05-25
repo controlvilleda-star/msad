@@ -790,258 +790,284 @@
             </button>
         </div>
 
-        <div class="flex flex-col gap-8">
-            <div class="xperia-cantos-shell p-4 sm:p-6">
-                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6 relative z-10">
-                    <div>
-                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">Campaña de Evangelismo</h3>
-                        <p class="text-sm text-yellow-400 font-bold uppercase tracking-wider mt-1">Pr. Homero Salazar</p>
-                    </div>
-                    <div class="glass px-4 py-3 rounded-2xl text-left min-w-[18rem] relative z-10">
-                        <p id="campana-counter"
-                            class="text-[0.72rem] uppercase tracking-[0.35em] text-yellow-300/70 mb-1">01 / 05</p>
-                        <h4 id="campana-title" class="text-lg font-black text-white leading-tight">Tema 1: Decídete por Jesús</h4>
-                        <p id="campana-speaker" class="text-sm text-gray-300 mt-1">Semana de Evangelismo 'Revive'</p>
-                    </div>
-                </div>
-                <div id="campana-player-card" class="xperia-cantos-player p-4 sm:p-5 relative z-10">
-                    <div class="flex flex-col gap-5">
-                        <div class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
-                            <iframe id="campana-player" src="https://www.youtube.com/embed/hkw9HHW9-Bs"
-                                title="Reproductor de Campaña" frameborder="0" allow="autoplay; encrypted-media"
-                                allowfullscreen></iframe>
+        <div class="flex flex-col gap-6">
+            <!-- COLLAPSIBLE SECTION 1: DINOS CUÁNDO VIENES (Expanded by default) -->
+            <div class="flex flex-col w-full">
+                <button onclick="toggleSection('sec-vienes', 'icon-vienes')" class="w-full glass p-5 flex items-center justify-between text-left hover:bg-white/10 transition-all duration-300 group rounded-2xl relative z-10 border border-white/20">
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-yellow-400/10 text-yellow-400">
+                            <i class="fa-solid fa-church text-2xl"></i>
                         </div>
-                        <div class="flex justify-center gap-4">
-                            <button type="button" class="xperia-scroll-btn px-6"
-                                onclick="stepCampanaSelection(-1)" aria-label="Anterior">
-                                <i class="fa-solid fa-chevron-left text-sm"></i> Anterior
-                            </button>
-                            <button type="button" class="xperia-scroll-btn px-6"
-                                onclick="stepCampanaSelection(1)" aria-label="Siguiente">
-                                Siguiente <i class="fa-solid fa-chevron-right text-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="xperia-cantos-stage mt-5 relative z-10">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                         <div>
-                            <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de Temas</h4>
+                            <h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-wider">Dinos cuándo vienes</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 font-medium">Planifica tu visita presencial y consulta horarios y transportes</p>
                         </div>
                     </div>
-                    <div class="xperia-cantos-track">
-                        <div id="campana-list" class="xperia-cantos-list">
-                            <button type="button" class="xperia-canto-entry active"
-                                data-embed="https://www.youtube.com/embed/hkw9HHW9-Bs"
-                                data-title="Tema 1: Decídete por Jesús" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(0)">
-                                <span class="xperia-canto-index">01</span>
-                                <img src="https://i.ytimg.com/vi/hkw9HHW9-Bs/hqdefault.jpg" alt="Tema 1" class="xperia-canto-thumb">
-                                <span class="xperia-canto-copy">
-                                    <span class="xperia-canto-title">Tema 1: Decídete por Jesús</span>
-                                    <span class="xperia-canto-artist">Pr. Homero Salazar</span>
-                                </span>
-                                <i class="fa-solid fa-circle-play text-white/70"></i>
-                            </button>
-                            <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/e_e-wn56NJ4"
-                                data-title="Tema 2: Decídete por Jesús" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(1)">
-                                <span class="xperia-canto-index">02</span>
-                                <img src="https://i.ytimg.com/vi/e_e-wn56NJ4/hqdefault.jpg" alt="Tema 2" class="xperia-canto-thumb">
-                                <span class="xperia-canto-copy">
-                                    <span class="xperia-canto-title">Tema 2: Decídete por Jesús</span>
-                                    <span class="xperia-canto-artist">Pr. Homero Salazar</span>
-                                </span>
-                                <i class="fa-solid fa-circle-play text-white/70"></i>
-                            </button>
-                            <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/zotxr65Te1M"
-                                data-title="Tema 3: Míster Legión" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(2)">
-                                <span class="xperia-canto-index">03</span>
-                                <img src="https://i.ytimg.com/vi/zotxr65Te1M/hqdefault.jpg" alt="Tema 3" class="xperia-canto-thumb">
-                                <span class="xperia-canto-copy">
-                                    <span class="xperia-canto-title">Tema 3: Míster Legión</span>
-                                    <span class="xperia-canto-artist">Pr. Homero Salazar</span>
-                                </span>
-                                <i class="fa-solid fa-circle-play text-white/70"></i>
-                            </button>
-                            <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/h4HWzg_tyfI"
-                                data-title="Tema 4: Ni yo te condeno" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(3)">
-                                <span class="xperia-canto-index">04</span>
-                                <img src="https://i.ytimg.com/vi/h4HWzg_tyfI/hqdefault.jpg" alt="Tema 4" class="xperia-canto-thumb">
-                                <span class="xperia-canto-copy">
-                                    <span class="xperia-canto-title">Tema 4: Ni yo te condeno</span>
-                                    <span class="xperia-canto-artist">Pr. Homero Salazar</span>
-                                </span>
-                                <i class="fa-solid fa-circle-play text-white/70"></i>
-                            </button>
-                            <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/lqABr1fXHcs"
-                                data-title="Culto Divino: Recibiréis Poder" data-speaker="Sábado - Mensaje Principal" onclick="selectCampana(4)">
-                                <span class="xperia-canto-index">05</span>
-                                <img src="https://i.ytimg.com/vi/lqABr1fXHcs/hqdefault.jpg" alt="Tema 5" class="xperia-canto-thumb">
-                                <span class="xperia-canto-copy">
-                                    <span class="xperia-canto-title">Culto Divino: Recibiréis Poder</span>
-                                    <span class="xperia-canto-artist">Pr. Homero Salazar</span>
-                                </span>
-                                <i class="fa-solid fa-circle-play text-white/70"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    <i id="icon-vienes" class="fa-solid fa-chevron-down text-xl sm:text-2xl text-white/70 group-hover:text-white transition-transform duration-300" style="transform: rotate(180deg);"></i>
+                </button>
 
-            <!-- SECCIÓN: DINOS CUÁNDO VIENES & VISÍTANOS -->
-            <div class="xperia-cantos-shell p-4 sm:p-6 mt-4">
-                <div class="flex flex-col gap-3 mb-8 text-center relative z-10">
-                    <i class="fa-solid fa-church text-4xl text-yellow-400"></i>
-                    <h3 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-wider">Dinos cuándo vienes</h3>
-                    <p class="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto">
-                        Queremos prepararlo todo para que tengas la mejor experiencia. Completa el formulario de visita y conoce cómo llegar y nuestros horarios de culto. ¡Será un placer recibirte!
-                    </p>
-                </div>
+                <div id="sec-vienes" class="flex flex-col gap-6 mt-4 slide-down">
+                    <div class="xperia-cantos-shell p-4 sm:p-6">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
+                            <!-- Formulario de Visita -->
+                            <div class="glass p-5 sm:p-6 flex flex-col gap-4 text-left border border-white/10 bg-white/5">
+                                <h4 class="text-white font-bold text-xl mb-2 flex items-center gap-2 border-b border-white/10 pb-3">
+                                    <i class="fa-solid fa-id-card text-yellow-400"></i> Registro de Visita
+                                </h4>
+                                
+                                <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-4 w-full">
+                                    <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
+                                    <input type="hidden" name="subject" value="Nueva planificación de visita presencial">
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
-                    <!-- Formulario de Visita -->
-                    <div class="glass p-5 sm:p-6 flex flex-col gap-4 text-left border border-white/10 bg-white/5">
-                        <h4 class="text-white font-bold text-xl mb-2 flex items-center gap-2 border-b border-white/10 pb-3">
-                            <i class="fa-solid fa-id-card text-yellow-400"></i> Registro de Visita
-                        </h4>
-                        
-                        <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-4 w-full">
-                            <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
-                            <input type="hidden" name="subject" value="Nueva planificación de visita presencial">
-
-                            <div class="flex flex-col gap-1">
-                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">Nombre Completo</label>
-                                <input type="text" name="name" placeholder="Nombre completo" required class="glass-input">
-                            </div>
-
-                            <div class="flex flex-col gap-1">
-                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">WhatsApp o Teléfono</label>
-                                <input type="tel" name="phone" placeholder="Ej: +34 600 000 000" required class="glass-input">
-                            </div>
-
-                            <div class="flex flex-col gap-1">
-                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Cuándo tienes pensado visitarnos?</label>
-                                <select name="visita_fecha" data-label="Fecha/Hora Planeada" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
-                                    <option value="" disabled selected class="bg-slate-900">Selecciona un servicio</option>
-                                    <option value="Sábado por la mañana (10:00 AM)" class="bg-slate-900">Sábado por la mañana (10:00 AM) - Escuela Sabática y Culto</option>
-                                    <option value="Sábado por la tarde (6:00 PM)" class="bg-slate-900">Sábado por la tarde (6:00 PM) - Sociedad de Jóvenes</option>
-                                    <option value="Miércoles por la tarde (7:30 PM)" class="bg-slate-900">Miércoles por la tarde (7:30 PM) - Oración</option>
-                                </select>
-                            </div>
-
-                            <div class="flex flex-col gap-1">
-                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Es tu primera vez visitando una iglesia adventista?</label>
-                                <select name="es_primera_vez" data-label="Primera vez" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
-                                    <option value="Sí, es mi primera vez" class="bg-slate-900">Sí, es mi primera vez</option>
-                                    <option value="No, ya he asistido antes" class="bg-slate-900">No, ya he asistido antes</option>
-                                </select>
-                            </div>
-
-                            <div class="flex flex-col gap-1">
-                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Cómo vendrás?</label>
-                                <select name="acompanado" data-label="Acompañamiento" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
-                                    <option value="Vengo solo" class="bg-slate-900">Vengo solo</option>
-                                    <option value="Vengo con mi familia" class="bg-slate-900">Vengo con mi familia</option>
-                                    <option value="Vengo con amigos" class="bg-slate-900">Vengo con amigos</option>
-                                </select>
-                            </div>
-
-                            <div class="flex items-center gap-3 mt-1 px-1">
-                                <input type="checkbox" id="recibir_entrada" name="recibir_entrada" value="Sí, desea ser esperado en la entrada" data-label="Esperar en la entrada" class="w-5 h-5 rounded border-white/20 bg-white/10 text-yellow-500 focus:ring-yellow-500/50 cursor-pointer">
-                                <label for="recibir_entrada" class="text-sm text-gray-200 cursor-pointer font-medium select-none">Me gustaría que alguien me espere en la entrada</label>
-                            </div>
-
-                            <div class="flex flex-col gap-1">
-                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Alguna petición de oración o comentario?</label>
-                                <textarea name="message" placeholder="Escribe aquí tu petición o cualquier duda..." class="glass-input resize-none h-20"></textarea>
-                            </div>
-
-                            <button type="submit" class="glass-btn w-full p-4 font-black bg-yellow-500/30 hover:bg-yellow-500/50 border-yellow-500/40 text-yellow-300 mt-2 uppercase tracking-widest transition-all">
-                                Confirmar Visita
-                            </button>
-                        </form>
-                    </div>
-
-                    <!-- Horarios, Transporte y Mapa -->
-                    <div class="flex flex-col gap-6">
-                        <!-- Horarios y Cómo llegar -->
-                        <div class="glass p-5 sm:p-6 text-left border border-white/10 bg-white/5 flex flex-col gap-4">
-                            <h4 class="text-white font-bold text-xl flex items-center gap-2 border-b border-white/10 pb-3">
-                                <i class="fa-solid fa-clock text-yellow-400"></i> Horarios de Culto
-                            </h4>
-                            <div class="flex flex-col gap-3 text-sm sm:text-base">
-                                <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
-                                    <span class="font-bold text-gray-100">Sábado Mañana</span>
-                                    <span class="text-yellow-400 font-semibold">10:00 AM (Biblia) &amp; 11:15 AM (Culto)</span>
-                                </div>
-                                <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
-                                    <span class="font-bold text-gray-100">Sábado Tarde</span>
-                                    <span class="text-yellow-400 font-semibold">6:00 PM (Jóvenes)</span>
-                                </div>
-                                <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
-                                    <span class="font-bold text-gray-100">Miércoles Tarde</span>
-                                    <span class="text-yellow-400 font-semibold">7:30 PM (Oración)</span>
-                                </div>
-                            </div>
-
-                            <h4 class="text-white font-bold text-xl flex items-center gap-2 border-b border-white/10 pt-2 pb-3">
-                                <i class="fa-solid fa-train-subway text-yellow-400"></i> Cómo Llegar
-                            </h4>
-                            <div class="flex flex-col gap-3 text-sm sm:text-base">
-                                <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
-                                    <div class="flex items-center justify-center bg-red-500/20 text-red-400 w-10 h-10 rounded-full shrink-0">
-                                        <i class="fa-solid fa-train"></i>
+                                    <div class="flex flex-col gap-1">
+                                        <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">Nombre Completo</label>
+                                        <input type="text" name="name" placeholder="Nombre completo" required class="glass-input">
                                     </div>
-                                    <div>
-                                        <span class="font-bold text-gray-100 block">Metro</span>
-                                        <span class="text-gray-300 text-xs sm:text-sm">L1, L3 (Pl. Catalunya) &bull; L1, L2 (Pl. Universitat)</span>
+
+                                    <div class="flex flex-col gap-1">
+                                        <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">WhatsApp o Teléfono</label>
+                                        <input type="tel" name="phone" placeholder="Ej: +34 600 000 000" required class="glass-input">
+                                    </div>
+
+                                    <div class="flex flex-col gap-1">
+                                        <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Cuándo tienes pensado visitarnos?</label>
+                                        <select name="visita_fecha" data-label="Fecha/Hora Planeada" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
+                                            <option value="" disabled selected class="bg-slate-900">Selecciona un servicio</option>
+                                            <option value="Sábado por la mañana (10:00 AM)" class="bg-slate-900">Sábado por la mañana (10:00 AM) - Escuela Sabática y Culto</option>
+                                            <option value="Sábado por la tarde (6:00 PM)" class="bg-slate-900">Sábado por la tarde (6:00 PM) - Sociedad de Jóvenes</option>
+                                            <option value="Miércoles por la tarde (7:30 PM)" class="bg-slate-900">Miércoles por la tarde (7:30 PM) - Oración</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="flex flex-col gap-1">
+                                        <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Es tu primera vez visitando una iglesia adventista?</label>
+                                        <select name="es_primera_vez" data-label="Primera vez" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
+                                            <option value="Sí, es mi primera vez" class="bg-slate-900">Sí, es mi primera vez</option>
+                                            <option value="No, ya he asistido antes" class="bg-slate-900">No, ya he asistido antes</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="flex flex-col gap-1">
+                                        <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Cómo vendrás?</label>
+                                        <select name="acompanado" data-label="Acompañamiento" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
+                                            <option value="Vengo solo" class="bg-slate-900">Vengo solo</option>
+                                            <option value="Vengo con mi familia" class="bg-slate-900">Vengo con mi familia</option>
+                                            <option value="Vengo con amigos" class="bg-slate-900">Vengo con amigos</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="flex items-center gap-3 mt-1 px-1">
+                                        <input type="checkbox" id="recibir_entrada" name="recibir_entrada" value="Sí, desea ser esperado en la entrada" data-label="Esperar en la entrada" class="w-5 h-5 rounded border-white/20 bg-white/10 text-yellow-500 focus:ring-yellow-500/50 cursor-pointer">
+                                        <label for="recibir_entrada" class="text-sm text-gray-200 cursor-pointer font-medium select-none">Me gustaría que alguien me espere en la entrada</label>
+                                    </div>
+
+                                    <div class="flex flex-col gap-1">
+                                        <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Alguna petición de oración o comentario?</label>
+                                        <textarea name="message" placeholder="Escribe aquí tu petición o cualquier duda..." class="glass-input resize-none h-20"></textarea>
+                                    </div>
+
+                                    <button type="submit" class="glass-btn w-full p-4 font-black bg-yellow-500/30 hover:bg-yellow-500/50 border-yellow-500/40 text-yellow-300 mt-2 uppercase tracking-widest transition-all">
+                                        Confirmar Visita
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- Horarios, Transporte y Mapa -->
+                            <div class="flex flex-col gap-6">
+                                <!-- Horarios y Cómo llegar -->
+                                <div class="glass p-5 sm:p-6 text-left border border-white/10 bg-white/5 flex flex-col gap-4">
+                                    <h4 class="text-white font-bold text-xl flex items-center gap-2 border-b border-white/10 pb-3">
+                                        <i class="fa-solid fa-clock text-yellow-400"></i> Horarios de Culto
+                                    </h4>
+                                    <div class="flex flex-col gap-3 text-sm sm:text-base">
+                                        <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+                                            <span class="font-bold text-gray-100">Sábado Mañana</span>
+                                            <span class="text-yellow-400 font-semibold">10:00 AM (Biblia) &amp; 11:15 AM (Culto)</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+                                            <span class="font-bold text-gray-100">Sábado Tarde</span>
+                                            <span class="text-yellow-400 font-semibold">6:00 PM (Jóvenes)</span>
+                                        </div>
+                                        <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+                                            <span class="font-bold text-gray-100">Miércoles Tarde</span>
+                                            <span class="text-yellow-400 font-semibold">7:30 PM (Oración)</span>
+                                        </div>
+                                    </div>
+
+                                    <h4 class="text-white font-bold text-xl flex items-center gap-2 border-b border-white/10 pt-2 pb-3">
+                                        <i class="fa-solid fa-train-subway text-yellow-400"></i> Cómo Llegar
+                                    </h4>
+                                    <div class="flex flex-col gap-3 text-sm sm:text-base">
+                                        <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
+                                            <div class="flex items-center justify-center bg-red-500/20 text-red-400 w-10 h-10 rounded-full shrink-0">
+                                                <i class="fa-solid fa-train"></i>
+                                            </div>
+                                            <div>
+                                                <span class="font-bold text-gray-100 block">Metro</span>
+                                                <span class="text-gray-300 text-xs sm:text-sm">L1, L3 (Pl. Catalunya) &bull; L1, L2 (Pl. Universitat)</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
+                                            <div class="flex items-center justify-center bg-blue-500/20 text-blue-400 w-10 h-10 rounded-full shrink-0">
+                                                <i class="fa-solid fa-bus"></i>
+                                            </div>
+                                            <div>
+                                                <span class="font-bold text-gray-100 block">Autobuses Urbanos</span>
+                                                <span class="text-gray-300 text-xs sm:text-sm">Líneas 55, 59, H16, V13, D50, 67 (Paradas en Pl. Catalunya / Pl. Universitat)</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
+                                            <div class="flex items-center justify-center bg-emerald-500/20 text-emerald-400 w-10 h-10 rounded-full shrink-0">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                            </div>
+                                            <div>
+                                                <span class="font-bold text-gray-100 block">Cercanías / FGC / Renfe</span>
+                                                <span class="text-gray-300 text-xs sm:text-sm">Estación de Plaça Catalunya (a 4 minutos caminando de la iglesia)</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
-                                    <div class="flex items-center justify-center bg-blue-500/20 text-blue-400 w-10 h-10 rounded-full shrink-0">
-                                        <i class="fa-solid fa-bus"></i>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold text-gray-100 block">Autobuses Urbanos</span>
-                                        <span class="text-gray-300 text-xs sm:text-sm">Líneas 55, 59, H16, V13, D50, 67 (Paradas en Pl. Catalunya / Pl. Universitat)</span>
-                                    </div>
-                                </div>
-                                <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
-                                    <div class="flex items-center justify-center bg-emerald-500/20 text-emerald-400 w-10 h-10 rounded-full shrink-0">
-                                        <i class="fa-solid fa-location-dot"></i>
-                                    </div>
-                                    <div>
-                                        <span class="font-bold text-gray-100 block">Cercanías / FGC / Renfe</span>
-                                        <span class="text-gray-300 text-xs sm:text-sm">Estación de Plaça Catalunya (a 4 minutos caminando de la iglesia)</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Mapa interactivo -->
-                        <div class="glass p-5 text-left border border-white/10 bg-white/5 flex flex-col gap-4">
-                            <h4 class="text-white font-bold text-lg flex items-center gap-2">
-                                <i class="fa-solid fa-map-location-dot text-yellow-400"></i> Ubicación de la Iglesia
-                            </h4>
-                            <div class="iframe-container shadow-inner" style="padding-bottom: 50%;">
-                                <iframe
-                                    src="https://maps.google.com/maps?q=Iglesia+Adventista+del+Séptimo+Día+Tallers+Barcelona&output=embed&z=15"
-                                    frameborder="0" loading="lazy" allowfullscreen style="border:0;"></iframe>
+                                <!-- Mapa interactivo -->
+                                <div class="glass p-5 text-left border border-white/10 bg-white/5 flex flex-col gap-4">
+                                    <h4 class="text-white font-bold text-lg flex items-center gap-2">
+                                        <i class="fa-solid fa-map-location-dot text-yellow-400"></i> Ubicación de la Iglesia
+                                    </h4>
+                                    <div class="iframe-container shadow-inner" style="padding-bottom: 50%;">
+                                        <iframe
+                                            src="https://maps.google.com/maps?q=Iglesia+Adventista+del+Séptimo+Día+Tallers+Barcelona&output=embed&z=15"
+                                            frameborder="0" loading="lazy" allowfullscreen style="border:0;"></iframe>
+                                    </div>
+                                    <a href="https://www.google.com/maps/search/Iglesia+Adventista+del+S%C3%A9ptimo+D%C3%ADa+Tallers+Barcelona"
+                                        target="_blank"
+                                        class="glass-btn w-full p-3 font-semibold text-yellow-400 border-yellow-400/30 flex justify-center items-center gap-2 bg-yellow-950/40 hover:bg-yellow-950/60 transition-all">
+                                        📍 Abrir en Google Maps
+                                    </a>
+                                </div>
                             </div>
-                            <a href="https://www.google.com/maps/search/Iglesia+Adventista+del+S%C3%A9ptimo+D%C3%ADa+Tallers+Barcelona"
-                                target="_blank"
-                                class="glass-btn w-full p-3 font-semibold text-yellow-400 border-yellow-400/30 flex justify-center items-center gap-2 bg-yellow-950/40 hover:bg-yellow-950/60 transition-all">
-                                📍 Abrir en Google Maps
-                            </a>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- COLLAPSIBLE SECTION 2: CAMPAÑA ANTERIOR / REVIVE (Collapsed by default) -->
+            <div class="flex flex-col w-full">
+                <button onclick="toggleSection('sec-campana-anterior', 'icon-campana-anterior')" class="w-full glass p-5 flex items-center justify-between text-left hover:bg-white/10 transition-all duration-300 group rounded-2xl relative z-10 border border-white/20">
+                    <div class="flex items-center gap-4">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-yellow-400/10 text-yellow-400">
+                            <i class="fa-solid fa-calendar-check text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-wider">Campaña Anterior: Revive</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 font-medium">Temas inspiradores del Pr. Homero Salazar</p>
+                        </div>
+                    </div>
+                    <i id="icon-campana-anterior" class="fa-solid fa-chevron-down text-xl sm:text-2xl text-white/70 group-hover:text-white transition-transform duration-300" style="transform: rotate(0deg);"></i>
+                </button>
+
+                <div id="sec-campana-anterior" class="hidden flex-col gap-6 mt-4 slide-down">
+                    <div class="xperia-cantos-shell p-4 sm:p-6">
+                        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6 relative z-10">
+                            <div>
+                                <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">Campaña de Evangelismo</h3>
+                                <p class="text-sm text-yellow-400 font-bold uppercase tracking-wider mt-1">Pr. Homero Salazar</p>
+                            </div>
+                            <div class="glass px-4 py-3 rounded-2xl text-left min-w-[18rem] relative z-10">
+                                <p id="campana-counter"
+                                    class="text-[0.72rem] uppercase tracking-[0.35em] text-yellow-300/70 mb-1">01 / 05</p>
+                                <h4 id="campana-title" class="text-lg font-black text-white leading-tight">Tema 1: Decídete por Jesús</h4>
+                                <p id="campana-speaker" class="text-sm text-gray-300 mt-1">Semana de Evangelismo 'Revive'</p>
+                            </div>
+                        </div>
+                        <div id="campana-player-card" class="xperia-cantos-player p-4 sm:p-5 relative z-10">
+                            <div class="flex flex-col gap-5">
+                                <div class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
+                                    <iframe id="campana-player" src="https://www.youtube.com/embed/hkw9HHW9-Bs"
+                                        title="Reproductor de Campaña" frameborder="0" allow="autoplay; encrypted-media"
+                                        allowfullscreen></iframe>
+                                </div>
+                                <div class="flex justify-center gap-4">
+                                    <button type="button" class="xperia-scroll-btn px-6"
+                                        onclick="stepCampanaSelection(-1)" aria-label="Anterior">
+                                        <i class="fa-solid fa-chevron-left text-sm"></i> Anterior
+                                    </button>
+                                    <button type="button" class="xperia-scroll-btn px-6"
+                                        onclick="stepCampanaSelection(1)" aria-label="Siguiente">
+                                        Siguiente <i class="fa-solid fa-chevron-right text-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="xperia-cantos-stage mt-5 relative z-10">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                                <div>
+                                    <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de Temas</h4>
+                                </div>
+                            </div>
+                            <div class="xperia-cantos-track">
+                                <div id="campana-list" class="xperia-cantos-list">
+                                    <button type="button" class="xperia-canto-entry active"
+                                        data-embed="https://www.youtube.com/embed/hkw9HHW9-Bs"
+                                        data-title="Tema 1: Decídete por Jesús" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(0)">
+                                        <span class="xperia-canto-index">01</span>
+                                        <img src="https://i.ytimg.com/vi/hkw9HHW9-Bs/hqdefault.jpg" alt="Tema 1" class="xperia-canto-thumb">
+                                        <span class="xperia-canto-copy">
+                                            <span class="xperia-canto-title">Tema 1: Decídete por Jesús</span>
+                                            <span class="xperia-canto-artist">Pr. Homero Salazar</span>
+                                        </span>
+                                        <i class="fa-solid fa-circle-play text-white/70"></i>
+                                    </button>
+                                    <button type="button" class="xperia-canto-entry"
+                                        data-embed="https://www.youtube.com/embed/e_e-wn56NJ4"
+                                        data-title="Tema 2: Decídete por Jesús" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(1)">
+                                        <span class="xperia-canto-index">02</span>
+                                        <img src="https://i.ytimg.com/vi/e_e-wn56NJ4/hqdefault.jpg" alt="Tema 2" class="xperia-canto-thumb">
+                                        <span class="xperia-canto-copy">
+                                            <span class="xperia-canto-title">Tema 2: Decídete por Jesús</span>
+                                            <span class="xperia-canto-artist">Pr. Homero Salazar</span>
+                                        </span>
+                                        <i class="fa-solid fa-circle-play text-white/70"></i>
+                                    </button>
+                                    <button type="button" class="xperia-canto-entry"
+                                        data-embed="https://www.youtube.com/embed/zotxr65Te1M"
+                                        data-title="Tema 3: Míster Legión" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(2)">
+                                        <span class="xperia-canto-index">03</span>
+                                        <img src="https://i.ytimg.com/vi/zotxr65Te1M/hqdefault.jpg" alt="Tema 3" class="xperia-canto-thumb">
+                                        <span class="xperia-canto-copy">
+                                            <span class="xperia-canto-title">Tema 3: Míster Legión</span>
+                                            <span class="xperia-canto-artist">Pr. Homero Salazar</span>
+                                        </span>
+                                        <i class="fa-solid fa-circle-play text-white/70"></i>
+                                    </button>
+                                    <button type="button" class="xperia-canto-entry"
+                                        data-embed="https://www.youtube.com/embed/h4HWzg_tyfI"
+                                        data-title="Tema 4: Ni yo te condeno" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(3)">
+                                        <span class="xperia-canto-index">04</span>
+                                        <img src="https://i.ytimg.com/vi/h4HWzg_tyfI/hqdefault.jpg" alt="Tema 4" class="xperia-canto-thumb">
+                                        <span class="xperia-canto-copy">
+                                            <span class="xperia-canto-title">Tema 4: Ni yo te condeno</span>
+                                            <span class="xperia-canto-artist">Pr. Homero Salazar</span>
+                                        </span>
+                                        <i class="fa-solid fa-circle-play text-white/70"></i>
+                                    </button>
+                                    <button type="button" class="xperia-canto-entry"
+                                        data-embed="https://www.youtube.com/embed/lqABr1fXHcs"
+                                        data-title="Culto Divino: Recibiréis Poder" data-speaker="Sábado - Mensaje Principal" onclick="selectCampana(4)">
+                                        <span class="xperia-canto-index">05</span>
+                                        <img src="https://i.ytimg.com/vi/lqABr1fXHcs/hqdefault.jpg" alt="Tema 5" class="xperia-canto-thumb">
+                                        <span class="xperia-canto-copy">
+                                            <span class="xperia-canto-title">Culto Divino: Recibiréis Poder</span>
+                                            <span class="xperia-canto-artist">Pr. Homero Salazar</span>
+                                        </span>
+                                        <i class="fa-solid fa-circle-play text-white/70"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -2619,6 +2645,32 @@
 
             if (shouldReturnToPlayer) {
                 scrollCampanaTop();
+            }
+        }
+
+        // ---- Lógica de las Secciones Colapsables (Acordeón) ----
+        function toggleSection(sectionId, iconId) {
+            const sec = document.getElementById(sectionId);
+            const icon = document.getElementById(iconId);
+            if (!sec || !icon) return;
+
+            if (sec.classList.contains('hidden')) {
+                sec.classList.remove('hidden');
+                sec.classList.add('flex');
+                icon.style.transform = 'rotate(180deg)';
+                
+                // Si abrimos la sección de la campaña, inicializar listado
+                if (sectionId === 'sec-campana-anterior') {
+                    const listCampana = document.getElementById('campana-list');
+                    if (listCampana && listCampana.dataset.ready !== 'true') {
+                        listCampana.dataset.ready = 'true';
+                        selectCampana(0, false);
+                    }
+                }
+            } else {
+                sec.classList.add('hidden');
+                sec.classList.remove('flex');
+                icon.style.transform = 'rotate(0deg)';
             }
         }
 

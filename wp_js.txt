@@ -421,6 +421,32 @@
             }
         }
 
+        // ---- Lógica de las Secciones Colapsables (Acordeón) ----
+        function toggleSection(sectionId, iconId) {
+            const sec = document.getElementById(sectionId);
+            const icon = document.getElementById(iconId);
+            if (!sec || !icon) return;
+
+            if (sec.classList.contains('hidden')) {
+                sec.classList.remove('hidden');
+                sec.classList.add('flex');
+                icon.style.transform = 'rotate(180deg)';
+                
+                // Si abrimos la sección de la campaña, inicializar listado
+                if (sectionId === 'sec-campana-anterior') {
+                    const listCampana = document.getElementById('campana-list');
+                    if (listCampana && listCampana.dataset.ready !== 'true') {
+                        listCampana.dataset.ready = 'true';
+                        selectCampana(0, false);
+                    }
+                }
+            } else {
+                sec.classList.add('hidden');
+                sec.classList.remove('flex');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
         // ---- Lógica del Formulario Literatura ----
         function toggleFormLiteratura() {
             const formContainer = document.getElementById('form-literatura');
