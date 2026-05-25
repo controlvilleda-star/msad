@@ -366,6 +366,59 @@
                 listCine.dataset.ready = 'true';
                 selectCine(0, false);
             }
+            const listCampana = document.getElementById('campana-list');
+            if (listCampana && listCampana.dataset.ready !== 'true') {
+                listCampana.dataset.ready = 'true';
+                selectCampana(0, false);
+            }
+        }
+
+        // ---- Lógica del Reproductor de Campaña ----
+        let currentCampanaIndex = 0;
+
+        function scrollCampanaTop() {
+            const playerCard = document.getElementById('campana-player-card');
+            if (!playerCard) return;
+            const top = playerCard.getBoundingClientRect().top + window.pageYOffset - 12;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
+
+        function stepCampanaSelection(direction) {
+            selectCampana(currentCampanaIndex + direction, false, true);
+        }
+
+        function selectCampana(index, shouldReturnToPlayer = true, shouldScrollList = false) {
+            const list = document.getElementById('campana-list');
+            if (!list) return;
+            const entries = Array.from(list.querySelectorAll('.xperia-canto-entry'));
+            const player = document.getElementById('campana-player');
+            const title = document.getElementById('campana-title');
+            const speaker = document.getElementById('campana-speaker');
+            const counter = document.getElementById('campana-counter');
+
+            if (!entries.length || !player) return;
+
+            currentCampanaIndex = Math.max(0, Math.min(index, entries.length - 1));
+            const activeEntry = entries[currentCampanaIndex];
+
+            entries.forEach((entry, entryIndex) => {
+                entry.classList.toggle('active', entryIndex === currentCampanaIndex);
+            });
+
+            if (player.getAttribute('src') !== activeEntry.dataset.embed) {
+                player.src = activeEntry.dataset.embed;
+            }
+            if (title) title.textContent = activeEntry.dataset.title;
+            if (speaker) speaker.textContent = activeEntry.dataset.speaker;
+            if (counter) counter.textContent = `${String(currentCampanaIndex + 1).padStart(2, '0')} / ${String(entries.length).padStart(2, '0')}`;
+
+            if (shouldScrollList) {
+                activeEntry.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            if (shouldReturnToPlayer) {
+                scrollCampanaTop();
+            }
         }
 
         // ---- Lógica del Formulario Literatura ----

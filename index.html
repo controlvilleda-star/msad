@@ -503,10 +503,10 @@
 
             </div>
 
-            <h1
-                class="relative z-40 pointer-events-none text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-8 tracking-tight drop-shadow-xl uppercase leading-none">
-                GRAN EVENTO<br>DE LA FE
-            </h1>
+            <button onclick="goPage('campana')"
+                class="glass-btn relative z-40 text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-8 tracking-tight drop-shadow-xl uppercase leading-none px-8 py-6 bg-white/5 hover:bg-white/15 border-white/20 transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.05)]">
+                VEN A LA IGLESIA
+            </button>
 
             <div class="w-full max-w-md lg:max-w-lg mb-6 flex flex-col items-center">
 
@@ -775,6 +775,123 @@
 
             </div>
         </section>
+    </div>
+
+    <div id="page-campana" class="page relative z-10 w-full min-h-screen px-4 pb-20 pt-8 max-w-7xl mx-auto">
+        <div class="flex justify-start items-center mb-10 w-full">
+            <button onclick="goHome()"
+                class="flex items-center gap-3 sm:gap-4 bg-transparent hover:-translate-x-2 transition-transform duration-300 group cursor-pointer focus:outline-none">
+                <i class="fa-solid fa-chevron-left text-2xl sm:text-3xl text-white/70 group-hover:text-white"></i>
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-calendar-check text-2xl sm:text-3xl text-yellow-400"></i>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-widest drop-shadow-md">
+                        Última Campaña</h2>
+                </div>
+            </button>
+        </div>
+
+        <div class="flex flex-col gap-8">
+            <div class="xperia-cantos-shell p-4 sm:p-6">
+                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6 relative z-10">
+                    <div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">Campaña de Evangelismo</h3>
+                        <p class="text-sm text-yellow-400 font-bold uppercase tracking-wider mt-1">Pr. Homero Salazar</p>
+                    </div>
+                    <div class="glass px-4 py-3 rounded-2xl text-left min-w-[18rem] relative z-10">
+                        <p id="campana-counter"
+                            class="text-[0.72rem] uppercase tracking-[0.35em] text-yellow-300/70 mb-1">01 / 05</p>
+                        <h4 id="campana-title" class="text-lg font-black text-white leading-tight">Tema 1: Decídete por Jesús</h4>
+                        <p id="campana-speaker" class="text-sm text-gray-300 mt-1">Semana de Evangelismo 'Revive'</p>
+                    </div>
+                </div>
+                <div id="campana-player-card" class="xperia-cantos-player p-4 sm:p-5 relative z-10">
+                    <div class="flex flex-col gap-5">
+                        <div class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
+                            <iframe id="campana-player" src="https://www.youtube.com/embed/hkw9HHW9-Bs"
+                                title="Reproductor de Campaña" frameborder="0" allow="autoplay; encrypted-media"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="flex justify-center gap-4">
+                            <button type="button" class="xperia-scroll-btn px-6"
+                                onclick="stepCampanaSelection(-1)" aria-label="Anterior">
+                                <i class="fa-solid fa-chevron-left text-sm"></i> Anterior
+                            </button>
+                            <button type="button" class="xperia-scroll-btn px-6"
+                                onclick="stepCampanaSelection(1)" aria-label="Siguiente">
+                                Siguiente <i class="fa-solid fa-chevron-right text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="xperia-cantos-stage mt-5 relative z-10">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                        <div>
+                            <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de Temas</h4>
+                        </div>
+                    </div>
+                    <div class="xperia-cantos-track">
+                        <div id="campana-list" class="xperia-cantos-list">
+                            <button type="button" class="xperia-canto-entry active"
+                                data-embed="https://www.youtube.com/embed/hkw9HHW9-Bs"
+                                data-title="Tema 1: Decídete por Jesús" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(0)">
+                                <span class="xperia-canto-index">01</span>
+                                <img src="https://i.ytimg.com/vi/hkw9HHW9-Bs/hqdefault.jpg" alt="Tema 1" class="xperia-canto-thumb">
+                                <span class="xperia-canto-copy">
+                                    <span class="xperia-canto-title">Tema 1: Decídete por Jesús</span>
+                                    <span class="xperia-canto-artist">Pr. Homero Salazar</span>
+                                </span>
+                                <i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/e_e-wn56NJ4"
+                                data-title="Tema 2: Decídete por Jesús" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(1)">
+                                <span class="xperia-canto-index">02</span>
+                                <img src="https://i.ytimg.com/vi/e_e-wn56NJ4/hqdefault.jpg" alt="Tema 2" class="xperia-canto-thumb">
+                                <span class="xperia-canto-copy">
+                                    <span class="xperia-canto-title">Tema 2: Decídete por Jesús</span>
+                                    <span class="xperia-canto-artist">Pr. Homero Salazar</span>
+                                </span>
+                                <i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/zotxr65Te1M"
+                                data-title="Tema 3: Míster Legión" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(2)">
+                                <span class="xperia-canto-index">03</span>
+                                <img src="https://i.ytimg.com/vi/zotxr65Te1M/hqdefault.jpg" alt="Tema 3" class="xperia-canto-thumb">
+                                <span class="xperia-canto-copy">
+                                    <span class="xperia-canto-title">Tema 3: Míster Legión</span>
+                                    <span class="xperia-canto-artist">Pr. Homero Salazar</span>
+                                </span>
+                                <i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/h4HWzg_tyfI"
+                                data-title="Tema 4: Ni yo te condeno" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(3)">
+                                <span class="xperia-canto-index">04</span>
+                                <img src="https://i.ytimg.com/vi/h4HWzg_tyfI/hqdefault.jpg" alt="Tema 4" class="xperia-canto-thumb">
+                                <span class="xperia-canto-copy">
+                                    <span class="xperia-canto-title">Tema 4: Ni yo te condeno</span>
+                                    <span class="xperia-canto-artist">Pr. Homero Salazar</span>
+                                </span>
+                                <i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/lqABr1fXHcs"
+                                data-title="Culto Divino: Recibiréis Poder" data-speaker="Sábado - Mensaje Principal" onclick="selectCampana(4)">
+                                <span class="xperia-canto-index">05</span>
+                                <img src="https://i.ytimg.com/vi/lqABr1fXHcs/hqdefault.jpg" alt="Tema 5" class="xperia-canto-thumb">
+                                <span class="xperia-canto-copy">
+                                    <span class="xperia-canto-title">Culto Divino: Recibiréis Poder</span>
+                                    <span class="xperia-canto-artist">Pr. Homero Salazar</span>
+                                </span>
+                                <i class="fa-solid fa-circle-play text-white/70"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="page-musica" class="page relative z-10 w-full min-h-screen px-4 pb-20 pt-8 max-w-7xl mx-auto">
@@ -2298,6 +2415,59 @@
             if (listCine && listCine.dataset.ready !== 'true') {
                 listCine.dataset.ready = 'true';
                 selectCine(0, false);
+            }
+            const listCampana = document.getElementById('campana-list');
+            if (listCampana && listCampana.dataset.ready !== 'true') {
+                listCampana.dataset.ready = 'true';
+                selectCampana(0, false);
+            }
+        }
+
+        // ---- Lógica del Reproductor de Campaña ----
+        let currentCampanaIndex = 0;
+
+        function scrollCampanaTop() {
+            const playerCard = document.getElementById('campana-player-card');
+            if (!playerCard) return;
+            const top = playerCard.getBoundingClientRect().top + window.pageYOffset - 12;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
+
+        function stepCampanaSelection(direction) {
+            selectCampana(currentCampanaIndex + direction, false, true);
+        }
+
+        function selectCampana(index, shouldReturnToPlayer = true, shouldScrollList = false) {
+            const list = document.getElementById('campana-list');
+            if (!list) return;
+            const entries = Array.from(list.querySelectorAll('.xperia-canto-entry'));
+            const player = document.getElementById('campana-player');
+            const title = document.getElementById('campana-title');
+            const speaker = document.getElementById('campana-speaker');
+            const counter = document.getElementById('campana-counter');
+
+            if (!entries.length || !player) return;
+
+            currentCampanaIndex = Math.max(0, Math.min(index, entries.length - 1));
+            const activeEntry = entries[currentCampanaIndex];
+
+            entries.forEach((entry, entryIndex) => {
+                entry.classList.toggle('active', entryIndex === currentCampanaIndex);
+            });
+
+            if (player.getAttribute('src') !== activeEntry.dataset.embed) {
+                player.src = activeEntry.dataset.embed;
+            }
+            if (title) title.textContent = activeEntry.dataset.title;
+            if (speaker) speaker.textContent = activeEntry.dataset.speaker;
+            if (counter) counter.textContent = `${String(currentCampanaIndex + 1).padStart(2, '0')} / ${String(entries.length).padStart(2, '0')}`;
+
+            if (shouldScrollList) {
+                activeEntry.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            if (shouldReturnToPlayer) {
+                scrollCampanaTop();
             }
         }
 
