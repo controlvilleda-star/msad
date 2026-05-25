@@ -1,4 +1,4 @@
-﻿        // DOM Elements
+        // DOM Elements
         const homePage = document.getElementById('home-page');
         const pages = document.querySelectorAll('.page');
         const asisOpciones = document.getElementById('participar-opciones');
@@ -542,4 +542,28 @@
                 ifr.addEventListener('mouseenter', stopRadios);
                 ifr.addEventListener('touchstart', stopRadios);
             });
+
+            // ==== CONEXION CON GITHUB PARA VIDEO EN VIVO ====
+            const configUrl = 'https://raw.githubusercontent.com/controlvilleda-star/youtube-bridge/refs/heads/master/video.json?nocache=' + new Date().getTime();
+            fetch(configUrl).then(response => {
+                if (!response.ok) throw new Error('Error al leer JSON');
+                return response.json();
+            }).then(data => {
+                if (data && data.videoId) {
+                    const iframe = document.getElementById('iframe-online');
+                    if (iframe) {
+                        let conector = data.videoId.includes('?') ? '&' : '?';
+                        let newUrl = 'https://www.youtube.com/embed/' + data.videoId + conector + 'autoplay=1&mute=0';
+                        iframe.setAttribute('data-src', newUrl);
+                        
+                        // Si el panel de video ya está abierto, cambiamos el video en vivo al instante
+                        const panelOnline = document.getElementById('panel-online');
+                        if (panelOnline && !panelOnline.classList.contains('hidden')) {
+                            if (iframe.src && !iframe.src.includes(data.videoId)) {
+                                iframe.src = newUrl;
+                            }
+                        }
+                    }
+                }
+            }).catch(e => console.error('Error video:', e));
         });
