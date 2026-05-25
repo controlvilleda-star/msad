@@ -567,3 +567,96 @@
                 }
             }).catch(e => console.error('Error video:', e));
         });
+
+        // ==========================================
+        // INTERCEPTOR DUAL: ENVIAR A WEB3FORMS Y CONTACT FORM 7
+        // ==========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('form').forEach(form => {
+                // Interceptamos solo formularios dirigidos a Web3Forms
+                if (form.getAttribute('action') === 'https://api.web3forms.com/submit') {
+                    
+                    form.addEventListener('submit', function(e) {
+                        e.preventDefault(); // Detener envío por defecto
+                        
+                        let btn = form.querySelector('button[type="submit"]');
+                        let originalText = btn.innerHTML;
+                        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+                        btn.disabled = true;
+
+                        // 1. Extraer los datos del formulario
+                        let subject = form.querySelector('input[name="subject"]')?.value || 'Contacto desde Web';
+                        let name = form.querySelector('input[name="name"]')?.value || 'Usuario de la Web';
+                        let email = form.querySelector('input[name="email"]')?.value || '';
+                        let phone = form.querySelector('input[name="phone"]')?.value || '';
+                        let contact = form.querySelector('input[name="contact"]')?.value || '';
+                        let message = form.querySelector('textarea')?.value || '';
+
+                        // 2. Adaptar datos para Contact Form 7 (WordPress)
+                        let finalEmail = email;
+                        if (!finalEmail && contact.includes('@')) {
+                            finalEmail = contact;
+                        }
+                        if (!finalEmail) {
+                            finalEmail = 'sin-correo@misioneroadventista.com'; 
+                        }
+
+                        let finalMessage = message;
+                        if (phone) finalMessage += `\nTeléfono: ${phone}`;
+                        if (contact && !contact.includes('@')) finalMessage += `\nContacto: ${contact}`;
+                        if (message === '' && finalMessage === '') finalMessage = 'Sin detalles adicionales.';
+
+                        // Paquete para CF7
+                        let cf7FormData = new FormData();
+                        cf7FormData.append('your-name', name);
+                        cf7FormData.append('your-email', finalEmail);
+                        cf7FormData.append('your-subject', subject);
+                        cf7FormData.append('your-message', finalMessage);
+
+                        // Paquete original completo para Web3Forms
+                        let web3FormData = new FormData(form);
+
+                        const WP_URL = 'https://misioneroadventista.com'; 
+                        const CF7_ID = 'a229d87';
+
+                        // 3. Envío simultáneo en paralelo a ambos lugares
+                        Promise.all([
+                            // Envío a WordPress (CF7)
+                            fetch(`${WP_URL}/wp-json/contact-form-7/v1/contact-forms/${CF7_ID}/feedback`, {
+                                method: 'POST',
+                                body: cf7FormData
+                            }).then(res => res.json()).catch(err => {
+                                console.error('Error CF7:', err);
+                                return { status: 'error' };
+                            }),
+
+                            // Envío a Web3Forms
+                            fetch('https://api.web3forms.com/submit', {
+                                method: 'POST',
+                                body: web3FormData
+                            }).then(res => res.json()).catch(err => {
+                                console.error('Error Web3Forms:', err);
+                                return { success: false };
+                            })
+                        ])
+                        .then(([cf7Res, web3Res]) => {
+                            // Validar si al menos uno tuvo éxito
+                            if (cf7Res.status === 'mail_sent' || web3Res.success) {
+                                alert('¡Formulario enviado con éxito!');
+                                form.reset();
+                            } else {
+                                alert('Hubo un inconveniente al procesar la solicitud.');
+                            }
+                        })
+                        .catch(err => {
+                            console.error('Error general de envío:', err);
+                            alert('Ocurrió un error al enviar. Por favor intenta de nuevo.');
+                        })
+                        .finally(() => {
+                            btn.innerHTML = originalText;
+                            btn.disabled = false;
+                        });
+                    });
+                }
+            });
+        });
