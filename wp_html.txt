@@ -86,11 +86,18 @@
                                 frameborder="0" loading="lazy" allowfullscreen style="border:0;"></iframe>
                         </div>
 
-                        <a href="https://www.google.com/maps/search/Iglesia+Adventista+del+S%C3%A9ptimo+D%C3%ADa+Tallers+Barcelona"
-                            target="_blank"
-                            class="glass-btn w-full p-3 font-semibold text-blue-300 border-blue-300/30 flex justify-center items-center gap-2 mt-2 bg-blue-900/40">
-                            📍 Abrir en Google Maps
-                        </a>
+                        <div class="flex flex-col sm:flex-row gap-2 mt-2">
+                            <a href="https://www.google.com/maps/search/Iglesia+Adventista+del+S%C3%A9ptimo+D%C3%ADa+Tallers+Barcelona"
+                                target="_blank"
+                                class="glass-btn w-full sm:w-1/2 p-3 font-semibold text-blue-300 border-blue-300/30 flex justify-center items-center gap-2 bg-blue-900/40 text-center">
+                                📍 Abrir en Google Maps
+                            </a>
+                            <a href="https://wa.me/34671034202?text=Hola!%20Tengo%20una%20pregunta%20sobre%20la%20visita%20a%20la%20iglesia."
+                                target="_blank"
+                                class="glass-btn w-full sm:w-1/2 p-3 font-semibold text-green-400 border-green-400/30 flex justify-center items-center gap-2 bg-green-950/40 hover:bg-green-950/60 transition-all text-center">
+                                <i class="fa-brands fa-whatsapp text-lg"></i> Contactar por WhatsApp
+                            </a>
+                        </div>
                     </div>
 
                 </div>
@@ -452,11 +459,18 @@
                                             src="https://maps.google.com/maps?q=Iglesia+Adventista+del+Séptimo+Día+Tallers+Barcelona&output=embed&z=15"
                                             frameborder="0" loading="lazy" allowfullscreen style="border:0;"></iframe>
                                     </div>
-                                    <a href="https://www.google.com/maps/search/Iglesia+Adventista+del+S%C3%A9ptimo+D%C3%ADa+Tallers+Barcelona"
-                                        target="_blank"
-                                        class="glass-btn w-full p-3 font-semibold text-yellow-400 border-yellow-400/30 flex justify-center items-center gap-2 bg-yellow-950/40 hover:bg-yellow-950/60 transition-all">
-                                        📍 Abrir en Google Maps
-                                    </a>
+                                    <div class="flex flex-col sm:flex-row gap-3">
+                                        <a href="https://www.google.com/maps/search/Iglesia+Adventista+del+S%C3%A9ptimo+D%C3%ADa+Tallers+Barcelona"
+                                            target="_blank"
+                                            class="glass-btn w-full sm:w-1/2 p-3 font-semibold text-yellow-400 border-yellow-400/30 flex justify-center items-center gap-2 bg-yellow-950/40 hover:bg-yellow-950/60 transition-all text-center">
+                                            📍 Abrir en Google Maps
+                                        </a>
+                                        <a href="https://wa.me/34671034202?text=Hola!%20Tengo%20una%20pregunta%20sobre%20la%20visita%20a%20la%20iglesia."
+                                            target="_blank"
+                                            class="glass-btn w-full sm:w-1/2 p-3 font-semibold text-green-400 border-green-400/30 flex justify-center items-center gap-2 bg-green-950/40 hover:bg-green-950/60 transition-all text-center">
+                                            <i class="fa-brands fa-whatsapp text-lg"></i> Contactar por WhatsApp
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
