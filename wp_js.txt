@@ -657,6 +657,18 @@
                         let finalMessage = message;
                         if (phone) finalMessage += `\nTeléfono: ${phone}`;
                         if (contact && !contact.includes('@')) finalMessage += `\nContacto: ${contact}`;
+
+                        // Recolectar campos dinámicos adicionales (selects, checkboxes, etc.)
+                        Array.from(form.elements).forEach(el => {
+                            if (el.name && el.value !== undefined && el.value !== '' && !['access_key', 'subject', 'name', 'email', 'phone', 'contact'].includes(el.name)) {
+                                if (el.type === 'checkbox' || el.type === 'radio') {
+                                    if (!el.checked) return;
+                                }
+                                let labelText = el.getAttribute('data-label') || el.placeholder || el.name;
+                                finalMessage += `\n${labelText}: ${el.value}`;
+                            }
+                        });
+
                         if (message === '' && finalMessage === '') finalMessage = 'Sin detalles adicionales.';
 
                         // Paquete para CF7
