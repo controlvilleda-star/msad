@@ -7,10 +7,10 @@
                 <div id="jesus-container" onclick="playJesusVideo()"
                     class="col-start-1 row-start-1 relative w-[80vw] sm:w-[24rem] md:w-[28rem] lg:w-[32rem] aspect-square rounded-full overflow-hidden border-[8px] border-white/20 floating shadow-[0_0_40px_rgba(255,255,255,0.1)] flex-shrink-0 cursor-pointer group z-10">
 
-                    <img id="jesus-img" src="https://misioneroadventista.com/wp-content/uploads/2026/05/jesus-nuevo.jpg" alt="Jesús"
+                    <img id="jesus-img" src="images/jesus-nuevo.jpg" alt="Jesús"
                         class="absolute inset-0 w-full h-full object-cover z-10">
 
-                    <video id="jesus-video" src="https://misioneroadventista.com/wp-content/uploads/2026/05/jesus.mp4" playsinline preload="auto"
+                    <video id="jesus-video" src="images/jesus.mp4" playsinline preload="auto"
                         class="absolute inset-0 w-full h-full object-cover z-20 opacity-0 cursor-pointer"
                         onended="stopJesusVideo()"></video>
                 </div>
@@ -111,10 +111,10 @@
                     <div class="w-[96%] sm:w-[94%] aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-[4px] border-white/20 relative flex-shrink-0 group-hover:scale-[1.04] transition-transform duration-500">
                         <div class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
                             <div class="bubble-bg absolute inset-0 overflow-hidden">
-                                <img src="https://misioneroadventista.com/wp-content/uploads/2026/05/literatura.png" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                                <img src="images/literatura.png" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
                             </div>
                             <div class="bubble-static absolute inset-0 overflow-hidden">
-                                <img src="https://misioneroadventista.com/wp-content/uploads/2026/05/literatura.png" alt="Literatura Gratuita" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                                <img src="images/literatura.png" alt="Literatura Gratuita" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
                             </div>
                         </div>
                     </div>
@@ -150,10 +150,10 @@
                     <div class="w-[96%] sm:w-[94%] aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-[4px] border-white/20 relative flex-shrink-0 group-hover:scale-[1.04] transition-transform duration-500">
                         <div class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
                             <div class="bubble-bg absolute inset-0 overflow-hidden">
-                                <img src="https://misioneroadventista.com/wp-content/uploads/2026/05/oracion_nina.png" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                                <img src="images/oracion_nina.png" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
                             </div>
                             <div class="bubble-static absolute inset-0 overflow-hidden">
-                                <img src="https://misioneroadventista.com/wp-content/uploads/2026/05/oracion_nina.png" alt="Pedido de Oración" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                                <img src="images/oracion_nina.png" alt="Pedido de Oración" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
                             </div>
                         </div>
                     </div>
@@ -189,10 +189,10 @@
                     <div class="w-[96%] sm:w-[94%] aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-[4px] border-white/20 relative flex-shrink-0 group-hover:scale-[1.04] transition-transform duration-500">
                         <div class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
                             <div class="bubble-bg absolute inset-0 overflow-hidden">
-                                <img src="https://misioneroadventista.com/wp-content/uploads/2026/05/fe_de_jesus.jpg" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                                <img src="images/fe_de_jesus.jpg" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
                             </div>
                             <div class="bubble-static absolute inset-0 overflow-hidden">
-                                <img src="https://misioneroadventista.com/wp-content/uploads/2026/05/fe_de_jesus.jpg" alt="Estudios Bíblicos" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                                <img src="images/fe_de_jesus.jpg" alt="Estudios Bíblicos" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
                             </div>
                         </div>
                     </div>
@@ -262,7 +262,7 @@
                     class="glass p-3 sm:p-5 flex flex-col items-center justify-center cursor-pointer hover:bg-white/10 group shadow-xl relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-1">
                     <div
                         class="w-[96%] sm:w-[94%] aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 group-hover:scale-[1.08] transition-transform duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-[4px] border-white/20">
-                        <img src="https://misioneroadventista.com/wp-content/uploads/2026/05/musica_adventista.jpg" class="w-full h-full object-cover" alt="Música">
+                        <img src="images/musica_adventista.png" class="w-full h-full object-cover" alt="Música">
                     </div>
                     <h2 class="text-xl sm:text-3xl font-black text-white tracking-widest uppercase">Música</h2>
                 </div>
@@ -271,7 +271,7 @@
                     class="glass p-3 sm:p-5 flex flex-col items-center justify-center cursor-pointer hover:bg-white/10 group shadow-xl relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-1">
                     <div
                         class="w-[96%] sm:w-[94%] aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 group-hover:scale-[1.08] transition-transform duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-[4px] border-white/20">
-                        <img src="https://misioneroadventista.com/wp-content/uploads/2026/05/flags.jpg" class="w-full h-full object-cover" alt="Prédicas">
+                        <img src="images/flags.jpg" class="w-full h-full object-cover" alt="Prédicas">
                     </div>
                     <h2 class="text-xl sm:text-3xl font-black text-white tracking-widest uppercase">Prédicas</h2>
                 </div>
@@ -280,7 +280,7 @@
                     class="glass p-3 sm:p-5 flex flex-col items-center justify-center cursor-pointer hover:bg-white/10 group shadow-xl relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-1">
                     <div
                         class="w-[96%] sm:w-[94%] aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 group-hover:scale-[1.08] transition-transform duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-[4px] border-white/20">
-                        <img src="https://misioneroadventista.com/wp-content/uploads/2026/05/cine_cristiano.jpg" class="w-full h-full object-cover" alt="Cine">
+                        <img src="images/cine_cristiano.png" class="w-full h-full object-cover" alt="Cine">
                     </div>
                     <h2 class="text-xl sm:text-3xl font-black text-white tracking-widest uppercase">Cine</h2>
                 </div>
@@ -289,7 +289,7 @@
                     class="glass p-3 sm:p-5 flex flex-col items-center justify-center cursor-pointer hover:bg-white/10 group shadow-xl relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-1">
                     <div
                         class="w-[96%] sm:w-[94%] aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 group-hover:scale-[1.08] transition-transform duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-[4px] border-white/20">
-                        <img src="https://misioneroadventista.com/wp-content/uploads/2026/05/libro_28_creencias.jpg" class="w-full h-full object-cover" alt="Lectura">
+                        <img src="images/libro_28_creencias.jpg" class="w-full h-full object-cover" alt="Lectura">
                     </div>
                     <h2 class="text-xl sm:text-3xl font-black text-white tracking-widest uppercase">Lectura</h2>
                 </div>
@@ -1740,7 +1740,7 @@
                 class="glass p-6 flex flex-col items-center justify-center cursor-pointer hover:bg-white/10 group shadow-xl relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-2">
                 <div
                     class="w-40 h-40 sm:w-56 sm:h-56 rounded-[2rem] sm:rounded-[3rem] overflow-hidden mb-6 group-hover:scale-[1.08] transition-transform duration-500 shadow-[0_15px_40px_rgba(0,0,0,0.4)] border-[4px] border-white/20 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 flex justify-center items-center relative">
-                    <img src="https://misioneroadventista.com/wp-content/uploads/2026/05/logo_adventista_oficial.png" alt="Logo Adventista"
+                    <img src="images/logo_adventista_oficial.png" alt="Logo Adventista"
                         class="w-32 h-auto sm:w-44 brightness-0 invert opacity-90 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]"
                         style="clip-path: inset(0 0 32% 0); transform: translateY(15%) scale(1.2);">
                 </div>
@@ -1753,4 +1753,5 @@
         </div>
     </div>
 </div>
+
 
