@@ -1754,4 +1754,7 @@
     </div>
 </div>
 
+<!-- 3D Parallax Tilt Effect Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
 
