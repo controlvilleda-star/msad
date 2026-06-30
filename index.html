@@ -542,17 +542,116 @@
                     </div>
 
                     <div id="panel-vivo" class="hidden glass p-5 mt-2 flex flex-col gap-4 text-left">
-                        <h3 class="text-white font-bold text-lg mb-1 text-center">Registro Presencial</h3>
-                        <form action="https://api.web3forms.com/submit" method="POST"
-                            class="flex flex-col gap-4 w-full">
+                        <h4 class="text-white font-bold text-xl mb-2 flex items-center gap-2 border-b border-white/10 pb-3">
+                            <i class="fa-solid fa-id-card text-yellow-400"></i> Registro de Visita
+                        </h4>
+                        
+                        <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-4 w-full">
                             <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
-                            <input type="hidden" name="subject" value="Nuevo registro presencial">
-                            <input type="text" name="name" placeholder="Nombre completo" required class="glass-input">
-                            <input type="tel" name="phone" placeholder="Teléfono" required class="glass-input">
-                            <button type="submit" class="glass-btn w-full p-4 font-black bg-white/20 mt-1 uppercase">
-                                Registrarme
+                            <input type="hidden" name="subject" value="Nueva planificación de visita presencial">
+
+                            <div class="flex flex-col gap-1">
+                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">Nombre Completo</label>
+                                <input type="text" name="name" placeholder="Nombre completo" required class="glass-input">
+                            </div>
+
+                            <div class="flex flex-col gap-1">
+                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">WhatsApp o Teléfono</label>
+                                <input type="tel" name="phone" placeholder="Ej: +34 600 000 000" required class="glass-input">
+                            </div>
+
+                            <div class="flex flex-col gap-1">
+                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Cuándo tienes pensado visitarnos?</label>
+                                <select name="visita_fecha" data-label="Fecha/Hora Planeada" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
+                                    <option value="" disabled selected class="bg-slate-900">Selecciona un servicio</option>
+                                    <option value="Sábado por la mañana (10:00 AM)" class="bg-slate-900">Sábado por la mañana (10:00 AM) - Escuela Sabática y Culto</option>
+                                    <option value="Sábado por la tarde (5:00 PM / 17:00)" class="bg-slate-900">Sábado por la tarde (5:00 PM / 17:00) - Culto Joven</option>
+                                    <option value="Miércoles por la tarde (7:30 PM / 19:30) por Zoom" class="bg-slate-900">Miércoles por la tarde (7:30 PM / 19:30) - Oración por Zoom</option>
+                                </select>
+                            </div>
+
+                            <div class="flex flex-col gap-1">
+                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Es tu primera vez visitando una iglesia adventista?</label>
+                                <select name="es_primera_vez" data-label="Primera vez" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
+                                    <option value="Sí, es mi primera vez" class="bg-slate-900">Sí, es mi primera vez</option>
+                                    <option value="No, ya he asistido antes" class="bg-slate-900">No, ya he asistido antes</option>
+                                </select>
+                            </div>
+
+                            <div class="flex flex-col gap-1">
+                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Cómo vendrás?</label>
+                                <select name="acompanado" data-label="Acompañamiento" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
+                                    <option value="Vengo solo" class="bg-slate-900">Vengo solo</option>
+                                    <option value="Vengo con mi familia" class="bg-slate-900">Vengo con mi familia</option>
+                                    <option value="Vengo con amigos" class="bg-slate-900">Vengo con amigos</option>
+                                </select>
+                            </div>
+
+                            <div class="flex items-center gap-3 mt-1 px-1">
+                                <input type="checkbox" id="recibir_entrada2" name="recibir_entrada" value="Sí, desea ser esperado en la entrada" data-label="Esperar en la entrada" class="w-5 h-5 rounded border-white/20 bg-white/10 text-yellow-500 focus:ring-yellow-500/50 cursor-pointer">
+                                <label for="recibir_entrada2" class="text-sm text-gray-200 cursor-pointer font-medium select-none">Me gustaría que alguien me espere en la entrada</label>
+                            </div>
+
+                            <div class="flex flex-col gap-1">
+                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Alguna petición de oración o comentario?</label>
+                                <textarea name="message" placeholder="Escribe aquí tu petición o cualquier duda..." class="glass-input resize-none h-20"></textarea>
+                            </div>
+
+                            <button type="submit" class="glass-btn w-full p-4 font-black bg-yellow-500/30 hover:bg-yellow-500/50 border-yellow-500/40 text-yellow-300 mt-2 uppercase tracking-widest transition-all">
+                                Confirmar Visita
                             </button>
                         </form>
+
+                        <h4 class="text-white font-bold text-xl flex items-center gap-2 border-b border-white/10 pb-3 mt-4">
+                            <i class="fa-solid fa-clock text-yellow-400"></i> Horarios de Culto
+                        </h4>
+                        <div class="flex flex-col gap-3 text-sm sm:text-base">
+                            <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+                                <span class="font-bold text-gray-100">Sábado Mañana</span>
+                                <span class="text-yellow-400 font-semibold text-right">10:00 AM &amp; 11:15 AM</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+                                <span class="font-bold text-gray-100">Sábado Tarde</span>
+                                <span class="text-yellow-400 font-semibold text-right">5:00 PM (Jóvenes)</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+                                <span class="font-bold text-gray-100">Miércoles</span>
+                                <span class="text-yellow-400 font-semibold text-right">7:30 PM (Zoom)</span>
+                            </div>
+                        </div>
+
+                        <h4 class="text-white font-bold text-xl flex items-center gap-2 border-b border-white/10 pt-2 pb-3 mt-2">
+                            <i class="fa-solid fa-train-subway text-yellow-400"></i> Cómo Llegar
+                        </h4>
+                        <div class="flex flex-col gap-3 text-sm sm:text-base">
+                            <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
+                                <div class="flex items-center justify-center bg-red-500/20 text-red-400 w-10 h-10 rounded-full shrink-0">
+                                    <i class="fa-solid fa-train"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-gray-100 block">Metro</span>
+                                    <span class="text-gray-300 text-xs sm:text-sm">L1, L3 (Pl. Catalunya) &bull; L1, L2 (Pl. Universitat)</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
+                                <div class="flex items-center justify-center bg-blue-500/20 text-blue-400 w-10 h-10 rounded-full shrink-0">
+                                    <i class="fa-solid fa-bus"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-gray-100 block">Autobuses Urbanos</span>
+                                    <span class="text-gray-300 text-xs sm:text-sm">Líneas 55, 59, H16, V13, D50, 67</span>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
+                                <div class="flex items-center justify-center bg-emerald-500/20 text-emerald-400 w-10 h-10 rounded-full shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <span class="font-bold text-gray-100 block">Cercanías / Renfe</span>
+                                    <span class="text-gray-300 text-xs sm:text-sm">Plaça Catalunya (4 min caminando)</span>
+                                </div>
+                            </div>
+                        </div>
 
                         <h3
                             class="text-white font-bold text-sm mt-2 text-center uppercase tracking-wider text-blue-200">
