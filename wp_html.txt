@@ -17,32 +17,23 @@
 
             </div>
 
-            <button onclick="goPage('campana')"
-                class="glass-btn relative z-40 text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-8 tracking-tight drop-shadow-xl uppercase leading-none px-8 py-6 bg-white/5 hover:bg-white/15 border-white/20 transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.05)]">
-                VEN A LA IGLESIA
-            </button>
+            <!-- SWITCH ELEGANTE PRESENCIAL/ONLINE -->
+            <div class="w-full max-w-md lg:max-w-lg mb-8 p-1.5 rounded-[2rem] flex bg-black/40 border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md relative z-40">
+                <button onclick="showAsistirPanel('vivo')" id="btn-opt-vivo" 
+                    class="flex-1 py-4 text-sm sm:text-base font-bold text-white/70 rounded-[1.5rem] transition-all duration-300 hover:text-white flex flex-col items-center justify-center gap-1">
+                    <i class="fa-solid fa-church text-xl mb-1"></i>
+                    <span>Ven a la Iglesia</span>
+                </button>
+                <button onclick="showAsistirPanel('online')" id="btn-opt-online" 
+                    class="flex-1 py-4 text-sm sm:text-base font-bold text-white/70 rounded-[1.5rem] transition-all duration-300 hover:text-white flex flex-col items-center justify-center gap-1">
+                    <i class="fa-solid fa-globe text-xl mb-1"></i>
+                    <span>Venos Online</span>
+                </button>
+            </div>
 
             <div class="w-full max-w-md lg:max-w-lg mb-6 flex flex-col items-center">
-
-                <button id="btn-participar" onclick="toggleParticipar()"
-                    class="glass-btn w-full px-8 py-5 text-xl font-black tracking-widest text-white shadow-[0_0_20px_rgba(0,0,0,0.3)] bg-white/10 hover:bg-white/20 flex justify-center items-center gap-3">
-                    ASISTIR <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"
-                        id="participar-icon"></i>
-                </button>
-
-                <div id="participar-opciones" class="hidden flex-col gap-3 mt-4 w-full slide-down">
-
-                    <button onclick="showAsistirPanel('online')" id="btn-opt-online"
-                        class="glass-btn w-full p-4 font-bold text-white tracking-wide text-lg bg-indigo-500/20 hover:bg-indigo-500/40 border-indigo-400/40">
-                        💻 ASISTIR ONLINE
-                    </button>
-
-                    <button onclick="showAsistirPanel('vivo')" id="btn-opt-vivo"
-                        class="glass-btn w-full p-4 font-bold text-white tracking-wide text-lg bg-emerald-500/20 hover:bg-emerald-500/40 border-emerald-400/40">
-                        📍 ASISTIR EN VIVO
-                    </button>
-
-                    <div id="panel-online" class="hidden mt-4 flex flex-col gap-4 w-full">
+                <div id="participar-opciones" class="flex flex-col gap-3 w-full">
+                    <div id="panel-online" class="hidden mt-2 flex flex-col gap-4 w-full">
                         <div class="w-[100vw] ml-[calc(-50vw+50%)] bg-black shadow-2xl z-20 border-y border-white/20">
                             <div class="iframe-container rounded-none">
                                 <iframe id="iframe-online"
@@ -52,7 +43,7 @@
                         </div>
                         <div class="glass p-4 w-full rounded-2xl">
                             <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-3">
-                                <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
+                                <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
                                 <input type="hidden" name="subject" value="Nueva suscripción de notificaciones">
                                 <input type="email" name="email" placeholder="Correo electrónico" required
                                     class="glass-input text-sm py-3 bg-black/20 focus:bg-black/40">
@@ -68,7 +59,7 @@
                         <h3 class="text-white font-bold text-lg mb-1 text-center">Registro Presencial</h3>
                         <form action="https://api.web3forms.com/submit" method="POST"
                             class="flex flex-col gap-4 w-full">
-                            <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
+                            <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
                             <input type="hidden" name="subject" value="Nuevo registro presencial">
                             <input type="text" name="name" placeholder="Nombre completo" required class="glass-input">
                             <input type="tel" name="phone" placeholder="Teléfono" required class="glass-input">
@@ -126,7 +117,7 @@
 
                         <div id="form-literatura" class="hidden w-full mt-4 slide-down z-10 relative">
                             <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-3">
-                                <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
+                                <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
                                 <input type="hidden" name="subject" value="Nueva solicitud de literatura">
 
                                 <input type="text" name="name" placeholder="Nombre completo" required
@@ -165,7 +156,7 @@
 
                         <div id="form-oracion" class="hidden w-full mt-4 slide-down z-10 relative">
                             <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-3">
-                                <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
+                                <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
                                 <input type="hidden" name="subject" value="Nuevo pedido de oración">
 
                                 <input type="text" name="name" placeholder="Tu nombre (opcional)"
@@ -204,7 +195,7 @@
 
                         <div id="form-estudios" class="hidden w-full mt-4 slide-down z-10 relative">
                             <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-3">
-                                <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
+                                <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
                                 <input type="hidden" name="subject" value="Nueva solicitud de estudio bíblico">
 
                                 <input type="text" name="name" placeholder="Nombre completo" required
@@ -337,7 +328,7 @@
                                 </h4>
                                 
                                 <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-4 w-full">
-                                    <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
+                                    <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
                                     <input type="hidden" name="subject" value="Nueva planificación de visita presencial">
 
                                     <div class="flex flex-col gap-1">
