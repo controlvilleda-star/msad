@@ -2960,17 +2960,28 @@
                             // Envío a Web3Forms (Clave 1)
                             fetch('https://api.web3forms.com/submit', {
                                 method: 'POST',
+                                headers: { 'Accept': 'application/json' },
                                 body: web3FormData
-                            }).then(res => res.json()).catch(err => {
+                            }).then(res => res.json()).then(data => {
+                                console.log('W3F 1:', data);
+                                if (!data.success) alert("Error Web3Forms 1: " + data.message);
+                                return data;
+                            }).catch(err => {
                                 console.error('Error Web3Forms 1:', err);
+                                alert("Error de red Web3Forms 1: " + err.message);
                                 return { success: false };
                             }),
 
                             // Envío a Web3Forms (Clave 2)
                             fetch('https://api.web3forms.com/submit', {
                                 method: 'POST',
+                                headers: { 'Accept': 'application/json' },
                                 body: web3FormData2
-                            }).then(res => res.json()).catch(err => {
+                            }).then(res => res.json()).then(data => {
+                                console.log('W3F 2:', data);
+                                if (!data.success) alert("Error Web3Forms 2: " + data.message);
+                                return data;
+                            }).catch(err => {
                                 console.error('Error Web3Forms 2:', err);
                                 return { success: false };
                             })
