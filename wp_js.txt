@@ -895,13 +895,17 @@
                         cf7FormData.append('your-subject', subject);
                         cf7FormData.append('your-message', finalMessage);
 
-                        // Paquete original completo para Web3Forms
+                        // Paquete original completo para Web3Forms (Clave 1)
                         let web3FormData = new FormData(form);
+
+                        // Paquete para Web3Forms (Clave 2)
+                        let web3FormData2 = new FormData(form);
+                        web3FormData2.set('access_key', '6f1fba2a-1472-4c17-9759-ac90299ac9ab');
 
                         const WP_URL = 'https://misioneroadventista.com'; 
                         const CF7_ID = 'a229d87';
 
-                        // 3. Envío simultáneo en paralelo a ambos lugares
+                        // 3. Envío simultáneo en paralelo a múltiples lugares
                         Promise.all([
                             // Envío a WordPress (CF7)
                             fetch(`${WP_URL}/wp-json/contact-form-7/v1/contact-forms/${CF7_ID}/feedback`, {
@@ -912,18 +916,27 @@
                                 return { status: 'error' };
                             }),
 
-                            // Envío a Web3Forms
+                            // Envío a Web3Forms (Clave 1)
                             fetch('https://api.web3forms.com/submit', {
                                 method: 'POST',
                                 body: web3FormData
                             }).then(res => res.json()).catch(err => {
-                                console.error('Error Web3Forms:', err);
+                                console.error('Error Web3Forms 1:', err);
+                                return { success: false };
+                            }),
+
+                            // Envío a Web3Forms (Clave 2)
+                            fetch('https://api.web3forms.com/submit', {
+                                method: 'POST',
+                                body: web3FormData2
+                            }).then(res => res.json()).catch(err => {
+                                console.error('Error Web3Forms 2:', err);
                                 return { success: false };
                             })
                         ])
-                        .then(([cf7Res, web3Res]) => {
+                        .then(([cf7Res, web3Res1, web3Res2]) => {
                             // Validar si al menos uno tuvo éxito
-                            if (cf7Res.status === 'mail_sent' || web3Res.success) {
+                            if (cf7Res.status === 'mail_sent' || web3Res1.success || web3Res2.success) {
                                 alert('¡Formulario enviado con éxito!');
                                 form.reset();
                             } else {
