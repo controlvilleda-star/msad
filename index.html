@@ -205,25 +205,33 @@
         }
 
         .text-outline {
-            text-shadow: 
-                -2px -2px 0 #000,  
-                 2px -2px 0 #000,
-                -2px  2px 0 #000,
-                 2px  2px 0 #000,
-                 0px  2px 0 #000,
-                 2px  0px 0 #000,
-                 0px -2px 0 #000,
-                -2px  0px 0 #000,
-                 4px  4px 10px rgba(0,0,0,0.8);
+            text-shadow:
+                -2px -2px 0 #000,
+                2px -2px 0 #000,
+                -2px 2px 0 #000,
+                2px 2px 0 #000,
+                0px 2px 0 #000,
+                2px 0px 0 #000,
+                0px -2px 0 #000,
+                -2px 0px 0 #000,
+                4px 4px 10px rgba(0, 0, 0, 0.8);
         }
 
         @keyframes borderTravel {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
-        #jesus-container:not(.floating) + #temp-cover {
+        #jesus-container:not(.floating)+#temp-cover {
             opacity: 0 !important;
             pointer-events: none !important;
             transform: scale(0.95) !important;
@@ -235,9 +243,9 @@
             inset: 0;
             border: 8px solid transparent;
             border-radius: inherit;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent, rgba(255,255,255,0.9), transparent) border-box;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent, rgba(255, 255, 255, 0.9), transparent) border-box;
             -webkit-mask:
-                linear-gradient(#fff 0 0) padding-box, 
+                linear-gradient(#fff 0 0) padding-box,
                 linear-gradient(#fff 0 0);
             -webkit-mask-composite: destination-out;
             mask-composite: exclude;
@@ -246,16 +254,16 @@
             z-index: 30;
             pointer-events: none;
         }
-        
+
         .col-card::after {
             content: '';
             position: absolute;
             inset: 0;
             border: 1.5px solid transparent;
             border-radius: inherit;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent, rgba(255,255,255,0.6), transparent) border-box;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent, rgba(255, 255, 255, 0.6), transparent) border-box;
             -webkit-mask:
-                linear-gradient(#fff 0 0) padding-box, 
+                linear-gradient(#fff 0 0) padding-box,
                 linear-gradient(#fff 0 0);
             -webkit-mask-composite: destination-out;
             mask-composite: exclude;
@@ -480,6 +488,81 @@
                 height: 3.5rem;
             }
         }
+    
+        /* NEUMORPHIC BLUE PALETTE */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #e6f0fa !important;
+            color: #2c3e50 !important;
+            margin: 0;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .glass, .glass-btn, .glass-input, .col-card, .xperia-cantos-shell, .xperia-cantos-player, .xperia-canto-entry, .himnario-link-card, .glass-alt {
+            background: #e6f0fa !important;
+            border: 2px solid #ffffff !important;
+            border-radius: 20px !important;
+            box-shadow: 8px 8px 16px #c4d6ea, -8px -8px 16px #ffffff !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            color: #1a365d !important;
+        }
+
+        .glass-btn:hover, .xperia-canto-entry:hover, .xperia-scroll-btn:hover {
+            box-shadow: inset 6px 6px 12px #c4d6ea, inset -6px -6px 12px #ffffff !important;
+            background: #e6f0fa !important;
+            transform: translateY(0) scale(0.98) !important;
+            border: 2px solid transparent !important;
+        }
+
+        .glass-btn:active {
+            box-shadow: inset 8px 8px 16px #c4d6ea, inset -8px -8px 16px #ffffff !important;
+            transform: scale(0.95) !important;
+        }
+
+        .glass-input {
+            box-shadow: inset 5px 5px 10px #c4d6ea, inset -5px -5px 10px #ffffff !important;
+            border: none !important;
+            color: #2d3748 !important;
+            padding: 14px;
+            width: 100%;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .glass-input:focus {
+            box-shadow: inset 8px 8px 16px #c4d6ea, inset -8px -8px 16px #ffffff !important;
+            background: #e6f0fa !important;
+        }
+
+        .glass-input::placeholder {
+            color: #718096 !important;
+        }
+
+        /* Override Tailwind Dark Theme Colors */
+        [class*="bg-black"], [class*="bg-white/5"], [class*="bg-white/10"], .bg-white\/5 {
+            background: #e6f0fa !important;
+            box-shadow: 8px 8px 16px #c4d6ea, -8px -8px 16px #ffffff !important;
+            border: 1px solid #fff !important;
+        }
+
+        [class*="text-white"], [class*="text-gray-"] {
+            color: #2d3748 !important;
+        }
+
+        [class*="text-yellow-"], [class*="text-purple-"], [class*="text-green-"] {
+            color: #2b6cb0 !important; /* Blue accent */
+        }
+
+        [class*="border-white/"], [class*="border-yellow-"] {
+            border-color: #ffffff !important;
+        }
+        
+        .fa-solid, .fa-brands, .fa-regular {
+            color: #3182ce !important;
+        }
+
     </style>
 </head>
 
@@ -504,13 +587,14 @@
             </div>
 
             <!-- SWITCH ELEGANTE PRESENCIAL/ONLINE -->
-            <div class="w-full max-w-md lg:max-w-lg mb-8 p-1.5 rounded-[2rem] flex bg-black/40 border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md relative z-40">
-                <button onclick="showAsistirPanel('vivo')" id="btn-opt-vivo" 
+            <div
+                class="w-full max-w-md lg:max-w-lg mb-8 p-1.5 rounded-[2rem] flex bg-black/40 border border-white/10 shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md relative z-40">
+                <button onclick="showAsistirPanel('vivo')" id="btn-opt-vivo"
                     class="flex-1 py-4 text-sm sm:text-base font-bold text-white/70 rounded-[1.5rem] transition-all duration-300 hover:text-white flex flex-col items-center justify-center gap-1">
                     <i class="fa-solid fa-church text-xl mb-1"></i>
                     <span>Ven a la Iglesia</span>
                 </button>
-                <button onclick="showAsistirPanel('online')" id="btn-opt-online" 
+                <button onclick="showAsistirPanel('online')" id="btn-opt-online"
                     class="flex-1 py-4 text-sm sm:text-base font-bold text-white/70 rounded-[1.5rem] transition-all duration-300 hover:text-white flex flex-col items-center justify-center gap-1">
                     <i class="fa-solid fa-globe text-xl mb-1"></i>
                     <span>Venos Online</span>
@@ -542,113 +626,152 @@
                     </div>
 
                     <div id="panel-vivo" class="hidden glass p-5 mt-2 flex flex-col gap-4 text-left">
-                        <h4 class="text-white font-bold text-xl mb-2 flex items-center gap-2 border-b border-white/10 pb-3">
+                        <h4
+                            class="text-white font-bold text-xl mb-2 flex items-center gap-2 border-b border-white/10 pb-3">
                             <i class="fa-solid fa-id-card text-yellow-400"></i> Registro de Visita
                         </h4>
-                        
-                        <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-4 w-full">
+
+                        <form action="https://api.web3forms.com/submit" method="POST"
+                            class="flex flex-col gap-4 w-full">
                             <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
                             <input type="hidden" name="subject" value="Nueva planificación de visita presencial">
 
                             <div class="flex flex-col gap-1">
-                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">Nombre Completo</label>
-                                <input type="text" name="name" placeholder="Nombre completo" required class="glass-input">
+                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">Nombre
+                                    Completo</label>
+                                <input type="text" name="name" placeholder="Nombre completo" required
+                                    class="glass-input">
                             </div>
 
                             <div class="flex flex-col gap-1">
-                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">WhatsApp o Teléfono</label>
-                                <input type="tel" name="phone" placeholder="Ej: +34 600 000 000" required class="glass-input">
+                                <label
+                                    class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">WhatsApp o
+                                    Teléfono</label>
+                                <input type="tel" name="phone" placeholder="Ej: +34 600 000 000" required
+                                    class="glass-input">
                             </div>
 
                             <div class="flex flex-col gap-1">
-                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Cuándo tienes pensado visitarnos?</label>
-                                <select name="visita_fecha" data-label="Fecha/Hora Planeada" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
-                                    <option value="" disabled selected class="bg-slate-900">Selecciona un servicio</option>
-                                    <option value="Sábado por la mañana (10:00 AM)" class="bg-slate-900">Sábado por la mañana (10:00 AM) - Escuela Sabática y Culto</option>
-                                    <option value="Sábado por la tarde (5:00 PM / 17:00)" class="bg-slate-900">Sábado por la tarde (5:00 PM / 17:00) - Culto Joven</option>
-                                    <option value="Miércoles por la tarde (7:30 PM / 19:30) por Zoom" class="bg-slate-900">Miércoles por la tarde (7:30 PM / 19:30) - Oración por Zoom</option>
+                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Cuándo
+                                    tienes pensado visitarnos?</label>
+                                <select name="visita_fecha" data-label="Fecha/Hora Planeada" required
+                                    class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
+                                    <option value="" disabled selected class="bg-slate-900">Selecciona un servicio
+                                    </option>
+                                    <option value="Sábado por la mañana (10:00 AM)" class="bg-slate-900">Sábado por la
+                                        mañana (10:00 AM) - Escuela Sabática y Culto</option>
+                                    <option value="Sábado por la tarde (5:00 PM / 17:00)" class="bg-slate-900">Sábado
+                                        por la tarde (5:00 PM / 17:00) - Culto Joven</option>
+                                    <option value="Miércoles por la tarde (7:30 PM / 19:30) por Zoom"
+                                        class="bg-slate-900">Miércoles por la tarde (7:30 PM / 19:30) - Oración por Zoom
+                                    </option>
                                 </select>
                             </div>
 
                             <div class="flex flex-col gap-1">
-                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Es tu primera vez visitando una iglesia adventista?</label>
-                                <select name="es_primera_vez" data-label="Primera vez" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
-                                    <option value="Sí, es mi primera vez" class="bg-slate-900">Sí, es mi primera vez</option>
-                                    <option value="No, ya he asistido antes" class="bg-slate-900">No, ya he asistido antes</option>
+                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Es tu
+                                    primera vez visitando una iglesia adventista?</label>
+                                <select name="es_primera_vez" data-label="Primera vez" required
+                                    class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
+                                    <option value="Sí, es mi primera vez" class="bg-slate-900">Sí, es mi primera vez
+                                    </option>
+                                    <option value="No, ya he asistido antes" class="bg-slate-900">No, ya he asistido
+                                        antes</option>
                                 </select>
                             </div>
 
                             <div class="flex flex-col gap-1">
-                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Cómo vendrás?</label>
-                                <select name="acompanado" data-label="Acompañamiento" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
+                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Cómo
+                                    vendrás?</label>
+                                <select name="acompanado" data-label="Acompañamiento" required
+                                    class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
                                     <option value="Vengo solo" class="bg-slate-900">Vengo solo</option>
-                                    <option value="Vengo con mi familia" class="bg-slate-900">Vengo con mi familia</option>
+                                    <option value="Vengo con mi familia" class="bg-slate-900">Vengo con mi familia
+                                    </option>
                                     <option value="Vengo con amigos" class="bg-slate-900">Vengo con amigos</option>
                                 </select>
                             </div>
 
                             <div class="flex items-center gap-3 mt-1 px-1">
-                                <input type="checkbox" id="recibir_entrada2" name="recibir_entrada" value="Sí, desea ser esperado en la entrada" data-label="Esperar en la entrada" class="w-5 h-5 rounded border-white/20 bg-white/10 text-yellow-500 focus:ring-yellow-500/50 cursor-pointer">
-                                <label for="recibir_entrada2" class="text-sm text-gray-200 cursor-pointer font-medium select-none">Me gustaría que alguien me espere en la entrada</label>
+                                <input type="checkbox" id="recibir_entrada2" name="recibir_entrada"
+                                    value="Sí, desea ser esperado en la entrada" data-label="Esperar en la entrada"
+                                    class="w-5 h-5 rounded border-white/20 bg-white/10 text-yellow-500 focus:ring-yellow-500/50 cursor-pointer">
+                                <label for="recibir_entrada2"
+                                    class="text-sm text-gray-200 cursor-pointer font-medium select-none">Me gustaría que
+                                    alguien me espere en la entrada</label>
                             </div>
 
                             <div class="flex flex-col gap-1">
-                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Alguna petición de oración o comentario?</label>
-                                <textarea name="message" placeholder="Escribe aquí tu petición o cualquier duda..." class="glass-input resize-none h-20"></textarea>
+                                <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Alguna
+                                    petición de oración o comentario?</label>
+                                <textarea name="message" placeholder="Escribe aquí tu petición o cualquier duda..."
+                                    class="glass-input resize-none h-20"></textarea>
                             </div>
 
-                            <button type="submit" class="glass-btn w-full p-4 font-black bg-yellow-500/30 hover:bg-yellow-500/50 border-yellow-500/40 text-yellow-300 mt-2 uppercase tracking-widest transition-all">
+                            <button type="submit"
+                                class="glass-btn w-full p-4 font-black bg-yellow-500/30 hover:bg-yellow-500/50 border-yellow-500/40 text-yellow-300 mt-2 uppercase tracking-widest transition-all">
                                 Confirmar Visita
                             </button>
                         </form>
 
-                        <h4 class="text-white font-bold text-xl flex items-center gap-2 border-b border-white/10 pb-3 mt-4">
+                        <h4
+                            class="text-white font-bold text-xl flex items-center gap-2 border-b border-white/10 pb-3 mt-4">
                             <i class="fa-solid fa-clock text-yellow-400"></i> Horarios de Culto
                         </h4>
                         <div class="flex flex-col gap-3 text-sm sm:text-base">
-                            <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+                            <div
+                                class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
                                 <span class="font-bold text-gray-100">Sábado Mañana</span>
                                 <span class="text-yellow-400 font-semibold text-right">10:00 AM &amp; 11:15 AM</span>
                             </div>
-                            <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+                            <div
+                                class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
                                 <span class="font-bold text-gray-100">Sábado Tarde</span>
                                 <span class="text-yellow-400 font-semibold text-right">5:00 PM (Jóvenes)</span>
                             </div>
-                            <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+                            <div
+                                class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
                                 <span class="font-bold text-gray-100">Miércoles</span>
                                 <span class="text-yellow-400 font-semibold text-right">7:30 PM (Zoom)</span>
                             </div>
                         </div>
 
-                        <h4 class="text-white font-bold text-xl flex items-center gap-2 border-b border-white/10 pt-2 pb-3 mt-2">
+                        <h4
+                            class="text-white font-bold text-xl flex items-center gap-2 border-b border-white/10 pt-2 pb-3 mt-2">
                             <i class="fa-solid fa-train-subway text-yellow-400"></i> Cómo Llegar
                         </h4>
                         <div class="flex flex-col gap-3 text-sm sm:text-base">
                             <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
-                                <div class="flex items-center justify-center bg-red-500/20 text-red-400 w-10 h-10 rounded-full shrink-0">
+                                <div
+                                    class="flex items-center justify-center bg-red-500/20 text-red-400 w-10 h-10 rounded-full shrink-0">
                                     <i class="fa-solid fa-train"></i>
                                 </div>
                                 <div>
                                     <span class="font-bold text-gray-100 block">Metro</span>
-                                    <span class="text-gray-300 text-xs sm:text-sm">L1, L3 (Pl. Catalunya) &bull; L1, L2 (Pl. Universitat)</span>
+                                    <span class="text-gray-300 text-xs sm:text-sm">L1, L3 (Pl. Catalunya) &bull; L1, L2
+                                        (Pl. Universitat)</span>
                                 </div>
                             </div>
                             <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
-                                <div class="flex items-center justify-center bg-blue-500/20 text-blue-400 w-10 h-10 rounded-full shrink-0">
+                                <div
+                                    class="flex items-center justify-center bg-blue-500/20 text-blue-400 w-10 h-10 rounded-full shrink-0">
                                     <i class="fa-solid fa-bus"></i>
                                 </div>
                                 <div>
                                     <span class="font-bold text-gray-100 block">Autobuses Urbanos</span>
-                                    <span class="text-gray-300 text-xs sm:text-sm">Líneas 55, 59, H16, V13, D50, 67</span>
+                                    <span class="text-gray-300 text-xs sm:text-sm">Líneas 55, 59, H16, V13, D50,
+                                        67</span>
                                 </div>
                             </div>
                             <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
-                                <div class="flex items-center justify-center bg-emerald-500/20 text-emerald-400 w-10 h-10 rounded-full shrink-0">
+                                <div
+                                    class="flex items-center justify-center bg-emerald-500/20 text-emerald-400 w-10 h-10 rounded-full shrink-0">
                                     <i class="fa-solid fa-location-dot"></i>
                                 </div>
                                 <div>
                                     <span class="font-bold text-gray-100 block">Cercanías / Renfe</span>
-                                    <span class="text-gray-300 text-xs sm:text-sm">Plaça Catalunya (4 min caminando)</span>
+                                    <span class="text-gray-300 text-xs sm:text-sm">Plaça Catalunya (4 min
+                                        caminando)</span>
                                 </div>
                             </div>
                         </div>
@@ -684,17 +807,22 @@
 
                 <div id="col-literatura"
                     class="glass p-3 sm:p-5 flex flex-col items-center justify-start group shadow-xl relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-1 w-full col-card h-full border border-white/20">
-                    <div class="w-[96%] sm:w-[94%] aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-[4px] border-white/20 relative flex-shrink-0 group-hover:scale-[1.04] transition-transform duration-500">
-                        <div class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+                    <div
+                        class="w-[96%] sm:w-[94%] aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-[4px] border-white/20 relative flex-shrink-0 group-hover:scale-[1.04] transition-transform duration-500">
+                        <div
+                            class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
                             <div class="bubble-bg absolute inset-0 overflow-hidden">
-                                <img src="images/literatura.png" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                                <img src="images/literatura.png"
+                                    class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
                             </div>
                             <div class="bubble-static absolute inset-0 overflow-hidden">
-                                <img src="images/literatura.png" alt="Literatura Gratuita" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                                <img src="images/literatura.png" alt="Literatura Gratuita"
+                                    class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
                             </div>
                         </div>
                     </div>
-                    <div class="w-full flex-grow flex flex-col items-center z-10 justify-end transition-transform duration-500">
+                    <div
+                        class="w-full flex-grow flex flex-col items-center z-10 justify-end transition-transform duration-500">
                         <button id="btn-pedir" onclick="toggleFormLiteratura()"
                             class="glass-btn px-4 py-4 font-black text-xl lg:text-base xl:text-lg 2xl:text-xl tracking-widest text-white border-yellow-500/40 bg-yellow-500/20 hover:bg-yellow-500/40 flex items-center gap-3 w-full justify-center">
                             <i class="fa-solid fa-paper-plane"></i> LITERATURA GRATUITA
@@ -723,17 +851,22 @@
 
                 <div id="col-oracion"
                     class="glass p-3 sm:p-5 flex flex-col items-center justify-start group shadow-xl relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-1 w-full col-card h-full border border-white/20">
-                    <div class="w-[96%] sm:w-[94%] aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-[4px] border-white/20 relative flex-shrink-0 group-hover:scale-[1.04] transition-transform duration-500">
-                        <div class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+                    <div
+                        class="w-[96%] sm:w-[94%] aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-[4px] border-white/20 relative flex-shrink-0 group-hover:scale-[1.04] transition-transform duration-500">
+                        <div
+                            class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
                             <div class="bubble-bg absolute inset-0 overflow-hidden">
-                                <img src="images/oracion_nina.png" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                                <img src="images/oracion_nina.png"
+                                    class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
                             </div>
                             <div class="bubble-static absolute inset-0 overflow-hidden">
-                                <img src="images/oracion_nina.png" alt="Pedido de Oración" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                                <img src="images/oracion_nina.png" alt="Pedido de Oración"
+                                    class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
                             </div>
                         </div>
                     </div>
-                    <div class="w-full flex-grow flex flex-col items-center z-10 justify-end transition-transform duration-500">
+                    <div
+                        class="w-full flex-grow flex flex-col items-center z-10 justify-end transition-transform duration-500">
                         <button id="btn-orar" onclick="toggleFormOracion()"
                             class="glass-btn px-4 py-4 font-black text-xl lg:text-base xl:text-lg 2xl:text-xl tracking-widest text-white border-purple-500/40 bg-purple-500/20 hover:bg-purple-500/40 flex items-center gap-3 w-full justify-center">
                             <i class="fa-solid fa-heart"></i> PEDIDO DE ORACIÓN
@@ -762,17 +895,22 @@
 
                 <div id="col-estudios"
                     class="glass p-3 sm:p-5 flex flex-col items-center justify-start group shadow-xl relative overflow-hidden rounded-[2rem] transition-all hover:-translate-y-1 w-full col-card h-full border border-white/20">
-                    <div class="w-[96%] sm:w-[94%] aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-[4px] border-white/20 relative flex-shrink-0 group-hover:scale-[1.04] transition-transform duration-500">
-                        <div class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+                    <div
+                        class="w-[96%] sm:w-[94%] aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-3 sm:mb-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] border-[4px] border-white/20 relative flex-shrink-0 group-hover:scale-[1.04] transition-transform duration-500">
+                        <div
+                            class="bubble-wrapper absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
                             <div class="bubble-bg absolute inset-0 overflow-hidden">
-                                <img src="images/fe_de_jesus.jpg" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                                <img src="images/fe_de_jesus.jpg"
+                                    class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
                             </div>
                             <div class="bubble-static absolute inset-0 overflow-hidden">
-                                <img src="images/fe_de_jesus.jpg" alt="Estudios Bíblicos" class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
+                                <img src="images/fe_de_jesus.jpg" alt="Estudios Bíblicos"
+                                    class="w-full h-full object-cover group-hover:scale-[1.08] transition-transform duration-1000 opacity-80 group-hover:opacity-100">
                             </div>
                         </div>
                     </div>
-                    <div class="w-full flex-grow flex flex-col items-center z-10 justify-end transition-transform duration-500">
+                    <div
+                        class="w-full flex-grow flex flex-col items-center z-10 justify-end transition-transform duration-500">
                         <button id="btn-estudios" onclick="toggleFormEstudios()"
                             class="glass-btn px-4 py-4 font-black text-xl lg:text-base xl:text-lg 2xl:text-xl tracking-widest text-white border-blue-500/40 bg-blue-500/20 hover:bg-blue-500/40 flex items-center gap-3 w-full justify-center">
                             <i class="fa-solid fa-graduation-cap"></i> ESTUDIOS BÍBLICOS
@@ -801,7 +939,9 @@
 
                 <div
                     class="glass p-4 sm:p-6 flex flex-col items-center justify-center relative overflow-hidden rounded-[2rem] shadow-xl group border border-white/20 hover:-translate-y-1 transition-all w-full h-full">
-                    <h3 class="text-3xl md:text-xl lg:text-base xl:text-lg 2xl:text-xl font-black text-white mb-6 tracking-wider xl:tracking-widest text-center uppercase leading-tight text-outline px-2">Contáctanos</h3>
+                    <h3
+                        class="text-3xl md:text-xl lg:text-base xl:text-lg 2xl:text-xl font-black text-white mb-6 tracking-wider xl:tracking-widest text-center uppercase leading-tight text-outline px-2">
+                        Contáctanos</h3>
 
                     <div class="flex justify-center gap-4 mb-6">
                         <a href="#" aria-label="Instagram"
@@ -890,80 +1030,124 @@
         <div class="flex flex-col gap-6">
             <!-- COLLAPSIBLE SECTION 1: DINOS CUÁNDO VIENES (Expanded by default) -->
             <div class="flex flex-col w-full">
-                <button onclick="toggleSection('sec-vienes', 'icon-vienes')" class="w-full glass p-5 flex items-center justify-between text-left hover:bg-white/10 transition-all duration-300 group rounded-2xl relative z-10 border border-white/20">
+                <button onclick="toggleSection('sec-vienes', 'icon-vienes')"
+                    class="w-full glass p-5 flex items-center justify-between text-left hover:bg-white/10 transition-all duration-300 group rounded-2xl relative z-10 border border-white/20">
                     <div class="flex items-center gap-4">
-                        <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-yellow-400/10 text-yellow-400">
+                        <div
+                            class="flex items-center justify-center w-12 h-12 rounded-xl bg-yellow-400/10 text-yellow-400">
                             <i class="fa-solid fa-church text-2xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-wider">Dinos cuándo vienes</h3>
-                            <p class="text-xs sm:text-sm text-gray-300 font-medium">Planifica tu visita presencial y consulta horarios y transportes</p>
+                            <h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-wider">Dinos cuándo
+                                vienes</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 font-medium">Planifica tu visita presencial y
+                                consulta horarios y transportes</p>
                         </div>
                     </div>
-                    <i id="icon-vienes" class="fa-solid fa-chevron-down text-xl sm:text-2xl text-white/70 group-hover:text-white transition-transform duration-300" style="transform: rotate(180deg);"></i>
+                    <i id="icon-vienes"
+                        class="fa-solid fa-chevron-down text-xl sm:text-2xl text-white/70 group-hover:text-white transition-transform duration-300"
+                        style="transform: rotate(180deg);"></i>
                 </button>
 
                 <div id="sec-vienes" class="flex flex-col gap-6 mt-4 slide-down">
                     <div class="xperia-cantos-shell p-4 sm:p-6">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 relative z-10">
                             <!-- Formulario de Visita -->
-                            <div class="glass p-5 sm:p-6 flex flex-col gap-4 text-left border border-white/10 bg-white/5">
-                                <h4 class="text-white font-bold text-xl mb-2 flex items-center gap-2 border-b border-white/10 pb-3">
+                            <div
+                                class="glass p-5 sm:p-6 flex flex-col gap-4 text-left border border-white/10 bg-white/5">
+                                <h4
+                                    class="text-white font-bold text-xl mb-2 flex items-center gap-2 border-b border-white/10 pb-3">
                                     <i class="fa-solid fa-id-card text-yellow-400"></i> Registro de Visita
                                 </h4>
-                                
-                                <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-4 w-full">
+
+                                <form action="https://api.web3forms.com/submit" method="POST"
+                                    class="flex flex-col gap-4 w-full">
                                     <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
-                                    <input type="hidden" name="subject" value="Nueva planificación de visita presencial">
+                                    <input type="hidden" name="subject"
+                                        value="Nueva planificación de visita presencial">
 
                                     <div class="flex flex-col gap-1">
-                                        <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">Nombre Completo</label>
-                                        <input type="text" name="name" placeholder="Nombre completo" required class="glass-input">
+                                        <label
+                                            class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">Nombre
+                                            Completo</label>
+                                        <input type="text" name="name" placeholder="Nombre completo" required
+                                            class="glass-input">
                                     </div>
 
                                     <div class="flex flex-col gap-1">
-                                        <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">WhatsApp o Teléfono</label>
-                                        <input type="tel" name="phone" placeholder="Ej: +34 600 000 000" required class="glass-input">
+                                        <label
+                                            class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">WhatsApp
+                                            o Teléfono</label>
+                                        <input type="tel" name="phone" placeholder="Ej: +34 600 000 000" required
+                                            class="glass-input">
                                     </div>
 
                                     <div class="flex flex-col gap-1">
-                                        <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Cuándo tienes pensado visitarnos?</label>
-                                        <select name="visita_fecha" data-label="Fecha/Hora Planeada" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
-                                            <option value="" disabled selected class="bg-slate-900">Selecciona un servicio</option>
-                                            <option value="Sábado por la mañana (10:00 AM)" class="bg-slate-900">Sábado por la mañana (10:00 AM) - Escuela Sabática y Culto</option>
-                                            <option value="Sábado por la tarde (5:00 PM / 17:00)" class="bg-slate-900">Sábado por la tarde (5:00 PM / 17:00) - Culto Joven</option>
-                                            <option value="Miércoles por la tarde (7:30 PM / 19:30) por Zoom" class="bg-slate-900">Miércoles por la tarde (7:30 PM / 19:30) - Oración por Zoom</option>
+                                        <label
+                                            class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Cuándo
+                                            tienes pensado visitarnos?</label>
+                                        <select name="visita_fecha" data-label="Fecha/Hora Planeada" required
+                                            class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
+                                            <option value="" disabled selected class="bg-slate-900">Selecciona un
+                                                servicio</option>
+                                            <option value="Sábado por la mañana (10:00 AM)" class="bg-slate-900">Sábado
+                                                por la mañana (10:00 AM) - Escuela Sabática y Culto</option>
+                                            <option value="Sábado por la tarde (5:00 PM / 17:00)" class="bg-slate-900">
+                                                Sábado por la tarde (5:00 PM / 17:00) - Culto Joven</option>
+                                            <option value="Miércoles por la tarde (7:30 PM / 19:30) por Zoom"
+                                                class="bg-slate-900">Miércoles por la tarde (7:30 PM / 19:30) - Oración
+                                                por Zoom</option>
                                         </select>
                                     </div>
 
                                     <div class="flex flex-col gap-1">
-                                        <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Es tu primera vez visitando una iglesia adventista?</label>
-                                        <select name="es_primera_vez" data-label="Primera vez" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
-                                            <option value="Sí, es mi primera vez" class="bg-slate-900">Sí, es mi primera vez</option>
-                                            <option value="No, ya he asistido antes" class="bg-slate-900">No, ya he asistido antes</option>
+                                        <label
+                                            class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Es
+                                            tu primera vez visitando una iglesia adventista?</label>
+                                        <select name="es_primera_vez" data-label="Primera vez" required
+                                            class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
+                                            <option value="Sí, es mi primera vez" class="bg-slate-900">Sí, es mi primera
+                                                vez</option>
+                                            <option value="No, ya he asistido antes" class="bg-slate-900">No, ya he
+                                                asistido antes</option>
                                         </select>
                                     </div>
 
                                     <div class="flex flex-col gap-1">
-                                        <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Cómo vendrás?</label>
-                                        <select name="acompanado" data-label="Acompañamiento" required class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
+                                        <label
+                                            class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Cómo
+                                            vendrás?</label>
+                                        <select name="acompanado" data-label="Acompañamiento" required
+                                            class="glass-input appearance-none bg-black/40 focus:bg-black/60 cursor-pointer">
                                             <option value="Vengo solo" class="bg-slate-900">Vengo solo</option>
-                                            <option value="Vengo con mi familia" class="bg-slate-900">Vengo con mi familia</option>
-                                            <option value="Vengo con amigos" class="bg-slate-900">Vengo con amigos</option>
+                                            <option value="Vengo con mi familia" class="bg-slate-900">Vengo con mi
+                                                familia</option>
+                                            <option value="Vengo con amigos" class="bg-slate-900">Vengo con amigos
+                                            </option>
                                         </select>
                                     </div>
 
                                     <div class="flex items-center gap-3 mt-1 px-1">
-                                        <input type="checkbox" id="recibir_entrada" name="recibir_entrada" value="Sí, desea ser esperado en la entrada" data-label="Esperar en la entrada" class="w-5 h-5 rounded border-white/20 bg-white/10 text-yellow-500 focus:ring-yellow-500/50 cursor-pointer">
-                                        <label for="recibir_entrada" class="text-sm text-gray-200 cursor-pointer font-medium select-none">Me gustaría que alguien me espere en la entrada</label>
+                                        <input type="checkbox" id="recibir_entrada" name="recibir_entrada"
+                                            value="Sí, desea ser esperado en la entrada"
+                                            data-label="Esperar en la entrada"
+                                            class="w-5 h-5 rounded border-white/20 bg-white/10 text-yellow-500 focus:ring-yellow-500/50 cursor-pointer">
+                                        <label for="recibir_entrada"
+                                            class="text-sm text-gray-200 cursor-pointer font-medium select-none">Me
+                                            gustaría que alguien me espere en la entrada</label>
                                     </div>
 
                                     <div class="flex flex-col gap-1">
-                                        <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Alguna petición de oración o comentario?</label>
-                                        <textarea name="message" placeholder="Escribe aquí tu petición o cualquier duda..." class="glass-input resize-none h-20"></textarea>
+                                        <label
+                                            class="text-xs font-semibold text-gray-400 uppercase tracking-wider ml-1">¿Alguna
+                                            petición de oración o comentario?</label>
+                                        <textarea name="message"
+                                            placeholder="Escribe aquí tu petición o cualquier duda..."
+                                            class="glass-input resize-none h-20"></textarea>
                                     </div>
 
-                                    <button type="submit" class="glass-btn w-full p-4 font-black bg-yellow-500/30 hover:bg-yellow-500/50 border-yellow-500/40 text-yellow-300 mt-2 uppercase tracking-widest transition-all">
+                                    <button type="submit"
+                                        class="glass-btn w-full p-4 font-black bg-yellow-500/30 hover:bg-yellow-500/50 border-yellow-500/40 text-yellow-300 mt-2 uppercase tracking-widest transition-all">
                                         Confirmar Visita
                                     </button>
                                 </form>
@@ -972,54 +1156,70 @@
                             <!-- Horarios, Transporte y Mapa -->
                             <div class="flex flex-col gap-6">
                                 <!-- Horarios y Cómo llegar -->
-                                <div class="glass p-5 sm:p-6 text-left border border-white/10 bg-white/5 flex flex-col gap-4">
-                                    <h4 class="text-white font-bold text-xl flex items-center gap-2 border-b border-white/10 pb-3">
+                                <div
+                                    class="glass p-5 sm:p-6 text-left border border-white/10 bg-white/5 flex flex-col gap-4">
+                                    <h4
+                                        class="text-white font-bold text-xl flex items-center gap-2 border-b border-white/10 pb-3">
                                         <i class="fa-solid fa-clock text-yellow-400"></i> Horarios de Culto
                                     </h4>
                                     <div class="flex flex-col gap-3 text-sm sm:text-base">
-                                        <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+                                        <div
+                                            class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
                                             <span class="font-bold text-gray-100">Sábado Mañana</span>
-                                            <span class="text-yellow-400 font-semibold">10:00 AM (Biblia) &amp; 11:15 AM (Culto)</span>
+                                            <span class="text-yellow-400 font-semibold">10:00 AM (Biblia) &amp; 11:15 AM
+                                                (Culto)</span>
                                         </div>
-                                        <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+                                        <div
+                                            class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
                                             <span class="font-bold text-gray-100">Sábado Tarde</span>
-                                            <span class="text-yellow-400 font-semibold">5:00 PM / 17:00 (Culto Joven)</span>
+                                            <span class="text-yellow-400 font-semibold">5:00 PM / 17:00 (Culto
+                                                Joven)</span>
                                         </div>
-                                        <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
+                                        <div
+                                            class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
                                             <span class="font-bold text-gray-100">Miércoles Tarde</span>
-                                            <span class="text-yellow-400 font-semibold">7:30 PM / 19:30 (Oración por Zoom)</span>
+                                            <span class="text-yellow-400 font-semibold">7:30 PM / 19:30 (Oración por
+                                                Zoom)</span>
                                         </div>
                                     </div>
 
-                                    <h4 class="text-white font-bold text-xl flex items-center gap-2 border-b border-white/10 pt-2 pb-3">
+                                    <h4
+                                        class="text-white font-bold text-xl flex items-center gap-2 border-b border-white/10 pt-2 pb-3">
                                         <i class="fa-solid fa-train-subway text-yellow-400"></i> Cómo Llegar
                                     </h4>
                                     <div class="flex flex-col gap-3 text-sm sm:text-base">
                                         <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
-                                            <div class="flex items-center justify-center bg-red-500/20 text-red-400 w-10 h-10 rounded-full shrink-0">
+                                            <div
+                                                class="flex items-center justify-center bg-red-500/20 text-red-400 w-10 h-10 rounded-full shrink-0">
                                                 <i class="fa-solid fa-train"></i>
                                             </div>
                                             <div>
                                                 <span class="font-bold text-gray-100 block">Metro</span>
-                                                <span class="text-gray-300 text-xs sm:text-sm">L1, L3 (Pl. Catalunya) &bull; L1, L2 (Pl. Universitat)</span>
+                                                <span class="text-gray-300 text-xs sm:text-sm">L1, L3 (Pl. Catalunya)
+                                                    &bull; L1, L2 (Pl. Universitat)</span>
                                             </div>
                                         </div>
                                         <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
-                                            <div class="flex items-center justify-center bg-blue-500/20 text-blue-400 w-10 h-10 rounded-full shrink-0">
+                                            <div
+                                                class="flex items-center justify-center bg-blue-500/20 text-blue-400 w-10 h-10 rounded-full shrink-0">
                                                 <i class="fa-solid fa-bus"></i>
                                             </div>
                                             <div>
                                                 <span class="font-bold text-gray-100 block">Autobuses Urbanos</span>
-                                                <span class="text-gray-300 text-xs sm:text-sm">Líneas 55, 59, H16, V13, D50, 67 (Paradas en Pl. Catalunya / Pl. Universitat)</span>
+                                                <span class="text-gray-300 text-xs sm:text-sm">Líneas 55, 59, H16, V13,
+                                                    D50, 67 (Paradas en Pl. Catalunya / Pl. Universitat)</span>
                                             </div>
                                         </div>
                                         <div class="flex gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
-                                            <div class="flex items-center justify-center bg-emerald-500/20 text-emerald-400 w-10 h-10 rounded-full shrink-0">
+                                            <div
+                                                class="flex items-center justify-center bg-emerald-500/20 text-emerald-400 w-10 h-10 rounded-full shrink-0">
                                                 <i class="fa-solid fa-location-dot"></i>
                                             </div>
                                             <div>
-                                                <span class="font-bold text-gray-100 block">Cercanías / FGC / Renfe</span>
-                                                <span class="text-gray-300 text-xs sm:text-sm">Estación de Plaça Catalunya (a 4 minutos caminando de la iglesia)</span>
+                                                <span class="font-bold text-gray-100 block">Cercanías / FGC /
+                                                    Renfe</span>
+                                                <span class="text-gray-300 text-xs sm:text-sm">Estación de Plaça
+                                                    Catalunya (a 4 minutos caminando de la iglesia)</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1028,7 +1228,8 @@
                                 <!-- Mapa interactivo -->
                                 <div class="glass p-5 text-left border border-white/10 bg-white/5 flex flex-col gap-4">
                                     <h4 class="text-white font-bold text-lg flex items-center gap-2">
-                                        <i class="fa-solid fa-map-location-dot text-yellow-400"></i> Ubicación de la Iglesia
+                                        <i class="fa-solid fa-map-location-dot text-yellow-400"></i> Ubicación de la
+                                        Iglesia
                                     </h4>
                                     <div class="iframe-container shadow-inner" style="padding-bottom: 50%;">
                                         <iframe
@@ -1056,36 +1257,48 @@
 
             <!-- COLLAPSIBLE SECTION 2: CAMPAÑA ANTERIOR / REVIVE (Collapsed by default) -->
             <div class="flex flex-col w-full">
-                <button onclick="toggleSection('sec-campana-anterior', 'icon-campana-anterior')" class="w-full glass p-5 flex items-center justify-between text-left hover:bg-white/10 transition-all duration-300 group rounded-2xl relative z-10 border border-white/20">
+                <button onclick="toggleSection('sec-campana-anterior', 'icon-campana-anterior')"
+                    class="w-full glass p-5 flex items-center justify-between text-left hover:bg-white/10 transition-all duration-300 group rounded-2xl relative z-10 border border-white/20">
                     <div class="flex items-center gap-4">
-                        <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-yellow-400/10 text-yellow-400">
+                        <div
+                            class="flex items-center justify-center w-12 h-12 rounded-xl bg-yellow-400/10 text-yellow-400">
                             <i class="fa-solid fa-calendar-check text-2xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-wider">Campaña Anterior: Revive</h3>
-                            <p class="text-xs sm:text-sm text-gray-300 font-medium">Temas inspiradores del Pr. Homero Salazar</p>
+                            <h3 class="text-xl sm:text-2xl font-black text-white uppercase tracking-wider">Campaña
+                                Anterior: Revive</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 font-medium">Temas inspiradores del Pr. Homero
+                                Salazar</p>
                         </div>
                     </div>
-                    <i id="icon-campana-anterior" class="fa-solid fa-chevron-down text-xl sm:text-2xl text-white/70 group-hover:text-white transition-transform duration-300" style="transform: rotate(0deg);"></i>
+                    <i id="icon-campana-anterior"
+                        class="fa-solid fa-chevron-down text-xl sm:text-2xl text-white/70 group-hover:text-white transition-transform duration-300"
+                        style="transform: rotate(0deg);"></i>
                 </button>
 
                 <div id="sec-campana-anterior" class="hidden flex-col gap-6 mt-4 slide-down">
                     <div class="xperia-cantos-shell p-4 sm:p-6">
                         <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6 relative z-10">
                             <div>
-                                <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">Campaña de Evangelismo</h3>
-                                <p class="text-sm text-yellow-400 font-bold uppercase tracking-wider mt-1">Pr. Homero Salazar</p>
+                                <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">Campaña
+                                    de Evangelismo</h3>
+                                <p class="text-sm text-yellow-400 font-bold uppercase tracking-wider mt-1">Pr. Homero
+                                    Salazar</p>
                             </div>
                             <div class="glass px-4 py-3 rounded-2xl text-left min-w-[18rem] relative z-10">
                                 <p id="campana-counter"
-                                    class="text-[0.72rem] uppercase tracking-[0.35em] text-yellow-300/70 mb-1">01 / 05</p>
-                                <h4 id="campana-title" class="text-lg font-black text-white leading-tight">Tema 1: Decídete por Jesús</h4>
-                                <p id="campana-speaker" class="text-sm text-gray-300 mt-1">Semana de Evangelismo 'Revive'</p>
+                                    class="text-[0.72rem] uppercase tracking-[0.35em] text-yellow-300/70 mb-1">01 / 05
+                                </p>
+                                <h4 id="campana-title" class="text-lg font-black text-white leading-tight">Tema 1:
+                                    Decídete por Jesús</h4>
+                                <p id="campana-speaker" class="text-sm text-gray-300 mt-1">Semana de Evangelismo
+                                    'Revive'</p>
                             </div>
                         </div>
                         <div id="campana-player-card" class="xperia-cantos-player p-4 sm:p-5 relative z-10">
                             <div class="flex flex-col gap-5">
-                                <div class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
+                                <div
+                                    class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
                                     <iframe id="campana-player" src="https://www.youtube.com/embed/hkw9HHW9-Bs"
                                         title="Reproductor de Campaña" frameborder="0" allow="autoplay; encrypted-media"
                                         allowfullscreen></iframe>
@@ -1106,16 +1319,19 @@
                         <div class="xperia-cantos-stage mt-5 relative z-10">
                             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                                 <div>
-                                    <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de Temas</h4>
+                                    <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista
+                                        de Temas</h4>
                                 </div>
                             </div>
                             <div class="xperia-cantos-track">
                                 <div id="campana-list" class="xperia-cantos-list">
                                     <button type="button" class="xperia-canto-entry active"
                                         data-embed="https://www.youtube.com/embed/hkw9HHW9-Bs"
-                                        data-title="Tema 1: Decídete por Jesús" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(0)">
+                                        data-title="Tema 1: Decídete por Jesús"
+                                        data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(0)">
                                         <span class="xperia-canto-index">01</span>
-                                        <img src="https://i.ytimg.com/vi/hkw9HHW9-Bs/hqdefault.jpg" alt="Tema 1" class="xperia-canto-thumb">
+                                        <img src="https://i.ytimg.com/vi/hkw9HHW9-Bs/hqdefault.jpg" alt="Tema 1"
+                                            class="xperia-canto-thumb">
                                         <span class="xperia-canto-copy">
                                             <span class="xperia-canto-title">Tema 1: Decídete por Jesús</span>
                                             <span class="xperia-canto-artist">Pr. Homero Salazar</span>
@@ -1124,9 +1340,11 @@
                                     </button>
                                     <button type="button" class="xperia-canto-entry"
                                         data-embed="https://www.youtube.com/embed/e_e-wn56NJ4"
-                                        data-title="Tema 2: Decídete por Jesús" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(1)">
+                                        data-title="Tema 2: Decídete por Jesús"
+                                        data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(1)">
                                         <span class="xperia-canto-index">02</span>
-                                        <img src="https://i.ytimg.com/vi/e_e-wn56NJ4/hqdefault.jpg" alt="Tema 2" class="xperia-canto-thumb">
+                                        <img src="https://i.ytimg.com/vi/e_e-wn56NJ4/hqdefault.jpg" alt="Tema 2"
+                                            class="xperia-canto-thumb">
                                         <span class="xperia-canto-copy">
                                             <span class="xperia-canto-title">Tema 2: Decídete por Jesús</span>
                                             <span class="xperia-canto-artist">Pr. Homero Salazar</span>
@@ -1135,9 +1353,11 @@
                                     </button>
                                     <button type="button" class="xperia-canto-entry"
                                         data-embed="https://www.youtube.com/embed/zotxr65Te1M"
-                                        data-title="Tema 3: Míster Legión" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(2)">
+                                        data-title="Tema 3: Míster Legión" data-speaker="Semana de Evangelismo 'Revive'"
+                                        onclick="selectCampana(2)">
                                         <span class="xperia-canto-index">03</span>
-                                        <img src="https://i.ytimg.com/vi/zotxr65Te1M/hqdefault.jpg" alt="Tema 3" class="xperia-canto-thumb">
+                                        <img src="https://i.ytimg.com/vi/zotxr65Te1M/hqdefault.jpg" alt="Tema 3"
+                                            class="xperia-canto-thumb">
                                         <span class="xperia-canto-copy">
                                             <span class="xperia-canto-title">Tema 3: Míster Legión</span>
                                             <span class="xperia-canto-artist">Pr. Homero Salazar</span>
@@ -1146,9 +1366,11 @@
                                     </button>
                                     <button type="button" class="xperia-canto-entry"
                                         data-embed="https://www.youtube.com/embed/h4HWzg_tyfI"
-                                        data-title="Tema 4: Ni yo te condeno" data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(3)">
+                                        data-title="Tema 4: Ni yo te condeno"
+                                        data-speaker="Semana de Evangelismo 'Revive'" onclick="selectCampana(3)">
                                         <span class="xperia-canto-index">04</span>
-                                        <img src="https://i.ytimg.com/vi/h4HWzg_tyfI/hqdefault.jpg" alt="Tema 4" class="xperia-canto-thumb">
+                                        <img src="https://i.ytimg.com/vi/h4HWzg_tyfI/hqdefault.jpg" alt="Tema 4"
+                                            class="xperia-canto-thumb">
                                         <span class="xperia-canto-copy">
                                             <span class="xperia-canto-title">Tema 4: Ni yo te condeno</span>
                                             <span class="xperia-canto-artist">Pr. Homero Salazar</span>
@@ -1157,9 +1379,11 @@
                                     </button>
                                     <button type="button" class="xperia-canto-entry"
                                         data-embed="https://www.youtube.com/embed/lqABr1fXHcs"
-                                        data-title="Culto Divino: Recibiréis Poder" data-speaker="Sábado - Mensaje Principal" onclick="selectCampana(4)">
+                                        data-title="Culto Divino: Recibiréis Poder"
+                                        data-speaker="Sábado - Mensaje Principal" onclick="selectCampana(4)">
                                         <span class="xperia-canto-index">05</span>
-                                        <img src="https://i.ytimg.com/vi/lqABr1fXHcs/hqdefault.jpg" alt="Tema 5" class="xperia-canto-thumb">
+                                        <img src="https://i.ytimg.com/vi/lqABr1fXHcs/hqdefault.jpg" alt="Tema 5"
+                                            class="xperia-canto-thumb">
                                         <span class="xperia-canto-copy">
                                             <span class="xperia-canto-title">Culto Divino: Recibiréis Poder</span>
                                             <span class="xperia-canto-artist">Pr. Homero Salazar</span>
@@ -1224,18 +1448,19 @@
                 </div>
                 <div id="xperia-cantos-player-card" class="xperia-cantos-player p-4 sm:p-5 relative z-10">
                     <div class="flex flex-col gap-5">
-                        <div class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
+                        <div
+                            class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
                             <iframe id="xperia-cantos-player" src="https://www.youtube.com/embed/T07Yraic6oQ"
                                 title="Reproductor de cantos" frameborder="0" allow="autoplay; encrypted-media"
                                 allowfullscreen></iframe>
                         </div>
                         <div class="flex justify-center gap-4">
-                            <button type="button" class="xperia-scroll-btn px-6"
-                                onclick="stepCantosSelection(-1)" aria-label="Canto anterior">
+                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepCantosSelection(-1)"
+                                aria-label="Canto anterior">
                                 <i class="fa-solid fa-chevron-left text-sm"></i> Anterior
                             </button>
-                            <button type="button" class="xperia-scroll-btn px-6"
-                                onclick="stepCantosSelection(1)" aria-label="Siguiente canto">
+                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepCantosSelection(1)"
+                                aria-label="Siguiente canto">
                                 Siguiente <i class="fa-solid fa-chevron-right text-sm"></i>
                             </button>
                         </div>
@@ -1435,8 +1660,7 @@
                             <button type="button" class="xperia-canto-entry"
                                 data-embed="https://www.youtube.com/embed/IFiX7mdqVuM"
                                 data-link="https://youtu.be/IFiX7mdqVuM?si=FvpCTXc3DlQX__kT"
-                                data-title="ROCA DE MI SALVACIÓN" data-artist="Bertha Amado"
-                                onclick="selectCanto(16)">
+                                data-title="ROCA DE MI SALVACIÓN" data-artist="Bertha Amado" onclick="selectCanto(16)">
                                 <span class="xperia-canto-index">17</span><img
                                     src="https://i.ytimg.com/vi/IFiX7mdqVuM/hqdefault.jpg" alt="ROCA DE MI SALVACIÓN"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1450,16 +1674,18 @@
             </div>
         </div>
 
-                <div id="tab-himnos" class="hidden flex-col gap-6">
-            <div id="xperia-himnos-player-card" class="glass p-3 sm:p-5 rounded-[2rem] border border-white/10 shadow-[0_18px_40px_rgba(0,0,0,0.24)]">
-                <div class="aspect-video overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30 shadow-[0_18px_35px_rgba(0,0,0,0.3)] relative">
+        <div id="tab-himnos" class="hidden flex-col gap-6">
+            <div id="xperia-himnos-player-card"
+                class="glass p-3 sm:p-5 rounded-[2rem] border border-white/10 shadow-[0_18px_40px_rgba(0,0,0,0.24)]">
+                <div
+                    class="aspect-video overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30 shadow-[0_18px_35px_rgba(0,0,0,0.3)] relative">
                     <iframe id="xperia-himnos-player" src="https://www.youtube.com/embed/7uxsAMxm0PU"
                         title="Himnario Player" class="w-full h-full"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen>
                     </iframe>
                 </div>
-                
+
                 <div class="mt-5 mb-5 flex justify-center border-b border-white/10 pb-5">
                     <a href="https://www.nuevohimnario.com/" target="_blank"
                         class="glass-btn px-8 py-5 w-full sm:w-auto text-base sm:text-lg font-black uppercase tracking-[0.2em] text-white bg-blue-500/20 hover:bg-blue-500/40 border-blue-400/40 flex items-center justify-center gap-3 transition-all rounded-2xl shadow-lg">
@@ -1470,35 +1696,33 @@
                 <div class="xperia-cantos-stage mt-5 relative z-10">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                         <div>
-                            <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de Himnos</h4>
+                            <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de Himnos
+                            </h4>
                         </div>
                     </div>
                     <div class="xperia-cantos-track">
                         <div class="xperia-cantos-focus"></div>
                         <div id="xperia-himnos-list" class="xperia-cantos-list">
                             <button type="button" class="xperia-canto-entry active"
-                                data-embed="https://www.youtube.com/embed/7uxsAMxm0PU"
-                                onclick="selectHimno(0)">
+                                data-embed="https://www.youtube.com/embed/7uxsAMxm0PU" onclick="selectHimno(0)">
                                 <span class="xperia-canto-index">01</span><img
-                                    src="https://i.ytimg.com/vi/7uxsAMxm0PU/hqdefault.jpg" alt="¡Oh, buen Maestro, despierta!"
-                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
-                                        class="xperia-canto-title">371 - ¡Oh, buen Maestro, despierta!</span><span
-                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
-                                    class="fa-solid fa-circle-play text-white/70"></i>
+                                    src="https://i.ytimg.com/vi/7uxsAMxm0PU/hqdefault.jpg"
+                                    alt="¡Oh, buen Maestro, despierta!" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">371 - ¡Oh, buen Maestro,
+                                        despierta!</span><span class="xperia-canto-artist">Himnario
+                                        Adventista</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/qIYVWzlAm4o"
-                                onclick="selectHimno(1)">
+                                data-embed="https://www.youtube.com/embed/qIYVWzlAm4o" onclick="selectHimno(1)">
                                 <span class="xperia-canto-index">02</span><img
-                                    src="https://i.ytimg.com/vi/qIYVWzlAm4o/hqdefault.jpg" alt="¡Oh, cuán dulce es fiar en Cristo!"
-                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
-                                        class="xperia-canto-title">395 - ¡Oh, cuán dulce es fiar en Cristo!</span><span
-                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
-                                    class="fa-solid fa-circle-play text-white/70"></i>
+                                    src="https://i.ytimg.com/vi/qIYVWzlAm4o/hqdefault.jpg"
+                                    alt="¡Oh, cuán dulce es fiar en Cristo!" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">395 - ¡Oh, cuán dulce es
+                                        fiar en Cristo!</span><span class="xperia-canto-artist">Himnario
+                                        Adventista</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/IWPrl_Qb6hc"
-                                onclick="selectHimno(2)">
+                                data-embed="https://www.youtube.com/embed/IWPrl_Qb6hc" onclick="selectHimno(2)">
                                 <span class="xperia-canto-index">03</span><img
                                     src="https://i.ytimg.com/vi/IWPrl_Qb6hc/hqdefault.jpg" alt="A Jesus entrega todo"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1507,18 +1731,16 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/kkUloNPe7Ac"
-                                onclick="selectHimno(3)">
+                                data-embed="https://www.youtube.com/embed/kkUloNPe7Ac" onclick="selectHimno(3)">
                                 <span class="xperia-canto-index">04</span><img
-                                    src="https://i.ytimg.com/vi/kkUloNPe7Ac/hqdefault.jpg" alt="Jamás podrá alguien separarnos"
-                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
-                                        class="xperia-canto-title">092 - Jamás podrá alguien separarnos</span><span
-                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
-                                    class="fa-solid fa-circle-play text-white/70"></i>
+                                    src="https://i.ytimg.com/vi/kkUloNPe7Ac/hqdefault.jpg"
+                                    alt="Jamás podrá alguien separarnos" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">092 - Jamás podrá alguien
+                                        separarnos</span><span class="xperia-canto-artist">Himnario
+                                        Adventista</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/XS8nQnllO1Q"
-                                onclick="selectHimno(4)">
+                                data-embed="https://www.youtube.com/embed/XS8nQnllO1Q" onclick="selectHimno(4)">
                                 <span class="xperia-canto-index">05</span><img
                                     src="https://i.ytimg.com/vi/XS8nQnllO1Q/hqdefault.jpg" alt="Grande es Jehová"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1527,18 +1749,16 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/KRJyAC_3fHY"
-                                onclick="selectHimno(5)">
+                                data-embed="https://www.youtube.com/embed/KRJyAC_3fHY" onclick="selectHimno(5)">
                                 <span class="xperia-canto-index">06</span><img
-                                    src="https://i.ytimg.com/vi/KRJyAC_3fHY/hqdefault.jpg" alt="Hay una fuente sin igual"
-                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
-                                        class="xperia-canto-title">152 - Hay una fuente sin igual</span><span
-                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
-                                    class="fa-solid fa-circle-play text-white/70"></i>
+                                    src="https://i.ytimg.com/vi/KRJyAC_3fHY/hqdefault.jpg"
+                                    alt="Hay una fuente sin igual" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">152 - Hay una fuente sin
+                                        igual</span><span class="xperia-canto-artist">Himnario
+                                        Adventista</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/2lC1T5Ydzhk"
-                                onclick="selectHimno(6)">
+                                data-embed="https://www.youtube.com/embed/2lC1T5Ydzhk" onclick="selectHimno(6)">
                                 <span class="xperia-canto-index">07</span><img
                                     src="https://i.ytimg.com/vi/2lC1T5Ydzhk/hqdefault.jpg" alt="Hace años escuché"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1547,18 +1767,16 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/Ga7m8hDL1us"
-                                onclick="selectHimno(7)">
+                                data-embed="https://www.youtube.com/embed/Ga7m8hDL1us" onclick="selectHimno(7)">
                                 <span class="xperia-canto-index">08</span><img
-                                    src="https://i.ytimg.com/vi/Ga7m8hDL1us/hqdefault.jpg" alt="Padre, a tus pies me postro"
-                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
-                                        class="xperia-canto-title">250 - Padre, a tus pies me postro</span><span
-                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
-                                    class="fa-solid fa-circle-play text-white/70"></i>
+                                    src="https://i.ytimg.com/vi/Ga7m8hDL1us/hqdefault.jpg"
+                                    alt="Padre, a tus pies me postro" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">250 - Padre, a tus pies
+                                        me postro</span><span class="xperia-canto-artist">Himnario
+                                        Adventista</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/PkoUIjG6xFk"
-                                onclick="selectHimno(8)">
+                                data-embed="https://www.youtube.com/embed/PkoUIjG6xFk" onclick="selectHimno(8)">
                                 <span class="xperia-canto-index">09</span><img
                                     src="https://i.ytimg.com/vi/PkoUIjG6xFk/hqdefault.jpg" alt="La razón de vivir"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1567,8 +1785,7 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/WPZ0kNoGUhI"
-                                onclick="selectHimno(9)">
+                                data-embed="https://www.youtube.com/embed/WPZ0kNoGUhI" onclick="selectHimno(9)">
                                 <span class="xperia-canto-index">10</span><img
                                     src="https://i.ytimg.com/vi/WPZ0kNoGUhI/hqdefault.jpg" alt="Anhelo ser limpio"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1577,28 +1794,25 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/Eyquiek7M1s"
-                                onclick="selectHimno(10)">
+                                data-embed="https://www.youtube.com/embed/Eyquiek7M1s" onclick="selectHimno(10)">
                                 <span class="xperia-canto-index">11</span><img
-                                    src="https://i.ytimg.com/vi/Eyquiek7M1s/hqdefault.jpg" alt="Perdón te ruego, mi Señor y Dios"
-                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
-                                        class="xperia-canto-title">241 - Perdón te ruego, mi Señor y Dios</span><span
-                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
-                                    class="fa-solid fa-circle-play text-white/70"></i>
+                                    src="https://i.ytimg.com/vi/Eyquiek7M1s/hqdefault.jpg"
+                                    alt="Perdón te ruego, mi Señor y Dios" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">241 - Perdón te ruego, mi
+                                        Señor y Dios</span><span class="xperia-canto-artist">Himnario
+                                        Adventista</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/E33rFP_pps4"
-                                onclick="selectHimno(11)">
+                                data-embed="https://www.youtube.com/embed/E33rFP_pps4" onclick="selectHimno(11)">
                                 <span class="xperia-canto-index">12</span><img
-                                    src="https://i.ytimg.com/vi/E33rFP_pps4/hqdefault.jpg" alt="Jesús, tú eres mi alegría"
-                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
-                                        class="xperia-canto-title">357 - Jesús, tú eres mi alegría</span><span
-                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
-                                    class="fa-solid fa-circle-play text-white/70"></i>
+                                    src="https://i.ytimg.com/vi/E33rFP_pps4/hqdefault.jpg"
+                                    alt="Jesús, tú eres mi alegría" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">357 - Jesús, tú eres mi
+                                        alegría</span><span class="xperia-canto-artist">Himnario
+                                        Adventista</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/0Lvfykly6m4"
-                                onclick="selectHimno(12)">
+                                data-embed="https://www.youtube.com/embed/0Lvfykly6m4" onclick="selectHimno(12)">
                                 <span class="xperia-canto-index">13</span><img
                                     src="https://i.ytimg.com/vi/0Lvfykly6m4/hqdefault.jpg" alt="Sublime Gracia"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1607,8 +1821,7 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/HLiGs3uaDhw"
-                                onclick="selectHimno(13)">
+                                data-embed="https://www.youtube.com/embed/HLiGs3uaDhw" onclick="selectHimno(13)">
                                 <span class="xperia-canto-index">14</span><img
                                     src="https://i.ytimg.com/vi/HLiGs3uaDhw/hqdefault.jpg" alt="Digno eres tú"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1617,18 +1830,16 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/2fnovsemzyQ"
-                                onclick="selectHimno(14)">
+                                data-embed="https://www.youtube.com/embed/2fnovsemzyQ" onclick="selectHimno(14)">
                                 <span class="xperia-canto-index">15</span><img
-                                    src="https://i.ytimg.com/vi/2fnovsemzyQ/hqdefault.jpg" alt="Del Culto el Tiempo Llega"
-                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
-                                        class="xperia-canto-title">029 - Del Culto el Tiempo Llega</span><span
-                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
-                                    class="fa-solid fa-circle-play text-white/70"></i>
+                                    src="https://i.ytimg.com/vi/2fnovsemzyQ/hqdefault.jpg"
+                                    alt="Del Culto el Tiempo Llega" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">029 - Del Culto el Tiempo
+                                        Llega</span><span class="xperia-canto-artist">Himnario
+                                        Adventista</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/nvYpW7H_gzQ"
-                                onclick="selectHimno(15)">
+                                data-embed="https://www.youtube.com/embed/nvYpW7H_gzQ" onclick="selectHimno(15)">
                                 <span class="xperia-canto-index">16</span><img
                                     src="https://i.ytimg.com/vi/nvYpW7H_gzQ/hqdefault.jpg" alt="Canto el gran amor"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1637,8 +1848,7 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/AIOecqHyshs"
-                                onclick="selectHimno(16)">
+                                data-embed="https://www.youtube.com/embed/AIOecqHyshs" onclick="selectHimno(16)">
                                 <span class="xperia-canto-index">17</span><img
                                     src="https://i.ytimg.com/vi/AIOecqHyshs/hqdefault.jpg" alt="¡Vendrá el Señor!"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1647,8 +1857,7 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/zTVI9v1pMIo"
-                                onclick="selectHimno(17)">
+                                data-embed="https://www.youtube.com/embed/zTVI9v1pMIo" onclick="selectHimno(17)">
                                 <span class="xperia-canto-index">18</span><img
                                     src="https://i.ytimg.com/vi/zTVI9v1pMIo/hqdefault.jpg" alt="Nunca desmayes"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1657,8 +1866,7 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/M855m2chTmE"
-                                onclick="selectHimno(18)">
+                                data-embed="https://www.youtube.com/embed/M855m2chTmE" onclick="selectHimno(18)">
                                 <span class="xperia-canto-index">19</span><img
                                     src="https://i.ytimg.com/vi/M855m2chTmE/hqdefault.jpg" alt="En momentos así"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1667,8 +1875,7 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/6_riNJrnTng"
-                                onclick="selectHimno(19)">
+                                data-embed="https://www.youtube.com/embed/6_riNJrnTng" onclick="selectHimno(19)">
                                 <span class="xperia-canto-index">20</span><img
                                     src="https://i.ytimg.com/vi/6_riNJrnTng/hqdefault.jpg" alt="Habla, Señor, a mi Alma"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1677,8 +1884,7 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/VsP1OnG9OHc"
-                                onclick="selectHimno(20)">
+                                data-embed="https://www.youtube.com/embed/VsP1OnG9OHc" onclick="selectHimno(20)">
                                 <span class="xperia-canto-index">21</span><img
                                     src="https://i.ytimg.com/vi/VsP1OnG9OHc/hqdefault.jpg" alt="¿Le importará a Jesús?"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1687,8 +1893,7 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/T07Yraic6oQ"
-                                onclick="selectHimno(21)">
+                                data-embed="https://www.youtube.com/embed/T07Yraic6oQ" onclick="selectHimno(21)">
                                 <span class="xperia-canto-index">22</span><img
                                     src="https://i.ytimg.com/vi/T07Yraic6oQ/hqdefault.jpg" alt="Cantad Alegres al Señor"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1697,8 +1902,7 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/wIPCePkVn6M"
-                                onclick="selectHimno(22)">
+                                data-embed="https://www.youtube.com/embed/wIPCePkVn6M" onclick="selectHimno(22)">
                                 <span class="xperia-canto-index">23</span><img
                                     src="https://i.ytimg.com/vi/wIPCePkVn6M/hqdefault.jpg" alt="Da Gloria al Señor"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1707,18 +1911,16 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/7dl075TS0vg"
-                                onclick="selectHimno(23)">
+                                data-embed="https://www.youtube.com/embed/7dl075TS0vg" onclick="selectHimno(23)">
                                 <span class="xperia-canto-index">24</span><img
-                                    src="https://i.ytimg.com/vi/7dl075TS0vg/hqdefault.jpg" alt="Dios os guarde en su Santo Amor"
-                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
-                                        class="xperia-canto-title">003 - Dios os guarde en su Santo Amor</span><span
-                                        class="xperia-canto-artist">Himnario Adventista</span></span><i
-                                    class="fa-solid fa-circle-play text-white/70"></i>
+                                    src="https://i.ytimg.com/vi/7dl075TS0vg/hqdefault.jpg"
+                                    alt="Dios os guarde en su Santo Amor" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">003 - Dios os guarde en
+                                        su Santo Amor</span><span class="xperia-canto-artist">Himnario
+                                        Adventista</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/EC24B5ebis8"
-                                onclick="selectHimno(24)">
+                                data-embed="https://www.youtube.com/embed/EC24B5ebis8" onclick="selectHimno(24)">
                                 <span class="xperia-canto-index">25</span><img
                                     src="https://i.ytimg.com/vi/EC24B5ebis8/hqdefault.jpg" alt="Alabanzas al Rey"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1727,8 +1929,7 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/m-e72DrL_c4"
-                                onclick="selectHimno(25)">
+                                data-embed="https://www.youtube.com/embed/m-e72DrL_c4" onclick="selectHimno(25)">
                                 <span class="xperia-canto-index">26</span><img
                                     src="https://i.ytimg.com/vi/m-e72DrL_c4/hqdefault.jpg" alt="A ti, glorioso Dios"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1737,8 +1938,7 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/THSATM9dkok"
-                                onclick="selectHimno(26)">
+                                data-embed="https://www.youtube.com/embed/THSATM9dkok" onclick="selectHimno(26)">
                                 <span class="xperia-canto-index">27</span><img
                                     src="https://i.ytimg.com/vi/THSATM9dkok/hqdefault.jpg" alt="Hosanna"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1747,8 +1947,7 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/nTi5VpQlI6U"
-                                onclick="selectHimno(27)">
+                                data-embed="https://www.youtube.com/embed/nTi5VpQlI6U" onclick="selectHimno(27)">
                                 <span class="xperia-canto-index">28</span><img
                                     src="https://i.ytimg.com/vi/nTi5VpQlI6U/hqdefault.jpg" alt="Santo, Santo, Santo"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1757,8 +1956,7 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/bvk54h5b9U0"
-                                onclick="selectHimno(28)">
+                                data-embed="https://www.youtube.com/embed/bvk54h5b9U0" onclick="selectHimno(28)">
                                 <span class="xperia-canto-index">29</span><img
                                     src="https://i.ytimg.com/vi/bvk54h5b9U0/hqdefault.jpg" alt="Suenen dulces himnos"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1767,8 +1965,7 @@
                                     class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                             <button type="button" class="xperia-canto-entry"
-                                data-embed="https://www.youtube.com/embed/usMsrqRaGFk"
-                                onclick="selectHimno(29)">
+                                data-embed="https://www.youtube.com/embed/usMsrqRaGFk" onclick="selectHimno(29)">
                                 <span class="xperia-canto-index">30</span><img
                                     src="https://i.ytimg.com/vi/usMsrqRaGFk/hqdefault.jpg" alt="¡Alabad al gran Rey!"
                                     class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
@@ -1980,7 +2177,8 @@
                 </div>
                 <h3 class="font-bold text-white uppercase text-xl sm:text-2xl mb-2 inline-flex items-center gap-2"><span
                         class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>Nuevo Tiempo TV</h3>
-                <p class="text-xs sm:text-sm text-gray-300 mb-6 sm:mb-8 px-2 sm:px-4 font-medium leading-relaxed">Disfruta de la señal en vivo
+                <p class="text-xs sm:text-sm text-gray-300 mb-6 sm:mb-8 px-2 sm:px-4 font-medium leading-relaxed">
+                    Disfruta de la señal en vivo
                     directamente en la plataforma oficial.</p>
                 <a href="https://www.nuevotiempo.org/tv/" target="_blank" rel="noopener noreferrer"
                     class="py-3 px-6 sm:py-4 sm:px-8 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-bold rounded-xl shadow-lg hover:shadow-red-500/50 transition-all duration-300 transform hover:-translate-y-1 uppercase tracking-widest text-xs sm:text-sm flex items-center justify-center gap-2 sm:gap-3 w-full mt-auto">
@@ -1991,11 +2189,13 @@
             <div class="glass p-6 sm:p-8 rounded-2xl flex flex-col items-center justify-center text-center">
                 <div
                     class="w-20 h-20 sm:w-24 sm:h-24 mb-4 sm:mb-6 rounded-full bg-red-500/10 flex items-center justify-center border border-red-500/30">
-                    <i class="fa-solid fa-tv text-4xl sm:text-5xl text-red-400 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]"></i>
+                    <i
+                        class="fa-solid fa-tv text-4xl sm:text-5xl text-red-400 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]"></i>
                 </div>
                 <h3 class="font-bold text-white uppercase text-xl sm:text-2xl mb-2 inline-flex items-center gap-2"><span
                         class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>3ABN Latino</h3>
-                <p class="text-xs sm:text-sm text-gray-300 mb-6 sm:mb-8 px-2 sm:px-4 font-medium leading-relaxed">Disfruta de la programación en
+                <p class="text-xs sm:text-sm text-gray-300 mb-6 sm:mb-8 px-2 sm:px-4 font-medium leading-relaxed">
+                    Disfruta de la programación en
                     vivo de la red 3ABN.</p>
                 <a href="https://3abnlatino.tv/" target="_blank" rel="noopener noreferrer"
                     class="py-3 px-6 sm:py-4 sm:px-8 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-bold rounded-xl shadow-lg hover:shadow-red-500/50 transition-all duration-300 transform hover:-translate-y-1 uppercase tracking-widest text-xs sm:text-sm flex items-center justify-center gap-2 sm:gap-3 w-full mt-auto">
@@ -2004,13 +2204,20 @@
             </div>
 
             <div class="glass p-4 sm:p-6 rounded-2xl flex flex-col justify-center relative overflow-hidden group">
-                <div class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                <div class="iframe-container mb-4 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(239,68,68,0.2)] border border-red-500/20 relative z-10">
-                    <iframe src="https://videoplayer.telvue.com:443/player/T_fCOiT-3rZePDmGgMxnW3yTZjmC9rQ6/stream/893?fullscreen=true" frameborder="0" scrolling="no" allowfullscreen class="w-full h-full"></iframe>
+                <div
+                    class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                </div>
+                <div
+                    class="iframe-container mb-4 rounded-xl overflow-hidden shadow-[0_0_20px_rgba(239,68,68,0.2)] border border-red-500/20 relative z-10">
+                    <iframe
+                        src="https://videoplayer.telvue.com:443/player/T_fCOiT-3rZePDmGgMxnW3yTZjmC9rQ6/stream/893?fullscreen=true"
+                        frameborder="0" scrolling="no" allowfullscreen class="w-full h-full"></iframe>
                 </div>
                 <div class="text-center mt-auto pb-2 relative z-10">
-                    <h3 class="font-bold text-white uppercase text-lg sm:text-xl mb-1 inline-flex items-center gap-2"><span class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></span> LLBN Latino</h3>
-                    <p class="text-xs sm:text-sm text-red-300/80 font-medium tracking-widest uppercase">Televisión Adventista</p>
+                    <h3 class="font-bold text-white uppercase text-lg sm:text-xl mb-1 inline-flex items-center gap-2">
+                        <span class="w-3 h-3 bg-red-500 rounded-full animate-pulse"></span> LLBN Latino</h3>
+                    <p class="text-xs sm:text-sm text-red-300/80 font-medium tracking-widest uppercase">Televisión
+                        Adventista</p>
                 </div>
             </div>
         </div>
@@ -2026,21 +2233,28 @@
                         <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">Películas</h3>
                     </div>
                     <div class="glass px-4 py-3 rounded-2xl text-left min-w-[15rem] relative z-10">
-                        <p id="xperia-cine-counter" class="text-[0.72rem] uppercase tracking-[0.35em] text-blue-200/70 mb-1">01 / 08</p>
-                        <h4 id="xperia-cine-title" class="text-lg font-black text-white leading-tight">La Pasión de Cristo</h4>
+                        <p id="xperia-cine-counter"
+                            class="text-[0.72rem] uppercase tracking-[0.35em] text-blue-200/70 mb-1">01 / 08</p>
+                        <h4 id="xperia-cine-title" class="text-lg font-black text-white leading-tight">La Pasión de
+                            Cristo</h4>
                         <p id="xperia-cine-artist" class="text-sm text-gray-300 mt-1">Película</p>
                     </div>
                 </div>
                 <div id="xperia-cine-player-card" class="xperia-cantos-player p-4 sm:p-5 relative z-10">
                     <div class="flex flex-col gap-5">
-                        <div class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
-                            <iframe id="xperia-cine-player" src="https://www.youtube.com/embed/9iKawBQB0BU" title="Reproductor de Películas" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div
+                            class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
+                            <iframe id="xperia-cine-player" src="https://www.youtube.com/embed/9iKawBQB0BU"
+                                title="Reproductor de Películas" frameborder="0" allow="autoplay; encrypted-media"
+                                allowfullscreen></iframe>
                         </div>
                         <div class="flex justify-center gap-4">
-                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepCineSelection(-1)" aria-label="Anterior">
+                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepCineSelection(-1)"
+                                aria-label="Anterior">
                                 <i class="fa-solid fa-chevron-left text-sm"></i> Anterior
                             </button>
-                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepCineSelection(1)" aria-label="Siguiente">
+                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepCineSelection(1)"
+                                aria-label="Siguiente">
                                 Siguiente <i class="fa-solid fa-chevron-right text-sm"></i>
                             </button>
                         </div>
@@ -2050,35 +2264,84 @@
                 <div class="xperia-cantos-stage mt-5 relative z-10">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                         <div>
-                            <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de Películas</h4>
+                            <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de
+                                Películas</h4>
                         </div>
                     </div>
                     <div class="xperia-cantos-track">
                         <div class="xperia-cantos-focus"></div>
                         <div id="xperia-cine-list" class="xperia-cantos-list">
-                            <button type="button" class="xperia-canto-entry active" data-embed="https://www.youtube.com/embed/9iKawBQB0BU" onclick="selectCine(0)">
-                                <span class="xperia-canto-index">01</span><img src="https://i.ytimg.com/vi/9iKawBQB0BU/hqdefault.jpg" alt="La Pasión de Cristo" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">La Pasión de Cristo</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry active"
+                                data-embed="https://www.youtube.com/embed/9iKawBQB0BU" onclick="selectCine(0)">
+                                <span class="xperia-canto-index">01</span><img
+                                    src="https://i.ytimg.com/vi/9iKawBQB0BU/hqdefault.jpg" alt="La Pasión de Cristo"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">La Pasión de Cristo</span><span
+                                        class="xperia-canto-artist">Película</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/fegvqAIHAPc" onclick="selectCine(1)">
-                                <span class="xperia-canto-index">02</span><img src="https://i.ytimg.com/vi/fegvqAIHAPc/hqdefault.jpg" alt="Jesús de Nazaret" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Jesús de Nazaret</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/fegvqAIHAPc" onclick="selectCine(1)">
+                                <span class="xperia-canto-index">02</span><img
+                                    src="https://i.ytimg.com/vi/fegvqAIHAPc/hqdefault.jpg" alt="Jesús de Nazaret"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">Jesús de Nazaret</span><span
+                                        class="xperia-canto-artist">Película</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/k8MFQKqaJFc" onclick="selectCine(2)">
-                                <span class="xperia-canto-index">03</span><img src="https://i.ytimg.com/vi/k8MFQKqaJFc/hqdefault.jpg" alt="Jesús (1979)" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Jesús (1979)</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/k8MFQKqaJFc" onclick="selectCine(2)">
+                                <span class="xperia-canto-index">03</span><img
+                                    src="https://i.ytimg.com/vi/k8MFQKqaJFc/hqdefault.jpg" alt="Jesús (1979)"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">Jesús (1979)</span><span
+                                        class="xperia-canto-artist">Película</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/X8VmyRU2taY" onclick="selectCine(3)">
-                                <span class="xperia-canto-index">04</span><img src="https://i.ytimg.com/vi/X8VmyRU2taY/hqdefault.jpg" alt="Evangelio s/ San Mateo" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Evangelio s/ San Mateo</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/X8VmyRU2taY" onclick="selectCine(3)">
+                                <span class="xperia-canto-index">04</span><img
+                                    src="https://i.ytimg.com/vi/X8VmyRU2taY/hqdefault.jpg" alt="Evangelio s/ San Mateo"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">Evangelio s/ San Mateo</span><span
+                                        class="xperia-canto-artist">Película</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/SfT2k4QoafY" onclick="selectCine(4)">
-                                <span class="xperia-canto-index">05</span><img src="https://i.ytimg.com/vi/SfT2k4QoafY/hqdefault.jpg" alt="Hechos de los Apóstoles" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Hechos de los Apóstoles</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/SfT2k4QoafY" onclick="selectCine(4)">
+                                <span class="xperia-canto-index">05</span><img
+                                    src="https://i.ytimg.com/vi/SfT2k4QoafY/hqdefault.jpg" alt="Hechos de los Apóstoles"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">Hechos de los Apóstoles</span><span
+                                        class="xperia-canto-artist">Película</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/lwavNS0f7N0" onclick="selectCine(5)">
-                                <span class="xperia-canto-index">06</span><img src="https://i.ytimg.com/vi/lwavNS0f7N0/hqdefault.jpg" alt="Apocalipsis" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Apocalipsis</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/lwavNS0f7N0" onclick="selectCine(5)">
+                                <span class="xperia-canto-index">06</span><img
+                                    src="https://i.ytimg.com/vi/lwavNS0f7N0/hqdefault.jpg" alt="Apocalipsis"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">Apocalipsis</span><span
+                                        class="xperia-canto-artist">Película</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/iRXxEBTiR90" onclick="selectCine(6)">
-                                <span class="xperia-canto-index">07</span><img src="https://i.ytimg.com/vi/iRXxEBTiR90/hqdefault.jpg" alt="Pablo, Apóstol de Cristo" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Pablo, Apóstol de Cristo</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/iRXxEBTiR90" onclick="selectCine(6)">
+                                <span class="xperia-canto-index">07</span><img
+                                    src="https://i.ytimg.com/vi/iRXxEBTiR90/hqdefault.jpg"
+                                    alt="Pablo, Apóstol de Cristo" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">Pablo, Apóstol de
+                                        Cristo</span><span class="xperia-canto-artist">Película</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/EZLdPMNDK3k" onclick="selectCine(7)">
-                                <span class="xperia-canto-index">08</span><img src="https://i.ytimg.com/vi/EZLdPMNDK3k/hqdefault.jpg" alt="Pedro" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Pedro</span><span class="xperia-canto-artist">Película</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/EZLdPMNDK3k" onclick="selectCine(7)">
+                                <span class="xperia-canto-index">08</span><img
+                                    src="https://i.ytimg.com/vi/EZLdPMNDK3k/hqdefault.jpg" alt="Pedro"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">Pedro</span><span
+                                        class="xperia-canto-artist">Película</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                         </div>
                     </div>
@@ -2117,24 +2380,32 @@
             <div class="xperia-cantos-shell p-4 sm:p-6">
                 <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6 relative z-10">
                     <div>
-                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">Prédicas LATAM</h3>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">Prédicas LATAM
+                        </h3>
                     </div>
                     <div class="glass px-4 py-3 rounded-2xl text-left min-w-[15rem] relative z-10">
-                        <p id="xperia-latam-counter" class="text-[0.72rem] uppercase tracking-[0.35em] text-blue-200/70 mb-1">01 / 10</p>
-                        <h4 id="xperia-latam-title" class="text-lg font-black text-white leading-tight">La Marca de la Bestia</h4>
+                        <p id="xperia-latam-counter"
+                            class="text-[0.72rem] uppercase tracking-[0.35em] text-blue-200/70 mb-1">01 / 10</p>
+                        <h4 id="xperia-latam-title" class="text-lg font-black text-white leading-tight">La Marca de la
+                            Bestia</h4>
                         <p id="xperia-latam-artist" class="text-sm text-gray-300 mt-1">Pr. Esteban Bohr</p>
                     </div>
                 </div>
                 <div id="xperia-latam-player-card" class="xperia-cantos-player p-4 sm:p-5 relative z-10">
                     <div class="flex flex-col gap-5">
-                        <div class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
-                            <iframe id="xperia-latam-player" src="https://www.youtube.com/embed/BcSPOTHoP8U" title="Reproductor de Prédicas" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div
+                            class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
+                            <iframe id="xperia-latam-player" src="https://www.youtube.com/embed/BcSPOTHoP8U"
+                                title="Reproductor de Prédicas" frameborder="0" allow="autoplay; encrypted-media"
+                                allowfullscreen></iframe>
                         </div>
                         <div class="flex justify-center gap-4">
-                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepLatamSelection(-1)" aria-label="Anterior">
+                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepLatamSelection(-1)"
+                                aria-label="Anterior">
                                 <i class="fa-solid fa-chevron-left text-sm"></i> Anterior
                             </button>
-                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepLatamSelection(1)" aria-label="Siguiente">
+                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepLatamSelection(1)"
+                                aria-label="Siguiente">
                                 Siguiente <i class="fa-solid fa-chevron-right text-sm"></i>
                             </button>
                         </div>
@@ -2143,41 +2414,102 @@
                 <div class="xperia-cantos-stage mt-5 relative z-10">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                         <div>
-                            <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de prédicas</h4>
+                            <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de
+                                prédicas</h4>
                         </div>
                     </div>
                     <div class="xperia-cantos-track">
                         <div class="xperia-cantos-focus"></div>
                         <div id="xperia-latam-list" class="xperia-cantos-list">
-                            <button type="button" class="xperia-canto-entry active" data-embed="https://www.youtube.com/embed/BcSPOTHoP8U" onclick="selectLatam(0)">
-                                <span class="xperia-canto-index">01</span><img src="https://i.ytimg.com/vi/BcSPOTHoP8U/hqdefault.jpg" alt="La Marca de la Bestia" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">La Marca de la Bestia</span><span class="xperia-canto-artist">Pr. Esteban Bohr</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry active"
+                                data-embed="https://www.youtube.com/embed/BcSPOTHoP8U" onclick="selectLatam(0)">
+                                <span class="xperia-canto-index">01</span><img
+                                    src="https://i.ytimg.com/vi/BcSPOTHoP8U/hqdefault.jpg" alt="La Marca de la Bestia"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">La Marca de la Bestia</span><span
+                                        class="xperia-canto-artist">Pr. Esteban Bohr</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/haSnIrgZI4g" onclick="selectLatam(1)">
-                                <span class="xperia-canto-index">02</span><img src="https://i.ytimg.com/vi/haSnIrgZI4g/hqdefault.jpg" alt="El Santuario" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">El Santuario</span><span class="xperia-canto-artist">Pr. Andrés Portes</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/haSnIrgZI4g" onclick="selectLatam(1)">
+                                <span class="xperia-canto-index">02</span><img
+                                    src="https://i.ytimg.com/vi/haSnIrgZI4g/hqdefault.jpg" alt="El Santuario"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">El Santuario</span><span
+                                        class="xperia-canto-artist">Pr. Andrés Portes</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/cJKzMrZYcqc" onclick="selectLatam(2)">
-                                <span class="xperia-canto-index">03</span><img src="https://i.ytimg.com/vi/cJKzMrZYcqc/hqdefault.jpg" alt="Escrito Está" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Escrito Está</span><span class="xperia-canto-artist">Pr. Robert Costa</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/cJKzMrZYcqc" onclick="selectLatam(2)">
+                                <span class="xperia-canto-index">03</span><img
+                                    src="https://i.ytimg.com/vi/cJKzMrZYcqc/hqdefault.jpg" alt="Escrito Está"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">Escrito Está</span><span
+                                        class="xperia-canto-artist">Pr. Robert Costa</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/PDtD6Ui35go" onclick="selectLatam(3)">
-                                <span class="xperia-canto-index">04</span><img src="https://i.ytimg.com/vi/PDtD6Ui35go/hqdefault.jpg" alt="Nuevo Tiempo" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Nuevo Tiempo</span><span class="xperia-canto-artist">Pr. Joel Flores</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/PDtD6Ui35go" onclick="selectLatam(3)">
+                                <span class="xperia-canto-index">04</span><img
+                                    src="https://i.ytimg.com/vi/PDtD6Ui35go/hqdefault.jpg" alt="Nuevo Tiempo"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">Nuevo Tiempo</span><span
+                                        class="xperia-canto-artist">Pr. Joel Flores</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/yobVBuiH78g" onclick="selectLatam(4)">
-                                <span class="xperia-canto-index">05</span><img src="https://i.ytimg.com/vi/yobVBuiH78g/hqdefault.jpg" alt="Venciendo a tus gigantes" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Venciendo a tus gigantes</span><span class="xperia-canto-artist">Pr. Arnaldo Cruz</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/yobVBuiH78g" onclick="selectLatam(4)">
+                                <span class="xperia-canto-index">05</span><img
+                                    src="https://i.ytimg.com/vi/yobVBuiH78g/hqdefault.jpg"
+                                    alt="Venciendo a tus gigantes" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">Venciendo a tus
+                                        gigantes</span><span class="xperia-canto-artist">Pr. Arnaldo
+                                        Cruz</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/ZVLXarrysXY" onclick="selectLatam(5)">
-                                <span class="xperia-canto-index">06</span><img src="https://i.ytimg.com/vi/ZVLXarrysXY/hqdefault.jpg" alt="Reavivamiento y Reforma" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Reavivamiento y Reforma</span><span class="xperia-canto-artist">Pr. Jorge Rampogna</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/ZVLXarrysXY" onclick="selectLatam(5)">
+                                <span class="xperia-canto-index">06</span><img
+                                    src="https://i.ytimg.com/vi/ZVLXarrysXY/hqdefault.jpg" alt="Reavivamiento y Reforma"
+                                    class="xperia-canto-thumb"><span class="xperia-canto-copy"><span
+                                        class="xperia-canto-title">Reavivamiento y Reforma</span><span
+                                        class="xperia-canto-artist">Pr. Jorge Rampogna</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/4A8B6e2-1Sw" onclick="selectLatam(6)">
-                                <span class="xperia-canto-index">07</span><img src="https://i.ytimg.com/vi/4A8B6e2-1Sw/hqdefault.jpg" alt="La misión de la Iglesia hoy" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">La misión de la Iglesia hoy</span><span class="xperia-canto-artist">Pr. Bruno Raso</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/4A8B6e2-1Sw" onclick="selectLatam(6)">
+                                <span class="xperia-canto-index">07</span><img
+                                    src="https://i.ytimg.com/vi/4A8B6e2-1Sw/hqdefault.jpg"
+                                    alt="La misión de la Iglesia hoy" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">La misión de la Iglesia
+                                        hoy</span><span class="xperia-canto-artist">Pr. Bruno Raso</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/8JlqaUdyMB4" onclick="selectLatam(7)">
-                                <span class="xperia-canto-index">08</span><img src="https://i.ytimg.com/vi/8JlqaUdyMB4/hqdefault.jpg" alt="Cómo enfrentar las tormentas" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Cómo enfrentar las tormentas</span><span class="xperia-canto-artist">Pr. Edgar Redondo</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/8JlqaUdyMB4" onclick="selectLatam(7)">
+                                <span class="xperia-canto-index">08</span><img
+                                    src="https://i.ytimg.com/vi/8JlqaUdyMB4/hqdefault.jpg"
+                                    alt="Cómo enfrentar las tormentas" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">Cómo enfrentar las
+                                        tormentas</span><span class="xperia-canto-artist">Pr. Edgar
+                                        Redondo</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/aMpux8XVCro" onclick="selectLatam(8)">
-                                <span class="xperia-canto-index">09</span><img src="https://i.ytimg.com/vi/aMpux8XVCro/hqdefault.jpg" alt="Salvando a las nuevas generaciones" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Salvando a las nuevas generaciones</span><span class="xperia-canto-artist">Pr. Carlos Campitelli</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/aMpux8XVCro" onclick="selectLatam(8)">
+                                <span class="xperia-canto-index">09</span><img
+                                    src="https://i.ytimg.com/vi/aMpux8XVCro/hqdefault.jpg"
+                                    alt="Salvando a las nuevas generaciones" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">Salvando a las nuevas
+                                        generaciones</span><span class="xperia-canto-artist">Pr. Carlos
+                                        Campitelli</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/ykADaU94t5Q" onclick="selectLatam(9)">
-                                <span class="xperia-canto-index">10</span><img src="https://i.ytimg.com/vi/ykADaU94t5Q/hqdefault.jpg" alt="El mensaje de los tres ángeles" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">El mensaje de los tres ángeles</span><span class="xperia-canto-artist">Pr. Melchor Ferreyra</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/ykADaU94t5Q" onclick="selectLatam(9)">
+                                <span class="xperia-canto-index">10</span><img
+                                    src="https://i.ytimg.com/vi/ykADaU94t5Q/hqdefault.jpg"
+                                    alt="El mensaje de los tres ángeles" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">El mensaje de los tres
+                                        ángeles</span><span class="xperia-canto-artist">Pr. Melchor
+                                        Ferreyra</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                         </div>
                     </div>
@@ -2189,24 +2521,32 @@
             <div class="xperia-cantos-shell p-4 sm:p-6">
                 <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6 relative z-10">
                     <div>
-                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">Prédicas España</h3>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-wider">Prédicas España
+                        </h3>
                     </div>
                     <div class="glass px-4 py-3 rounded-2xl text-left min-w-[15rem] relative z-10">
-                        <p id="xperia-euro-counter" class="text-[0.72rem] uppercase tracking-[0.35em] text-blue-200/70 mb-1">01 / 10</p>
-                        <h4 id="xperia-euro-title" class="text-lg font-black text-white leading-tight">Encuentros transformadores</h4>
+                        <p id="xperia-euro-counter"
+                            class="text-[0.72rem] uppercase tracking-[0.35em] text-blue-200/70 mb-1">01 / 10</p>
+                        <h4 id="xperia-euro-title" class="text-lg font-black text-white leading-tight">Encuentros
+                            transformadores</h4>
                         <p id="xperia-euro-artist" class="text-sm text-gray-300 mt-1">Dr. Roberto Badenas</p>
                     </div>
                 </div>
                 <div id="xperia-euro-player-card" class="xperia-cantos-player p-4 sm:p-5 relative z-10">
                     <div class="flex flex-col gap-5">
-                        <div class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
-                            <iframe id="xperia-euro-player" src="https://www.youtube.com/embed/idKjHrAPUHo" title="Reproductor de Prédicas" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        <div
+                            class="iframe-container rounded-[1.5rem] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.35)]">
+                            <iframe id="xperia-euro-player" src="https://www.youtube.com/embed/idKjHrAPUHo"
+                                title="Reproductor de Prédicas" frameborder="0" allow="autoplay; encrypted-media"
+                                allowfullscreen></iframe>
                         </div>
                         <div class="flex justify-center gap-4">
-                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepEuroSelection(-1)" aria-label="Anterior">
+                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepEuroSelection(-1)"
+                                aria-label="Anterior">
                                 <i class="fa-solid fa-chevron-left text-sm"></i> Anterior
                             </button>
-                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepEuroSelection(1)" aria-label="Siguiente">
+                            <button type="button" class="xperia-scroll-btn px-6" onclick="stepEuroSelection(1)"
+                                aria-label="Siguiente">
                                 Siguiente <i class="fa-solid fa-chevron-right text-sm"></i>
                             </button>
                         </div>
@@ -2216,41 +2556,102 @@
                 <div class="xperia-cantos-stage mt-5 relative z-10">
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                         <div>
-                            <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de prédicas</h4>
+                            <h4 class="text-lg sm:text-xl font-black text-white uppercase tracking-wide">Lista de
+                                prédicas</h4>
                         </div>
                     </div>
                     <div class="xperia-cantos-track">
                         <div class="xperia-cantos-focus"></div>
                         <div id="xperia-euro-list" class="xperia-cantos-list">
-                            <button type="button" class="xperia-canto-entry active" data-embed="https://www.youtube.com/embed/idKjHrAPUHo" onclick="selectEuro(0)">
-                                <span class="xperia-canto-index">01</span><img src="https://i.ytimg.com/vi/idKjHrAPUHo/hqdefault.jpg" alt="Encuentros transformadores" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Encuentros transformadores</span><span class="xperia-canto-artist">Dr. Roberto Badenas</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry active"
+                                data-embed="https://www.youtube.com/embed/idKjHrAPUHo" onclick="selectEuro(0)">
+                                <span class="xperia-canto-index">01</span><img
+                                    src="https://i.ytimg.com/vi/idKjHrAPUHo/hqdefault.jpg"
+                                    alt="Encuentros transformadores" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">Encuentros
+                                        transformadores</span><span class="xperia-canto-artist">Dr. Roberto
+                                        Badenas</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/Z0EVmOs40gM" onclick="selectEuro(1)">
-                                <span class="xperia-canto-index">02</span><img src="https://i.ytimg.com/vi/Z0EVmOs40gM/hqdefault.jpg" alt="La gracia incomprensible" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">La gracia incomprensible</span><span class="xperia-canto-artist">Pr. Daniel Bosqued</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/Z0EVmOs40gM" onclick="selectEuro(1)">
+                                <span class="xperia-canto-index">02</span><img
+                                    src="https://i.ytimg.com/vi/Z0EVmOs40gM/hqdefault.jpg"
+                                    alt="La gracia incomprensible" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">La gracia
+                                        incomprensible</span><span class="xperia-canto-artist">Pr. Daniel
+                                        Bosqued</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/8lzbYfSrI1I" onclick="selectEuro(2)">
-                                <span class="xperia-canto-index">03</span><img src="https://i.ytimg.com/vi/8lzbYfSrI1I/hqdefault.jpg" alt="El poder de la fe en la prueba" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">El poder de la fe en la prueba</span><span class="xperia-canto-artist">Pr. Carlos Rando</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/8lzbYfSrI1I" onclick="selectEuro(2)">
+                                <span class="xperia-canto-index">03</span><img
+                                    src="https://i.ytimg.com/vi/8lzbYfSrI1I/hqdefault.jpg"
+                                    alt="El poder de la fe en la prueba" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">El poder de la fe en la
+                                        prueba</span><span class="xperia-canto-artist">Pr. Carlos Rando</span></span><i
+                                    class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/nenLwtYRQHA" onclick="selectEuro(3)">
-                                <span class="xperia-canto-index">04</span><img src="https://i.ytimg.com/vi/nenLwtYRQHA/hqdefault.jpg" alt="Confianza plena en promesas divinas" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Confianza plena en promesas divinas</span><span class="xperia-canto-artist">Pr. Juan Carlos Basterra</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/nenLwtYRQHA" onclick="selectEuro(3)">
+                                <span class="xperia-canto-index">04</span><img
+                                    src="https://i.ytimg.com/vi/nenLwtYRQHA/hqdefault.jpg"
+                                    alt="Confianza plena en promesas divinas" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">Confianza plena en
+                                        promesas divinas</span><span class="xperia-canto-artist">Pr. Juan Carlos
+                                        Basterra</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/ZCQR0d1yjJI" onclick="selectEuro(4)">
-                                <span class="xperia-canto-index">05</span><img src="https://i.ytimg.com/vi/ZCQR0d1yjJI/hqdefault.jpg" alt="Maravillas del Apocalipsis" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Maravillas del Apocalipsis</span><span class="xperia-canto-artist">Dr. Víctor Armenteros</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/ZCQR0d1yjJI" onclick="selectEuro(4)">
+                                <span class="xperia-canto-index">05</span><img
+                                    src="https://i.ytimg.com/vi/ZCQR0d1yjJI/hqdefault.jpg"
+                                    alt="Maravillas del Apocalipsis" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">Maravillas del
+                                        Apocalipsis</span><span class="xperia-canto-artist">Dr. Víctor
+                                        Armenteros</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/qfKG1iwD_wk" onclick="selectEuro(5)">
-                                <span class="xperia-canto-index">06</span><img src="https://i.ytimg.com/vi/qfKG1iwD_wk/hqdefault.jpg" alt="El desafío de ser cristiano hoy" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">El desafío de ser cristiano hoy</span><span class="xperia-canto-artist">Pr. Jonathan Contero</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/qfKG1iwD_wk" onclick="selectEuro(5)">
+                                <span class="xperia-canto-index">06</span><img
+                                    src="https://i.ytimg.com/vi/qfKG1iwD_wk/hqdefault.jpg"
+                                    alt="El desafío de ser cristiano hoy" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">El desafío de ser
+                                        cristiano hoy</span><span class="xperia-canto-artist">Pr. Jonathan
+                                        Contero</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/U5KkowEIr8k" onclick="selectEuro(6)">
-                                <span class="xperia-canto-index">07</span><img src="https://i.ytimg.com/vi/U5KkowEIr8k/hqdefault.jpg" alt="La familia en los últimos días" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">La familia en los últimos días</span><span class="xperia-canto-artist">Pr. José Vicente Giner</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/U5KkowEIr8k" onclick="selectEuro(6)">
+                                <span class="xperia-canto-index">07</span><img
+                                    src="https://i.ytimg.com/vi/U5KkowEIr8k/hqdefault.jpg"
+                                    alt="La familia en los últimos días" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">La familia en los últimos
+                                        días</span><span class="xperia-canto-artist">Pr. José Vicente
+                                        Giner</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/P3V8zSVT1lQ" onclick="selectEuro(7)">
-                                <span class="xperia-canto-index">08</span><img src="https://i.ytimg.com/vi/P3V8zSVT1lQ/hqdefault.jpg" alt="Profecías cumplidas actuales" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Profecías cumplidas actuales</span><span class="xperia-canto-artist">Pr. Gabriel Díaz</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/P3V8zSVT1lQ" onclick="selectEuro(7)">
+                                <span class="xperia-canto-index">08</span><img
+                                    src="https://i.ytimg.com/vi/P3V8zSVT1lQ/hqdefault.jpg"
+                                    alt="Profecías cumplidas actuales" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">Profecías cumplidas
+                                        actuales</span><span class="xperia-canto-artist">Pr. Gabriel
+                                        Díaz</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/ouV2HsURs6c" onclick="selectEuro(8)">
-                                <span class="xperia-canto-index">09</span><img src="https://i.ytimg.com/vi/ouV2HsURs6c/hqdefault.jpg" alt="Evidencias racionales de nuestra fe" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">Evidencias racionales de nuestra fe</span><span class="xperia-canto-artist">Pr. Pedro Torres</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/ouV2HsURs6c" onclick="selectEuro(8)">
+                                <span class="xperia-canto-index">09</span><img
+                                    src="https://i.ytimg.com/vi/ouV2HsURs6c/hqdefault.jpg"
+                                    alt="Evidencias racionales de nuestra fe" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">Evidencias racionales de
+                                        nuestra fe</span><span class="xperia-canto-artist">Pr. Pedro
+                                        Torres</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
-                            <button type="button" class="xperia-canto-entry" data-embed="https://www.youtube.com/embed/Y7O6y1aJwqo" onclick="selectEuro(9)">
-                                <span class="xperia-canto-index">10</span><img src="https://i.ytimg.com/vi/Y7O6y1aJwqo/hqdefault.jpg" alt="El Sábado, un palacio en el tiempo" class="xperia-canto-thumb"><span class="xperia-canto-copy"><span class="xperia-canto-title">El Sábado, un palacio en el tiempo</span><span class="xperia-canto-artist">Pr. Miguel Ángel Roig</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
+                            <button type="button" class="xperia-canto-entry"
+                                data-embed="https://www.youtube.com/embed/Y7O6y1aJwqo" onclick="selectEuro(9)">
+                                <span class="xperia-canto-index">10</span><img
+                                    src="https://i.ytimg.com/vi/Y7O6y1aJwqo/hqdefault.jpg"
+                                    alt="El Sábado, un palacio en el tiempo" class="xperia-canto-thumb"><span
+                                    class="xperia-canto-copy"><span class="xperia-canto-title">El Sábado, un palacio en
+                                        el tiempo</span><span class="xperia-canto-artist">Pr. Miguel Ángel
+                                        Roig</span></span><i class="fa-solid fa-circle-play text-white/70"></i>
                             </button>
                         </div>
                     </div>
@@ -2629,7 +3030,7 @@
         let currentCineIndex = 0;
 
         function createSelectFunction(listId, playerId, titleId, artistId, counterId, cardId) {
-            return function(index, shouldReturnToPlayer = true, shouldScrollList = false) {
+            return function (index, shouldReturnToPlayer = true, shouldScrollList = false) {
                 const list = document.getElementById(listId);
                 if (!list) return 0;
                 const entries = Array.from(list.querySelectorAll('.xperia-canto-entry'));
@@ -2762,7 +3163,7 @@
                 sec.classList.remove('hidden');
                 sec.classList.add('flex');
                 icon.style.transform = 'rotate(180deg)';
-                
+
                 // Si abrimos la sección de la campaña, inicializar listado
                 if (sectionId === 'sec-campana-anterior') {
                     const listCampana = document.getElementById('campana-list');
@@ -2965,7 +3366,7 @@
                         let conector = data.videoId.includes('?') ? '&' : '?';
                         let newUrl = 'https://www.youtube.com/embed/' + data.videoId + conector + 'autoplay=1&mute=0';
                         iframe.setAttribute('data-src', newUrl);
-                        
+
                         // Si el panel de video ya est� abierto, cambiamos el video en vivo al instante
                         const panelOnline = document.getElementById('panel-online');
                         if (panelOnline && !panelOnline.classList.contains('hidden')) {
@@ -2985,10 +3386,10 @@
             document.querySelectorAll('form').forEach(form => {
                 // Interceptamos solo formularios dirigidos a Web3Forms
                 if (form.getAttribute('action') === 'https://api.web3forms.com/submit') {
-                    
-                    form.addEventListener('submit', function(e) {
+
+                    form.addEventListener('submit', function (e) {
                         e.preventDefault(); // Detener envío por defecto
-                        
+
                         let btn = form.querySelector('button[type="submit"]');
                         let originalText = btn.innerHTML;
                         btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
@@ -3008,7 +3409,7 @@
                             finalEmail = contact;
                         }
                         if (!finalEmail) {
-                            finalEmail = 'sin-correo@misioneroadventista.com'; 
+                            finalEmail = 'sin-correo@misioneroadventista.com';
                         }
 
                         let finalMessage = message;
@@ -3042,7 +3443,7 @@
                         let web3FormData2 = new FormData(form);
                         web3FormData2.set('access_key', '6f1fba2a-1472-4c17-9759-ac90299ac9ab');
 
-                        const WP_URL = 'https://misioneroadventista.com'; 
+                        const WP_URL = 'https://misioneroadventista.com';
                         const CF7_ID = 'a229d87';
 
                         // 3. Envío simultáneo en paralelo a múltiples lugares
@@ -3085,47 +3486,47 @@
                                 return { success: false };
                             })
                         ])
-                        .then(([cf7Res, web3Res1, web3Res2]) => {
-                            // Validar si al menos uno tuvo éxito
-                            if (cf7Res.status === 'mail_sent' || web3Res1.success || web3Res2.success) {
-                                alert('¡Formulario enviado con éxito!');
-                                form.reset();
-                            } else {
-                                alert('Hubo un inconveniente al procesar la solicitud.');
-                            }
-                        })
-                        .catch(err => {
-                            console.error('Error general de envío:', err);
-                            alert('Ocurrió un error al enviar. Por favor intenta de nuevo.');
-                        })
-                        .finally(() => {
-                            btn.innerHTML = originalText;
-                            btn.disabled = false;
-                        });
+                            .then(([cf7Res, web3Res1, web3Res2]) => {
+                                // Validar si al menos uno tuvo éxito
+                                if (cf7Res.status === 'mail_sent' || web3Res1.success || web3Res2.success) {
+                                    alert('¡Formulario enviado con éxito!');
+                                    form.reset();
+                                } else {
+                                    alert('Hubo un inconveniente al procesar la solicitud.');
+                                }
+                            })
+                            .catch(err => {
+                                console.error('Error general de envío:', err);
+                                alert('Ocurrió un error al enviar. Por favor intenta de nuevo.');
+                            })
+                            .finally(() => {
+                                btn.innerHTML = originalText;
+                                btn.disabled = false;
+                            });
                     });
                 }
             });
         });
         // ==========================================
     </script>
-    
+
     <!-- 3D Parallax Tilt Effect Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
-    
+
     <script>
         // ==== VANILLA TILT 3D HOVER EFFECT ====
         function initVanillaTilt() {
             const cards = document.querySelectorAll(".glass.group, .col-card, .himnario-link-card, .xperia-cantos-shell");
-            
+
             cards.forEach(card => {
                 // Remove conflicting Tailwind classes that fight with JS animation
                 card.classList.remove('transition-all', 'hover:-translate-y-1', 'hover:-translate-y-2');
                 // Keep smooth colors and shadows
                 card.classList.add('transition-colors', 'transition-shadow', 'transition-opacity');
-                
+
                 // Enable 3D space for children
                 card.style.transformStyle = 'preserve-3d';
-                
+
                 // Add pop-out 3D effect to inner elements (images, icons, titles)
                 const inners = card.querySelectorAll('.bubble-wrapper, .w-\\[96\\%\\], .w-40, i.fa-solid, h2, h3, button');
                 inners.forEach(el => {
@@ -3148,7 +3549,7 @@
                 setTimeout(initVanillaTilt, 500); // Retry if not loaded yet
             }
         }
-        
+
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initVanillaTilt);
         } else {
@@ -3156,6 +3557,5 @@
         }
     </script>
 </body>
+
 </html>
-
-

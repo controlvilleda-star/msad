@@ -1,16 +1,18 @@
 /* css/style.css */
+
 :root {
-    --bg-dark: #0a0a0a;
-    --bg-darker: #050505;
-    --accent-gold: #d4af77;
-    --glass-bg: rgba(10, 10, 10, 0.25);
-    --glass-bg-alt: rgba(255, 255, 255, 0.09);
-    --glass-border: rgba(255, 255, 255, 0.18);
-    --text-main: #ffffff;
-    --text-muted: #cccccc;
+    --bg-dark: #e6f0fa;
+    --bg-darker: #c4d6ea;
+    --accent-gold: #3182ce;
+    --glass-bg: #e6f0fa;
+    --glass-bg-alt: #e6f0fa;
+    --glass-border: #ffffff;
+    --text-main: #2d3748;
+    --text-muted: #718096;
     --font-title: 'Playfair Display', serif;
     --font-body: 'Roboto', sans-serif;
 }
+
 
 * {
     margin: 0;
@@ -25,7 +27,7 @@ body {
     overflow-x: hidden;
     position: relative;
     /* Soft glowing effect for a spiritual background */
-    background: radial-gradient(circle at top center, #1a1a2e 0%, var(--bg-dark) 100%);
+    background: var(--bg-dark);
     min-height: 100vh;
 }
 
@@ -42,20 +44,23 @@ body {
 }
 
 /* Base Glassmorphism utility */
+
 .glass {
     background: var(--glass-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 2px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 8px 8px 16px var(--bg-darker), -8px -8px 16px #ffffff;
 }
+
+
 
 .glass-alt {
     background: var(--glass-bg-alt);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--glass-border);
+    border: 2px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 8px 8px 16px var(--bg-darker), -8px -8px 16px #ffffff;
 }
+
 
 /* Header Fijo Glass */
 .header {
