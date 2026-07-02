@@ -3556,6 +3556,36 @@
             initVanillaTilt();
         }
     </script>
+
+    <script>
+        // Funcionalidad para cambiar el idioma de la Biblia dinámicamente
+        document.addEventListener('DOMContentLoaded', () => {
+            const bibleLink = document.querySelector('a[href^="https://www.bible.com/"]');
+            if (bibleLink) {
+                const updateBibleLanguage = () => {
+                    let currentLang = document.documentElement.lang || 'es';
+                    currentLang = currentLang.split('-')[0].toLowerCase();
+                    if (!currentLang || currentLang === 'auto') currentLang = 'es';
+                    bibleLink.href = `https://www.bible.com/${currentLang}/`;
+                };
+
+                // Observer para detectar cambios de idioma (ej. Google Translate)
+                const observer = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        if (mutation.attributeName === 'lang' || mutation.attributeName === 'class') {
+                            updateBibleLanguage();
+                        }
+                    });
+                });
+                
+                observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'class'] });
+                
+                // Ejecutar una vez al cargar por si el idioma ya fue cambiado
+                updateBibleLanguage();
+            }
+        });
+    </script>
+
 </body>
 
 </html>
