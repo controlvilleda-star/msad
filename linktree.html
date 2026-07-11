@@ -8,6 +8,81 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+        /* NEUMORPHIC BLUE PALETTE */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #e6f0fa !important;
+            color: #2c3e50 !important;
+            margin: 0;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .glass, .glass-btn, .glass-input, .col-card, .xperia-cantos-shell, .xperia-cantos-player, .xperia-canto-entry, .himnario-link-card, .glass-alt {
+            background: #e6f0fa !important;
+            border: 2px solid #ffffff !important;
+            border-radius: 20px !important;
+            box-shadow: 8px 8px 16px #c4d6ea, -8px -8px 16px #ffffff !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            color: #1a365d !important;
+        }
+
+        .glass-btn:hover, .xperia-canto-entry:hover, .xperia-scroll-btn:hover {
+            box-shadow: inset 6px 6px 12px #c4d6ea, inset -6px -6px 12px #ffffff !important;
+            background: #e6f0fa !important;
+            transform: translateY(0) scale(0.98) !important;
+            border: 2px solid transparent !important;
+        }
+
+        .glass-btn:active {
+            box-shadow: inset 8px 8px 16px #c4d6ea, inset -8px -8px 16px #ffffff !important;
+            transform: scale(0.95) !important;
+        }
+
+        .glass-input {
+            box-shadow: inset 5px 5px 10px #c4d6ea, inset -5px -5px 10px #ffffff !important;
+            border: none !important;
+            color: #2d3748 !important;
+            padding: 14px;
+            width: 100%;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .glass-input:focus {
+            box-shadow: inset 8px 8px 16px #c4d6ea, inset -8px -8px 16px #ffffff !important;
+            background: #e6f0fa !important;
+        }
+
+        .glass-input::placeholder {
+            color: #718096 !important;
+        }
+
+        /* Override Tailwind Dark Theme Colors */
+        [class*="bg-black"], [class*="bg-white/5"], [class*="bg-white/10"], .bg-white\/5 {
+            background: #e6f0fa !important;
+            box-shadow: 8px 8px 16px #c4d6ea, -8px -8px 16px #ffffff !important;
+            border: 1px solid #fff !important;
+        }
+
+        [class*="text-white"], [class*="text-gray-"] {
+            color: #2d3748 !important;
+        }
+
+        [class*="text-yellow-"], [class*="text-purple-"], [class*="text-green-"] {
+            color: #2b6cb0 !important; /* Blue accent */
+        }
+
+        [class*="border-white/"], [class*="border-yellow-"] {
+            border-color: #ffffff !important;
+        }
+        
+        .fa-solid, .fa-brands, .fa-regular {
+            color: #3182ce !important;
+        }
+</style>
 </head>
 <body>
     <div class="container">
