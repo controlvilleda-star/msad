@@ -3488,6 +3488,54 @@
         });
     </script>
 
+    <!-- 3D Parallax Tilt Effect Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <script>
+        // ==== VANILLA TILT 3D HOVER EFFECT ====
+        function initVanillaTilt() {
+            // Se excluyen los reproductores de video (.xperia-cantos-shell y otros contenedores grandes)
+            const cards = document.querySelectorAll(".col-card, .himnario-link-card, .glass-btn");
+
+            cards.forEach(card => {
+                // Remove conflicting Tailwind classes that fight with JS animation
+                card.classList.remove('transition-all', 'hover:-translate-y-1', 'hover:-translate-y-2');
+                // Keep smooth colors and shadows
+                card.classList.add('transition-colors', 'transition-shadow', 'transition-opacity');
+
+                // Enable 3D space for children
+                card.style.transformStyle = 'preserve-3d';
+
+                // Add pop-out 3D effect to inner elements (images, icons, titles)
+                const inners = card.querySelectorAll('.bubble-wrapper, .w-\\[96\\%\\], .w-40, i.fa-solid, h2, h3, button');
+                inners.forEach(el => {
+                    el.style.transform = 'translateZ(30px)'; // Menos agresivo
+                    // Ensure the z-translation doesn't snap suddenly
+                    el.style.transition = 'transform 0.4s ease-out';
+                });
+            });
+
+            if (typeof VanillaTilt !== 'undefined') {
+                VanillaTilt.init(cards, {
+                    max: 10, // Menos grados de inclinación
+                    speed: 400,
+                    glare: true,
+                    "max-glare": 0.2, // Menos brillo
+                    scale: 1.02,
+                    perspective: 1000
+                });
+            } else {
+                setTimeout(initVanillaTilt, 500); // Retry if not loaded yet
+            }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initVanillaTilt);
+        } else {
+            initVanillaTilt();
+        }
+    </script>
+
 </body>
 
 </html>
