@@ -43,7 +43,7 @@
                         </div>
                         <div class="glass p-4 w-full rounded-2xl">
                             <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-3">
-                                <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
+                                <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
                                 <input type="hidden" name="subject" value="Nueva suscripción de notificaciones">
                                 <input type="email" name="email" placeholder="Correo electrónico" required
                                     class="glass-input text-sm py-3 bg-black/20 focus:bg-black/40">
@@ -59,7 +59,7 @@
                         <h3 class="text-white font-bold text-lg mb-1 text-center">Registro Presencial</h3>
                         <form action="https://api.web3forms.com/submit" method="POST"
                             class="flex flex-col gap-4 w-full">
-                            <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
+                            <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
                             <input type="hidden" name="subject" value="Nuevo registro presencial">
                             <input type="text" name="name" placeholder="Nombre completo" required class="glass-input">
                             <input type="tel" name="phone" placeholder="Teléfono" required class="glass-input">
@@ -117,7 +117,7 @@
 
                         <div id="form-literatura" class="hidden w-full mt-4 slide-down z-10 relative">
                             <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-3">
-                                <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
+                                <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
                                 <input type="hidden" name="subject" value="Nueva solicitud de literatura">
 
                                 <input type="text" name="name" placeholder="Nombre completo" required
@@ -156,7 +156,7 @@
 
                         <div id="form-oracion" class="hidden w-full mt-4 slide-down z-10 relative">
                             <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-3">
-                                <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
+                                <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
                                 <input type="hidden" name="subject" value="Nuevo pedido de oración">
 
                                 <input type="text" name="name" placeholder="Tu nombre (opcional)"
@@ -195,7 +195,7 @@
 
                         <div id="form-estudios" class="hidden w-full mt-4 slide-down z-10 relative">
                             <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-3">
-                                <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
+                                <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
                                 <input type="hidden" name="subject" value="Nueva solicitud de estudio bíblico">
 
                                 <input type="text" name="name" placeholder="Nombre completo" required
@@ -328,7 +328,7 @@
                                 </h4>
                                 
                                 <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col gap-4 w-full">
-                                    <input type="hidden" name="access_key" value="827a820b-c078-4692-bee7-143a5659bd89">
+                                    <input type="hidden" name="access_key" value="32d02e7b-572f-4b7f-95d5-99a4db58b0f7">
                                     <input type="hidden" name="subject" value="Nueva planificación de visita presencial">
 
                                     <div class="flex flex-col gap-1">
