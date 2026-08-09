@@ -124,7 +124,12 @@
                                     class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10">
                                 <input type="text" name="contact" placeholder="WhatsApp o Email" required
                                     class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10">
-                                <textarea name="address" placeholder="Dirección de envío y qué libro deseas" required
+                                <select name="book" required class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10">
+                                    <option value="" disabled selected>¿Qué libro deseas?</option>
+                                    <option value="El Conflicto" class="text-black">El Conflicto</option>
+                                    <option value="El Camino a Cristo" class="text-black">El Camino a Cristo</option>
+                                </select>
+                                <textarea name="address" placeholder="Dirección de envío" required
                                     class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10 resize-none h-20"></textarea>
 
                                 <button type="submit"
@@ -202,7 +207,12 @@
                                     class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10">
                                 <input type="text" name="contact" placeholder="WhatsApp o Email" required
                                     class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10">
-                                <textarea name="details" placeholder="¿Cómo te gustaría hacer los estudios?" required
+                                <select name="mode" required class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10">
+                                    <option value="" disabled selected>Modalidad de estudio</option>
+                                    <option value="Presencial" class="text-black">Presencial</option>
+                                    <option value="Online" class="text-black">Online</option>
+                                </select>
+                                <textarea name="details" placeholder="Detalles adicionales (horarios, etc.)" required
                                     class="glass-input text-sm py-3 bg-white/5 focus:bg-white/10 resize-none h-20"></textarea>
 
                                 <button type="submit"
