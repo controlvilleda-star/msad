@@ -250,30 +250,6 @@
             }
         }
 
-        #jesus-container:not(.floating)+#temp-cover {
-            opacity: 0 !important;
-            pointer-events: none !important;
-            transform: scale(0.95) !important;
-        }
-
-        .jesus-glow::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border: 8px solid transparent;
-            border-radius: inherit;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent, rgba(255, 255, 255, 0.9), transparent) border-box;
-            -webkit-mask:
-                linear-gradient(#fff 0 0) padding-box,
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: destination-out;
-            mask-composite: exclude;
-            background-size: 200% 200%;
-            animation: borderTravel 4s linear infinite;
-            z-index: 30;
-            pointer-events: none;
-        }
-
         .col-card::after {
             content: '';
             position: absolute;
@@ -358,10 +334,6 @@
         .xperia-cantos-track {
             position: relative;
             min-height: 28rem;
-        }
-
-        .xperia-cantos-focus {
-            display: none;
         }
 
         .xperia-cantos-list {
@@ -1436,7 +1408,6 @@
                         </div>
                     </div>
                     <div class="xperia-cantos-track">
-                        <div class="xperia-cantos-focus"></div>
                         <div id="xperia-cantos-list" class="xperia-cantos-list">
                             <button type="button" class="xperia-canto-entry active"
                                 data-embed="https://www.youtube.com/embed/T07Yraic6oQ"
@@ -1662,7 +1633,6 @@
                         </div>
                     </div>
                     <div class="xperia-cantos-track">
-                        <div class="xperia-cantos-focus"></div>
                         <div id="xperia-himnos-list" class="xperia-cantos-list">
                             <button type="button" class="xperia-canto-entry active"
                                 data-embed="https://www.youtube.com/embed/7uxsAMxm0PU" onclick="selectHimno(0)">
@@ -2230,7 +2200,6 @@
                         </div>
                     </div>
                     <div class="xperia-cantos-track">
-                        <div class="xperia-cantos-focus"></div>
                         <div id="xperia-cine-list" class="xperia-cantos-list">
                             <button type="button" class="xperia-canto-entry active"
                                 data-embed="https://www.youtube.com/embed/9iKawBQB0BU" onclick="selectCine(0)">
@@ -2380,7 +2349,6 @@
                         </div>
                     </div>
                     <div class="xperia-cantos-track">
-                        <div class="xperia-cantos-focus"></div>
                         <div id="xperia-latam-list" class="xperia-cantos-list">
                             <button type="button" class="xperia-canto-entry active"
                                 data-embed="https://www.youtube.com/embed/BcSPOTHoP8U" onclick="selectLatam(0)">
@@ -2522,7 +2490,6 @@
                         </div>
                     </div>
                     <div class="xperia-cantos-track">
-                        <div class="xperia-cantos-focus"></div>
                         <div id="xperia-euro-list" class="xperia-cantos-list">
                             <button type="button" class="xperia-canto-entry active"
                                 data-embed="https://www.youtube.com/embed/idKjHrAPUHo" onclick="selectEuro(0)">
@@ -2694,8 +2661,6 @@
         // DOM Elements
         const homePage = document.getElementById('home-page');
         const pages = document.querySelectorAll('.page');
-        const asisOpciones = document.getElementById('participar-opciones');
-        const asisIcon = document.getElementById('participar-icon');
         const panelOnline = document.getElementById('panel-online');
         const panelVivo = document.getElementById('panel-vivo');
 
@@ -2745,26 +2710,7 @@
             showPageUI(pageId);
         }
 
-        // ---- Lógica del Botón "ASISTIR" (Desplegable) ----
-        function toggleParticipar() {
-            if (asisOpciones.classList.contains('hidden')) {
-                asisOpciones.classList.remove('hidden');
-                asisIcon.style.transform = "rotate(180deg)";
-            } else {
-                asisOpciones.classList.add('hidden');
-                asisIcon.style.transform = "rotate(0deg)";
-                // Ocultar internos si se esconde por completo
-                panelOnline.classList.add('hidden');
-                panelVivo.classList.add('hidden');
-
-                // Detener video oculto (restaurado)
-                document.getElementById('iframe-online').src = "";
-
-                document.getElementById('btn-opt-online').classList.remove('bg-indigo-500/40', 'border-white');
-                document.getElementById('btn-opt-vivo').classList.remove('bg-emerald-500/40', 'border-white');
-            }
-        }
-
+        // ---- Lógica del Switch "ASISTIR" ----
         function showAsistirPanel(type) {
             const btnOnline = document.getElementById('btn-opt-online');
             const btnVivo = document.getElementById('btn-opt-vivo');
@@ -2909,7 +2855,6 @@
             if (!list) return;
             const entries = Array.from(list.querySelectorAll('.xperia-canto-entry'));
             const player = document.getElementById('xperia-cantos-player');
-            const openLink = document.getElementById('xperia-cantos-open-link');
             const title = document.getElementById('xperia-cantos-title');
             const artist = document.getElementById('xperia-cantos-artist');
             const counter = document.getElementById('xperia-cantos-counter');
@@ -2925,9 +2870,6 @@
 
             if (player.getAttribute('src') !== activeEntry.dataset.embed) {
                 player.src = activeEntry.dataset.embed;
-            }
-            if (openLink && openLink.getAttribute('href') !== activeEntry.dataset.link) {
-                openLink.href = activeEntry.dataset.link;
             }
             if (title) title.textContent = activeEntry.dataset.title;
             if (artist) artist.textContent = activeEntry.dataset.artist;

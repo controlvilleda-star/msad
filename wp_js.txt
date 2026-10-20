@@ -1,8 +1,6 @@
         // DOM Elements
         const homePage = document.getElementById('home-page');
         const pages = document.querySelectorAll('.page');
-        const asisOpciones = document.getElementById('participar-opciones');
-        const asisIcon = document.getElementById('participar-icon');
         const panelOnline = document.getElementById('panel-online');
         const panelVivo = document.getElementById('panel-vivo');
 
@@ -212,7 +210,6 @@
             if (!list) return;
             const entries = Array.from(list.querySelectorAll('.xperia-canto-entry'));
             const player = document.getElementById('xperia-cantos-player');
-            const openLink = document.getElementById('xperia-cantos-open-link');
             const title = document.getElementById('xperia-cantos-title');
             const artist = document.getElementById('xperia-cantos-artist');
             const counter = document.getElementById('xperia-cantos-counter');
@@ -228,9 +225,6 @@
 
             if (player.getAttribute('src') !== activeEntry.dataset.embed) {
                 player.src = activeEntry.dataset.embed;
-            }
-            if (openLink && openLink.getAttribute('href') !== activeEntry.dataset.link) {
-                openLink.href = activeEntry.dataset.link;
             }
             if (title) title.textContent = activeEntry.dataset.title;
             if (artist) artist.textContent = activeEntry.dataset.artist;

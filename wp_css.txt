@@ -212,30 +212,6 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
-        #jesus-container:not(.floating) + #temp-cover {
-            opacity: 0 !important;
-            pointer-events: none !important;
-            transform: scale(0.95) !important;
-        }
-
-        .jesus-glow::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border: 8px solid transparent;
-            border-radius: inherit;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent, rgba(255,255,255,0.9), transparent) border-box;
-            -webkit-mask:
-                linear-gradient(#fff 0 0) padding-box, 
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: destination-out;
-            mask-composite: exclude;
-            background-size: 200% 200%;
-            animation: borderTravel 4s linear infinite;
-            z-index: 30;
-            pointer-events: none;
-        }
         
         .col-card::after {
             content: '';
@@ -321,10 +297,6 @@
         .xperia-cantos-track {
             position: relative;
             min-height: 28rem;
-        }
-
-        .xperia-cantos-focus {
-            display: none;
         }
 
         .xperia-cantos-list {
